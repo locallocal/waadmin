@@ -192,5 +192,8 @@
     "@angular-eslint/schematics:library": {
       "setParserOptionsProject": true
     }
+  },
+  "cli": {
+    "analytics": "e8d927b4-480f-4f6d-9757-a6fd12e2f040"
   }
 }

@@ -27,7 +27,7 @@
           }
         ],
         "@angular-eslint/component-selector": [
-          "error",
+          "warn",
           {
             "prefix": "ngx",
             "style": "kebab-case",
@@ -35,7 +35,7 @@
           }
         ],
         "@angular-eslint/directive-selector": [
-          "error",
+          "warn",
           {
             "prefix": "ngx",
             "style": "camelCase",

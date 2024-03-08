@@ -108,6 +108,7 @@ export interface NbIconConfig {
  * icon-control-color:
  */
 @Component({
+  standalone: true,
   selector: 'nb-icon',
   styleUrls: [`./icon.component.scss`],
   template: '',

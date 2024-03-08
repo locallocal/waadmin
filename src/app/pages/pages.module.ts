@@ -8,6 +8,7 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ComponentsComponent } from './components/components.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ComponentsComponent } from './components/components.component';
     ECommerceModule,
     MiscellaneousModule,
     ComponentsComponent,
+    CardsComponent,
   ],
   declarations: [
     PagesComponent,

@@ -10,6 +10,8 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ComponentsComponent } from './components/components.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { ListsComponent } from './components/lists/lists.component';
+import { TogglesComponent } from './components/toggles/toggles.component';
+import { NbLayoutDirectionService } from '../@theme/services/direction.service';
 
 @NgModule({
   imports: [
@@ -22,10 +24,14 @@ import { ListsComponent } from './components/lists/lists.component';
     ComponentsComponent,
     CardsComponent,
     ListsComponent,
+    TogglesComponent
   ],
   declarations: [
     PagesComponent,
   ],
+  providers: [
+    NbLayoutDirectionService
+  ]
 })
 export class PagesModule {
 }

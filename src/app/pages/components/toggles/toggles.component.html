@@ -1,0 +1,24 @@
+<nb-toggle></nb-toggle>
+
+<hr />
+<nb-toggle status="basic"></nb-toggle>
+<nb-toggle status="primary"></nb-toggle>
+<nb-toggle status="success"></nb-toggle>
+<nb-toggle status="info"></nb-toggle>
+<nb-toggle status="warning"></nb-toggle>
+<nb-toggle status="danger"></nb-toggle>
+<nb-toggle status="control"></nb-toggle>
+
+<hr />
+<nb-toggle status="disabled"></nb-toggle>
+<nb-toggle [checked]="true" status="disabled"></nb-toggle>
+
+<hr />
+<nb-toggle labelPosition="start">Label start</nb-toggle>
+<nb-toggle labelPosition="end">Label end</nb-toggle>
+<nb-toggle labelPosition="right">Label right</nb-toggle>
+<nb-toggle labelPosition="left">Label left</nb-toggle>
+
+<hr/>
+<nb-toggle [(ngModel)]="toggleNgModel">Toggle with ngModel</nb-toggle>
+<nb-toggle [formControl]="toggleFormControl">Toggle with formControl</nb-toggle>

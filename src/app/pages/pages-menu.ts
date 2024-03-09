@@ -3,13 +3,13 @@ import { NbMenuItem } from '@nebular/theme';
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'E-commerce',
-    icon: 'shopping-cart-outline',
+    icon: 'shopping-cart',
     link: '/pages/dashboard',
     home: true,
   },
   {
     title: 'IoT Dashboard',
-    icon: 'home-outline',
+    icon: 'home',
     link: '/pages/iot-dashboard',
   },
   {
@@ -32,6 +32,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Lists',
         link: '/pages/components/lists',
       },
+      {
+        title: 'Toggles',
+        link: '/pages/components/toggles',
+      },
     ]
   },
   {
@@ -40,7 +44,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Layout',
-    icon: 'layout-outline',
+    icon: 'layout',
     children: [
       {
         title: 'Stepper',
@@ -67,7 +71,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Forms',
-    icon: 'edit-2-outline',
+    icon: 'edit-2',
     children: [
       {
         title: 'Form Inputs',
@@ -89,7 +93,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'UI Features',
-    icon: 'keypad-outline',
+    icon: 'keypad',
     link: '/pages/ui-features',
     children: [
       {
@@ -112,7 +116,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Modal & Overlays',
-    icon: 'browser-outline',
+    icon: 'browser',
     children: [
       {
         title: 'Dialog',
@@ -138,7 +142,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Extra Components',
-    icon: 'message-circle-outline',
+    icon: 'message-circle',
     children: [
       {
         title: 'Calendar',
@@ -168,7 +172,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Maps',
-    icon: 'map-outline',
+    icon: 'map',
     children: [
       {
         title: 'Google Maps',
@@ -190,7 +194,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Charts',
-    icon: 'pie-chart-outline',
+    icon: 'pie-chart',
     children: [
       {
         title: 'Echarts',
@@ -208,7 +212,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Editors',
-    icon: 'text-outline',
+    icon: 'text',
     children: [
       {
         title: 'TinyMCE',
@@ -222,7 +226,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Tables & Data',
-    icon: 'grid-outline',
+    icon: 'grid',
     children: [
       {
         title: 'Smart Table',
@@ -236,7 +240,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Miscellaneous',
-    icon: 'shuffle-2-outline',
+    icon: 'shuffle-2',
     children: [
       {
         title: '404',
@@ -246,7 +250,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Auth',
-    icon: 'lock-outline',
+    icon: 'lock',
     children: [
       {
         title: 'Login',

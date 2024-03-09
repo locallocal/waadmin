@@ -28,6 +28,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Cards',
         link: '/pages/components/cards',
       },
+      {
+        title: 'Lists',
+        link: '/pages/components/lists',
+      },
     ]
   },
   {

@@ -9,6 +9,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ComponentsComponent } from './components/components.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { ListsComponent } from './components/lists/lists.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { CardsComponent } from './components/cards/cards.component';
     MiscellaneousModule,
     ComponentsComponent,
     CardsComponent,
+    ListsComponent,
   ],
   declarations: [
     PagesComponent,

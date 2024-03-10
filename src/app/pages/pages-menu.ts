@@ -21,6 +21,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'cube',
     children: [
       {
+        title: 'Accordions',
+        link: '/pages/components/accordions',
+      },
+      {
         title: 'Buttons',
         link: '/pages/components/buttons',
       },

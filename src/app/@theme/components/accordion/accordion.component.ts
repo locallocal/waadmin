@@ -90,7 +90,7 @@ export class NbAccordionComponent {
   }
   static ngAcceptInputType_multi: NbBooleanInput;
 
-  private multiValue = false;
+  private multiValue:boolean = false;
 
   /**
    * Opens all enabled accordion items.

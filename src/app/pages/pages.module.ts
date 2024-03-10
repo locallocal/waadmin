@@ -12,6 +12,7 @@ import { CardsComponent } from './components/cards/cards.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { TogglesComponent } from './components/toggles/toggles.component';
 import { NbLayoutDirectionService } from '../@theme/services/direction.service';
+import { AccordionsComponent } from './components/accordions/accordions.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { NbLayoutDirectionService } from '../@theme/services/direction.service';
     ComponentsComponent,
     CardsComponent,
     ListsComponent,
-    TogglesComponent
+    TogglesComponent,
+    AccordionsComponent
   ],
   declarations: [
     PagesComponent,

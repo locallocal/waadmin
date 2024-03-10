@@ -25,12 +25,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/components/accordions',
       },
       {
+        title: 'Actions',
+        link: '/pages/components/actions',
+      },
+      {
         title: 'Buttons',
         link: '/pages/components/buttons',
       },
       {
         title: 'Cards',
         link: '/pages/components/cards',
+      },
+      {
+        title: 'Icons',
+        link: '/pages/components/icons',
       },
       {
         title: 'Lists',

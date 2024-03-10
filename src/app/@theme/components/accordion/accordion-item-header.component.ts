@@ -20,6 +20,7 @@ import { Subject } from 'rxjs';
 
 import { NbAccordionItemComponent } from './accordion-item.component';
 import { CommonModule } from '@angular/common';
+import { NbIconComponent } from '../icon/icon.component';
 
 /**
  * Component intended to be used within `<nb-accordion-item>` component
@@ -51,7 +52,7 @@ import { CommonModule } from '@angular/common';
       transition('expanded => collapsed', animate('100ms ease-out')),
     ]),
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, NbIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NbAccordionItemHeaderComponent implements OnInit, OnDestroy {

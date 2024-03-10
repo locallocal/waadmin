@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NbButtonComponent } from '../../../@theme/components/button/button.component';
-import { NbIconComponent } from '../../../@theme/components/icon/icon.component';
+import { NbIconModule } from '@nebular/theme';
 
 @Component({
   standalone: true,
@@ -9,7 +9,7 @@ import { NbIconComponent } from '../../../@theme/components/icon/icon.component'
   styleUrls: ['./buttons.component.css'],
   imports: [
     NbButtonComponent,
-    NbIconComponent,
+    NbIconModule,
   ],
 })
 export class ButtonsComponent {

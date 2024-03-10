@@ -19,6 +19,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { NbAccordionItemComponent } from './accordion-item.component';
+import { CommonModule } from '@angular/common';
 
 /**
  * Component intended to be used within `<nb-accordion-item>` component
@@ -50,6 +51,7 @@ import { NbAccordionItemComponent } from './accordion-item.component';
       transition('expanded => collapsed', animate('100ms ease-out')),
     ]),
   ],
+  imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NbAccordionItemHeaderComponent implements OnInit, OnDestroy {

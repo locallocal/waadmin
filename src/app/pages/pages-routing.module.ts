@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
-const routes: Routes = [{
+const PAGE_ROUTES: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
@@ -86,7 +86,7 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(PAGE_ROUTES)],
   exports: [RouterModule],
 })
 export class PagesRoutingModule {

@@ -10,7 +10,8 @@ import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbComponentSize } from '../component-size';
 import { NbComponentOrCustomStatus } from '../component-status';
 import { NbBadgePosition } from '../badge/badge.component';
-import { NbIconConfig } from '../icon/icon.component';
+import { NbIconComponent, NbIconConfig } from '../icon/icon.component';
+import { CommonModule } from '@angular/common';
 
 /**
  * Action item, display a link with an icon, or any other content provided instead.
@@ -58,6 +59,10 @@ import { NbIconConfig } from '../icon/icon.component';
       </nb-badge>
     </ng-template>
   `,
+  imports: [
+    CommonModule,
+    NbIconComponent,
+  ],
 })
 export class NbActionComponent {
 
@@ -213,6 +218,7 @@ export class NbActionComponent {
  * actions-giant-text-font-size:
  */
 @Component({
+  standalone: true,
   selector: 'nb-actions',
   styleUrls: ['./actions.component.scss'],
   template: `

@@ -13,6 +13,24 @@ import { ListsComponent } from './components/lists/lists.component';
 import { TogglesComponent } from './components/toggles/toggles.component';
 import { NbLayoutDirectionService } from '../@theme/services/direction.service';
 import { AccordionsComponent } from './components/accordions/accordions.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
+import { MenusComponent } from './components/menus/menus.component';
+import { NB_WINDOW } from '../@theme/theme.options';
+import { NbMenuInternalService } from '../@theme/components/menu/menu.service';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
+
+export function windowFactory(platformId: Object): Window | undefined {
+  if (isPlatformBrowser(platformId)) {
+    return window;
+  }
+
+  // Provide undefined to get the error when trying to access the window as it
+  // shouldn't be used outside the browser. Those who need to provide something
+  // instead of window (e.g. domino window when running in node) could override
+  // NB_WINDOW token.
+  return undefined;
+}
 
 @NgModule({
   imports: [
@@ -23,8 +41,10 @@ import { AccordionsComponent } from './components/accordions/accordions.componen
     ECommerceModule,
     MiscellaneousModule,
     ComponentsComponent,
+    AlertsComponent,
     CardsComponent,
     ListsComponent,
+    MenusComponent,
     TogglesComponent,
     AccordionsComponent
   ],
@@ -32,7 +52,13 @@ import { AccordionsComponent } from './components/accordions/accordions.componen
     PagesComponent,
   ],
   providers: [
-    NbLayoutDirectionService
+    NbLayoutDirectionService,
+    NbMenuInternalService,
+    {
+      provide: NB_WINDOW,
+      useFactory: windowFactory,
+      deps: [ PLATFORM_ID ]
+    },
   ]
 })
 export class PagesModule {

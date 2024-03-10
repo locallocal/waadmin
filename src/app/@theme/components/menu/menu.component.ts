@@ -16,7 +16,7 @@ import {
   DoCheck,
   PLATFORM_ID,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, NavigationEnd, NavigationExtras } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil, filter, map } from 'rxjs/operators';
@@ -25,6 +25,7 @@ import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NB_WINDOW } from '../../theme.options';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { NbLayoutDirectionService } from '../../services/direction.service';
+import { NbIconComponent } from '../icon/icon.component';
 
 export enum NbToggleStates {
   Expanded = 'expanded',
@@ -32,6 +33,7 @@ export enum NbToggleStates {
 }
 
 @Component({
+  standalone: true,
   selector: '[nbMenuItem]',
   templateUrl: './menu-item.component.html',
   animations: [
@@ -226,6 +228,10 @@ export class NbMenuItemComponent implements DoCheck, AfterViewInit, OnDestroy {
       </ng-container>
     </ul>
   `,
+  imports: [
+    CommonModule,
+    NbIconComponent,
+  ],
 })
 export class NbMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
@@ -268,7 +274,7 @@ export class NbMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.menuInternalService.prepareItems(this.items);
-
+    
     this.menuInternalService
       .onAddItem()
       .pipe(

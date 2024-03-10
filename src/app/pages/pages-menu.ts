@@ -13,7 +13,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
-    title: 'FEATURES',
+    title: 'COMPONENTS',
     group: true,
   },
   {
@@ -27,6 +27,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Actions',
         link: '/pages/components/actions',
+      },
+      {
+        title: 'Alerts',
+        link: '/pages/components/alerts',
       },
       {
         title: 'Buttons',
@@ -43,6 +47,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Lists',
         link: '/pages/components/lists',
+      },
+      {
+        title: 'Menus',
+        link: '/pages/components/menus',
       },
       {
         title: 'Toggles',

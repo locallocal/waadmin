@@ -28,7 +28,7 @@ import {
   Renderer2,
   NgZone,
 } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { merge, Subject, BehaviorSubject, from } from 'rxjs';
 import { startWith, switchMap, takeUntil, filter, map, finalize, take } from 'rxjs/operators';
@@ -55,6 +55,7 @@ import { NB_SELECT_INJECTION_TOKEN } from './select-injection-tokens';
 import { NbFormFieldControl, NbFormFieldControlConfig } from '../form-field/form-field-control';
 import { NbFocusMonitor } from '../cdk/a11y/a11y.module';
 import { NbScrollStrategies } from '../cdk/adapter/block-scroll-strategy-adapter';
+import { NbIconComponent } from '../icon/icon.component';
 
 export type NbSelectCompareFunction<T = any> = (v1: any, v2: any) => boolean;
 export type NbSelectAppearance = 'outline' | 'filled' | 'hero';
@@ -503,6 +504,7 @@ export function nbSelectFormFieldControlConfigFactory() {
  * select-hero-control-disabled-text-color:
  * */
 @Component({
+  standalone: true,
   selector: 'nb-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
@@ -516,6 +518,10 @@ export function nbSelectFormFieldControlConfigFactory() {
     { provide: NB_SELECT_INJECTION_TOKEN, useExisting: NbSelectComponent },
     { provide: NbFormFieldControl, useExisting: NbSelectComponent },
     { provide: NbFormFieldControlConfig, useFactory: nbSelectFormFieldControlConfigFactory },
+  ],
+  imports: [
+    NbIconComponent,
+    CommonModule,
   ],
 })
 export class NbSelectComponent

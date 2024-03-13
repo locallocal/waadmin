@@ -33,8 +33,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/components/alerts',
       },
       {
+        title: 'AutoCompletes',
+        link: '/pages/components/autocompletes',
+      },
+      {
+        title: 'Badges',
+        link: '/pages/components/badges',
+      },
+      {
         title: 'Buttons',
         link: '/pages/components/buttons',
+      },
+      {
+        title: 'Button Groups',
+        link: '/pages/components/buttongroups',
       },
       {
         title: 'Cards',

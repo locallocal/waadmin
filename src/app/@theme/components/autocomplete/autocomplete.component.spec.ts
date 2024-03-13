@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { Subject, merge } from 'rxjs';
+import { NbOverlayService } from '../cdk/overlay/overlay-service';
 
 import {
   NB_DOCUMENT,
@@ -12,13 +13,13 @@ import {
   NbThemeModule,
   NbLayoutModule,
   NbOverlayContainerAdapter,
-  NbAutocompleteComponent,
-  NbAutocompleteDirective,
   NbTriggerStrategyBuilderService,
-  NbOverlayService,
   NbOverlayConfig,
   NbOverlayRef,
 } from '@nebular/theme';
+import { NbLayoutColumnComponent, NbLayoutComponent } from '../layout/layout.component';
+import { NbAutocompleteComponent } from './autocomplete.component';
+import { NbAutocompleteDirective} from './autocomplete.directive';
 
 const TEST_GROUPS = [
   {
@@ -65,6 +66,7 @@ class OverlayServiceWithManualKeyDownTrigger extends NbOverlayService {
 }
 
 @Component({
+  standalone: true,
   selector: 'nb-autocomplete-test',
   template: `
     <nb-layout>
@@ -90,6 +92,12 @@ class OverlayServiceWithManualKeyDownTrigger extends NbOverlayService {
       </nb-layout-column>
     </nb-layout>
   `,
+  imports: [
+    NbLayoutComponent,
+    NbLayoutColumnComponent,
+    NbAutocompleteComponent,
+    NbAutocompleteDirective,
+  ]
 })
 export class NbAutocompleteTestComponent {
 

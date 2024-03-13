@@ -19,6 +19,9 @@ import { NB_WINDOW } from '../@theme/theme.options';
 import { NbMenuInternalService } from '../@theme/components/menu/menu.service';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import { AutocompletesComponent } from './components/autocompletes/autocompletes.component';
+import { BadgesComponent } from './components/badges/badges.component';
+import { ButtongroupsComponent } from './components/buttongroups/buttongroups.component';
 
 export function windowFactory(platformId: Object): Window | undefined {
   if (isPlatformBrowser(platformId)) {
@@ -42,11 +45,14 @@ export function windowFactory(platformId: Object): Window | undefined {
     MiscellaneousModule,
     ComponentsComponent,
     AlertsComponent,
+    BadgesComponent,
+    ButtongroupsComponent,
     CardsComponent,
     ListsComponent,
     MenusComponent,
     TogglesComponent,
-    AccordionsComponent
+    AccordionsComponent,
+    AutocompletesComponent,
   ],
   declarations: [
     PagesComponent,

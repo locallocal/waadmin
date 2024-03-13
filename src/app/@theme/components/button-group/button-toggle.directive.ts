@@ -36,6 +36,7 @@ export interface NbButtonToggleChange {
  * `[nbButtonToggle]` is a directive to add a `pressed` state to a button.
  */
 @Directive({
+  standalone: true,
   selector: 'button[nbButtonToggle]',
   providers: [{ provide: NbButton, useExisting: NbButtonToggleDirective }],
   exportAs: 'nbButtonToggle',

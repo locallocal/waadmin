@@ -30,6 +30,7 @@ import { NbLayoutDirectionService } from '../../services/direction.service';
 import { NbComponentOrCustomStatus } from '../component-status';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { CommonModule } from '@angular/common';
+import { NbIconComponent } from '../icon/icon.component';
 
 /**
  * Toggle is a control representing `on` and `off` states.
@@ -290,14 +291,17 @@ import { CommonModule } from '@angular/common';
     </label>
   `,
   styleUrls: [ `./toggle.component.scss` ],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NbToggleComponent),
-    multi: true,
-  }],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => NbToggleComponent),
+      multi: true,
+    },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
+    NbIconComponent,
   ]
 })
 export class NbToggleComponent implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor {

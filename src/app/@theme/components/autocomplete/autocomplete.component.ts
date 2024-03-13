@@ -27,6 +27,7 @@ import { NbComponentSize } from '../component-size';
 import { NbPosition } from '../cdk/overlay/overlay-position';
 import { NbOptionComponent } from '../option/option.component';
 import { NbPortalDirective } from '../cdk/overlay/mapping';
+import { PortalModule } from '@angular/cdk/portal';
 
 // Component class scoped counter for aria attributes.
 let lastAutocompleteId: number = 0;
@@ -40,6 +41,9 @@ let lastAutocompleteId: number = 0;
   selector: 'nb-autocomplete',
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.scss'],
+  imports: [
+    PortalModule,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NbAutocompleteComponent<T> implements AfterContentInit, OnDestroy {

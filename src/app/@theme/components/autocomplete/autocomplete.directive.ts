@@ -22,7 +22,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { merge, Subject } from 'rxjs';
 import { filter, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 
-import { NbOverlayRef, NbScrollStrategy } from '../cdk/overlay/mapping';
+import { NbOverlay, NbOverlayPositionBuilder, NbOverlayRef, NbScrollStrategy } from '../cdk/overlay/mapping';
 import { NbTrigger, NbTriggerStrategy, NbTriggerStrategyBuilderService } from '../cdk/overlay/overlay-trigger';
 import { NbOverlayService } from '../cdk/overlay/overlay-service';
 import { ENTER, ESCAPE } from '../cdk/keycodes/keycodes';
@@ -40,6 +40,12 @@ import {
 import { NbScrollStrategies } from '../cdk/adapter/block-scroll-strategy-adapter';
 import { NbOptionComponent } from '../option/option.component';
 import { NbAutocompleteComponent } from './autocomplete.component';
+import { NB_DOCUMENT } from '../../theme.options';
+import { DOCUMENT } from '@angular/common';
+import { NbViewportRulerAdapter } from '../cdk/adapter/viewport-ruler-adapter';
+import { NbLayoutRulerService } from '../../services/ruler.service';
+import { NbLayoutScrollService } from '../../services/scroll.service';
+import { NbOverlayContainerAdapter } from '../cdk/adapter/overlay-container-adapter';
 
 /**
  * The `NbAutocompleteDirective` provides a capability to expand input with
@@ -79,6 +85,7 @@ import { NbAutocompleteComponent } from './autocomplete.component';
  *
  * */
 @Directive({
+  standalone: true,
   selector: 'input[nbAutocomplete]',
   providers: [
     {
@@ -86,6 +93,21 @@ import { NbAutocompleteComponent } from './autocomplete.component';
       useExisting: forwardRef(() => NbAutocompleteDirective),
       multi: true,
     },
+    {
+      provide: NB_DOCUMENT,
+      useExisting: DOCUMENT,
+      multi: true,
+    },
+    NbOverlayService,
+    NbOverlay,
+    NbTriggerStrategyBuilderService,
+    NbPositionBuilderService,
+    NbViewportRulerAdapter,
+    NbLayoutRulerService,
+    NbLayoutScrollService,
+    NbOverlayPositionBuilder,
+    NbOverlayContainerAdapter,
+    NbActiveDescendantKeyManagerFactoryService,
   ],
 })
 export class NbAutocompleteDirective<T> implements OnDestroy, AfterViewInit, ControlValueAccessor {

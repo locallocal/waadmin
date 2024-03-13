@@ -217,6 +217,7 @@ import { NbFocusMonitor } from '../cdk/a11y/a11y.module';
  * input-giant-max-width:
  */
 @Directive({
+  standalone: true,
   selector: 'input[nbInput],textarea[nbInput]',
   providers: [
     { provide: NbFormFieldControl, useExisting: NbInputDirective },

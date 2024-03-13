@@ -10,6 +10,7 @@ import { NbStatusService } from '../../services/status.service';
 import { NbComponentSize } from '../component-size';
 import { NbComponentOrCustomStatus, NbComponentStatus } from '../component-status';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
+import { CommonModule } from '@angular/common';
 
 
 /**
@@ -118,6 +119,9 @@ import { convertToBoolProperty, NbBooleanInput } from '../helpers';
     </button>
     <ng-content></ng-content>
   `,
+  imports: [
+    CommonModule,
+  ],
 })
 export class NbAlertComponent {
 

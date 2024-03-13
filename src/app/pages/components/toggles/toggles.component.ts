@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NbToggleComponent } from '../../../@theme/components/toggle/toggle.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NbCardBodyComponent, NbCardComponent } from '../../../@theme/components/card/card.component';
 
 @Component({
   standalone: true,
@@ -11,6 +12,8 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
     NbToggleComponent,
     FormsModule,
     ReactiveFormsModule,
+    NbCardComponent,
+    NbCardBodyComponent,
   ]
 })
 export class TogglesComponent {

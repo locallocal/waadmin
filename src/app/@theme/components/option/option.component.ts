@@ -31,6 +31,7 @@ import { NbFocusableOption } from '../cdk/a11y/focus-key-manager';
 import { NbHighlightableOption } from '../cdk/a11y/descendant-key-manager';
 import { NB_SELECT_INJECTION_TOKEN } from '../select/select-injection-tokens';
 import { NbSelectComponent } from '../select/select.component';
+import { CommonModule } from '@angular/common';
 
 /**
  * NbOptionComponent
@@ -78,6 +79,7 @@ import { NbSelectComponent } from '../select/select.component';
  * option-giant-padding:
  **/
 @Component({
+  standalone: true,
   selector: 'nb-option',
   styleUrls: ['./option.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -85,6 +87,9 @@ import { NbSelectComponent } from '../select/select.component';
     <nb-checkbox *ngIf="withCheckbox" [checked]="selected" [disabled]="disabled" aria-hidden="true"> </nb-checkbox>
     <ng-content></ng-content>
   `,
+  imports: [
+    CommonModule,
+  ],
 })
 export class NbOptionComponent<T = any> implements OnDestroy, AfterViewInit, NbFocusableOption, NbHighlightableOption {
   protected disabledByGroup = false;

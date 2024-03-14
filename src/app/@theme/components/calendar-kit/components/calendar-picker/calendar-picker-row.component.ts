@@ -21,6 +21,7 @@ import {
 import { NbCalendarCell, NbCalendarSize, NbCalendarSizeValues } from '../../model';
 
 @Component({
+  standalone: true,
   selector: 'nb-calendar-picker-row',
   styles: [
     `

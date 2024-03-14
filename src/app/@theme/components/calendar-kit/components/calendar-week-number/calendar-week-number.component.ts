@@ -8,8 +8,10 @@ import { Component, Input, HostBinding, ChangeDetectionStrategy, OnChanges, Simp
 
 import { NbDateService } from '../../services/date.service';
 import { NbCalendarSize, NbCalendarSizeValues } from '../../model';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'nb-calendar-week-numbers',
   template: `
     <div class="sign-container">
@@ -19,6 +21,9 @@ import { NbCalendarSize, NbCalendarSizeValues } from '../../model';
   `,
   styleUrls: ['./calendar-week-number.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbCalendarWeekNumberComponent<D> implements OnChanges {
 

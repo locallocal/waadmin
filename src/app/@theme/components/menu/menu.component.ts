@@ -26,6 +26,7 @@ import { NB_WINDOW } from '../../theme.options';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { NbLayoutDirectionService } from '../../services/direction.service';
 import { NbIconComponent } from '../icon/icon.component';
+import { NbBadgeComponent } from '../badge/badge.component';
 
 export enum NbToggleStates {
   Expanded = 'expanded',
@@ -43,6 +44,11 @@ export enum NbToggleStates {
       transition(`${NbToggleStates.Collapsed} <=> ${NbToggleStates.Expanded}`, animate(300)),
     ]),
   ],
+  imports: [
+    CommonModule,
+    NbIconComponent,
+    NbBadgeComponent,
+  ]
 })
 export class NbMenuItemComponent implements DoCheck, AfterViewInit, OnDestroy {
   @Input() menuItem = <NbMenuItem>null;
@@ -231,6 +237,7 @@ export class NbMenuItemComponent implements DoCheck, AfterViewInit, OnDestroy {
   imports: [
     CommonModule,
     NbIconComponent,
+    NbMenuItemComponent,
   ],
 })
 export class NbMenuComponent implements OnInit, AfterViewInit, OnDestroy {

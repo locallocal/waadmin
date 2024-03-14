@@ -19,7 +19,9 @@ export const NB_LAYOUT_DIRECTION = new InjectionToken<NbLayoutDirection>('Layout
  * Layout Direction Service.
  * Allows to set or get layout direction and listen to its changes
  */
-@Injectable()
+@Injectable(
+  {providedIn: 'root'},
+)
 export class NbLayoutDirectionService {
   private $directionChange = new ReplaySubject<NbLayoutDirection>(1);
 

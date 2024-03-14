@@ -201,7 +201,9 @@ export class NbNoopTriggerStrategy extends NbTriggerStrategyBase {
   hide$: Observable<Event> = EMPTY;
 }
 
-@Injectable()
+@Injectable(
+  {providedIn: 'root'},
+)
 export class NbTriggerStrategyBuilderService {
   protected _host: HTMLElement;
   protected _container: () => ComponentRef<any>;

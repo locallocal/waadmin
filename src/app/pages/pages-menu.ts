@@ -49,8 +49,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/components/buttongroups',
       },
       {
+        title: 'Calendars',
+        link: '/pages/components/calendars',
+      },
+      {
         title: 'Cards',
         link: '/pages/components/cards',
+      },
+      {
+        title: 'CheckBoxes',
+        link: '/pages/components/checkboxes',
+      },
+      {
+        title: 'Context Menus',
+        link: '/pages/components/context-menus',
       },
       {
         title: 'Icons',

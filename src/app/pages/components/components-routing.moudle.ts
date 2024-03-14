@@ -12,16 +12,22 @@ import { MenusComponent } from "./menus/menus.component";
 import { AutocompletesComponent } from "./autocompletes/autocompletes.component";
 import { BadgesComponent } from "./badges/badges.component";
 import { ButtongroupsComponent } from "./buttongroups/buttongroups.component";
+import { CalendarsComponent } from "./calendars/calendars.component";
+import { CheckboxesComponent } from "./checkboxes/checkboxes.component";
+import { ContextMenusComponent } from "./context-menus/context-menus.component";
 
 export const COMPONENTS_ROUTES: Route[] = [
     {path: 'accordions', component: AccordionsComponent},
     {path: 'actions', component: ActionsComponent},
     {path: 'alerts', component: AlertsComponent},
-    {path: 'badges', component: BadgesComponent},
     {path: 'autocompletes', component: AutocompletesComponent},
+    {path: 'badges', component: BadgesComponent},
     {path: 'buttons', component: ButtonsComponent},
     {path: 'buttongroups', component: ButtongroupsComponent},
+    {path: 'calendars', component: CalendarsComponent},
     {path: 'cards', component: CardsComponent},
+    {path: 'checkboxes', component: CheckboxesComponent},
+    {path: 'context-menus', component: ContextMenusComponent},
     {path: 'icons', component: IconsComponent},
     {path: 'lists', component: ListsComponent},
     {path: 'menus', component: MenusComponent},

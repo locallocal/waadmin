@@ -23,6 +23,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NbStatusService } from '../../services/status.service';
 import { NbComponentOrCustomStatus } from '../component-status';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
+import { NbIconComponent } from '../icon/icon.component';
+import { CommonModule } from '@angular/common';
 
 /**
  * Styled checkbox component
@@ -279,6 +281,10 @@ import { convertToBoolProperty, NbBooleanInput } from '../helpers';
     multi: true,
   }],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    NbIconComponent,
+    CommonModule,
+  ]
 })
 export class NbCheckboxComponent implements AfterViewInit, ControlValueAccessor {
 

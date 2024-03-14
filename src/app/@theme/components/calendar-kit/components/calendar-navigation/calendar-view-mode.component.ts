@@ -10,9 +10,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { NbCalendarViewMode, NbCalendarViewModeValues } from '../../model';
 import { NbCalendarYearModelService } from '../../services/calendar-year-model.service';
 import { NbDateService } from '../../services/date.service';
+import { NbIconComponent } from '../../../icon/icon.component';
+import { NbButtonComponent } from '../../../button/button.component';
 
 
 @Component({
+  standalone: true,
   selector: 'nb-calendar-view-mode',
   template: `
     <button nbButton (click)="changeMode.emit()" ghost status="basic">
@@ -20,6 +23,10 @@ import { NbDateService } from '../../services/date.service';
       <nb-icon [icon]="getIcon()" pack="nebular-essentials"></nb-icon>
     </button>
   `,
+  imports: [
+    NbIconComponent,
+    NbButtonComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NbCalendarViewModeComponent<D> {

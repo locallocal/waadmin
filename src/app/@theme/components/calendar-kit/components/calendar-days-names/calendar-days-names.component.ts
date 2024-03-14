@@ -8,15 +8,20 @@ import { ChangeDetectionStrategy, Component, OnInit, Input, HostBinding, SimpleC
 
 import { NbCalendarDay, NbCalendarSize, NbCalendarSizeValues } from '../../model';
 import { NbDateService } from '../../services/date.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
+  standalone: true,
   selector: 'nb-calendar-days-names',
   styleUrls: ['./calendar-days-names.component.scss'],
   template: `
     <div class="day" *ngFor="let day of days" [class.holiday]="day.isHoliday">{{ day.name }}</div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbCalendarDaysNamesComponent<D> implements OnInit, OnChanges {
 

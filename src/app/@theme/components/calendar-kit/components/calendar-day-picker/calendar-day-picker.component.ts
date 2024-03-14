@@ -20,12 +20,17 @@ import { NbCalendarMonthModelService } from '../../services/calendar-month-model
 import { NbCalendarDayCellComponent } from './calendar-day-cell.component';
 import { NbCalendarCell, NbCalendarSize, NbCalendarSizeValues } from '../../model';
 import { convertToBoolProperty, NbBooleanInput } from '../../../helpers';
+import { NbCalendarPickerComponent } from '../calendar-picker/calendar-picker.component';
+import { NbCalendarDaysNamesComponent } from '../calendar-days-names/calendar-days-names.component';
+import { CommonModule } from '@angular/common';
+import { NbCalendarWeekNumberComponent } from '../calendar-week-number/calendar-week-number.component';
 
 
 /**
  * Provides capability pick days.
  * */
 @Component({
+  standalone: true,
   selector: 'nb-calendar-day-picker',
   template: `
     <nb-calendar-week-numbers *ngIf="showWeekNumber"
@@ -50,6 +55,15 @@ import { convertToBoolProperty, NbBooleanInput } from '../../../helpers';
   `,
   styleUrls: ['./calendar-day-picker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    NbCalendarMonthModelService
+  ],
+  imports: [
+    NbCalendarWeekNumberComponent,
+    NbCalendarPickerComponent,
+    NbCalendarDaysNamesComponent,
+    CommonModule,
+  ]
 })
 export class NbCalendarDayPickerComponent<D, T> implements OnChanges {
 

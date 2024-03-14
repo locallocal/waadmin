@@ -119,6 +119,7 @@ export interface NbContextMenuContext {
  * @stacked-example(Manual Control, context-menu/context-menu-right-click.component)
  * */
 @Directive({
+  standalone: true,
   selector: '[nbContextMenu]',
   providers: [NbDynamicOverlayHandler, NbDynamicOverlay],
 })

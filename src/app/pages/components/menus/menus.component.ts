@@ -15,7 +15,7 @@ import { NbMenuItem } from '../../../@theme/components/menu/menu.service';
 })
 export class MenusComponent {
 
-  items: NbMenuItem[] = [
+  items00: NbMenuItem[] = [
     {
       title: 'Profile',
       icon: 'person-outline',
@@ -31,6 +31,64 @@ export class MenusComponent {
     {
       title: 'Logout',
       icon: 'unlock-outline',
+    },
+  ];
+
+  items01: NbMenuItem[] = [
+    {
+      title: 'Profile',
+      expanded: true,
+      children: [
+        {
+          title: 'Change Password',
+        },
+        {
+          title: 'Privacy Policy',
+        },
+        {
+          title: 'Logout',
+        },
+      ],
+    },
+    {
+      title: 'Shopping Bag',
+    },
+    {
+      title: 'Orders',
+    },
+  ];
+
+  items02: NbMenuItem[] = [
+    {
+      title: 'Profile',
+      expanded: true,
+      badge: {
+        text: '30',
+        status: 'primary',
+      },
+      children: [
+        {
+          title: 'Messages',
+          badge: {
+            text: '99+',
+            status: 'danger',
+          },
+        },
+        {
+          title: 'Notifications',
+          badge: {
+            dotMode: true,
+            status: 'warning',
+          },
+        },
+        {
+          title: 'Emails',
+          badge: {
+            text: 'new',
+            status: 'success',
+          },
+        },
+      ],
     },
   ];
 }

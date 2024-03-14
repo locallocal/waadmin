@@ -18,6 +18,10 @@ import { NbDateService } from '../calendar-kit/services/date.service';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
+import { NbNativeDateService } from '../calendar-kit/services/native-date.service';
+import { NbCalendarViewModeComponent } from '../calendar-kit/components/calendar-navigation/calendar-view-mode.component';
+import { NbCalendarPageableNavigationComponent } from '../calendar-kit/components/calendar-navigation/calendar-pageable-navigation.component';
+import { NbCalendarDayPickerComponent } from '../calendar-kit/components/calendar-day-picker/calendar-day-picker.component';
 
 /**
  * The basis for calendar and range calendar components.
@@ -28,10 +32,20 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   selector: 'nb-base-calendar',
   templateUrl: './base-calendar.component.html',
+  providers: [
+    NbCalendarYearModelService,
+    {
+      provide: NbDateService,
+      useClass: NbNativeDateService,
+    },
+  ],
   imports: [
     NbCardComponent,
     NbCardHeaderComponent,
     NbCardBodyComponent,
+    NbCalendarViewModeComponent,
+    NbCalendarPageableNavigationComponent,
+    NbCalendarDayPickerComponent,
     CommonModule,
   ]
 })

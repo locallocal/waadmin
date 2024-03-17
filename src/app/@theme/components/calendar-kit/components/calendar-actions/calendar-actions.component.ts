@@ -1,6 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { NbButtonComponent } from '../../../button/button.component';
 
 @Component({
+  standalone: true,
   selector: 'nb-calendar-actions',
   template: `
     <button
@@ -21,6 +24,10 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   `,
   styleUrls: ['./calendar-actions.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    NbButtonComponent,
+    CommonModule,
+  ]
 })
 export class NbCalendarActionsComponent {
   @Input() set applyButtonText(value: string) {

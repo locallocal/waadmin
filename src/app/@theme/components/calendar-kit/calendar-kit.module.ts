@@ -8,8 +8,8 @@ import { NgModule } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 import { NbSharedModule } from '../shared/shared.module';
-import { NbButtonModule } from '../button/button.module';
-import { NbIconModule } from '../icon/icon.module';
+import { NbIconComponent } from '../icon/icon.component';
+import { NbButtonComponent } from '../button/button.component';
 
 import { NbCalendarMonthModelService } from './services/calendar-month-model.service';
 import { NbDateService } from './services/date.service';
@@ -76,11 +76,12 @@ const COMPONENTS = [
  * For example you can easily build full calendar:
  * @stacked-example(Full calendar, calendar-kit/calendar-kit-full-calendar.component)
  * */
+/*
 @NgModule({
-  imports: [ NbSharedModule, NbButtonModule, NbIconModule ],
+  imports: [ NbSharedModule, NbButtonComponent, NbIconComponent ],
   exports: [...COMPONENTS],
   declarations: [...COMPONENTS],
   providers: [...SERVICES],
 })
 export class NbCalendarKitModule {
-}
+}*/

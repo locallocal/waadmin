@@ -14,10 +14,12 @@ import {
   AfterViewChecked,
 } from '@angular/core';
 import { NbFocusTrap, NbFocusTrapFactoryService } from '../cdk/a11y/focus-trap';
-import { NbComponentPortal, NbComponentType, NbTemplatePortal } from '../cdk/overlay/mapping';
+import { NbComponentPortal, NbComponentType, NbOverlayContainer, NbTemplatePortal } from '../cdk/overlay/mapping';
 import { NbOverlayContainerComponent } from '../cdk/overlay/overlay-container';
 import { NB_WINDOW_CONTENT, NbWindowConfig, NbWindowState, NB_WINDOW_CONTEXT } from './window.options';
 import { NbWindowRef } from './window-ref';
+import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../card/card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -67,6 +69,13 @@ import { NbWindowRef } from './window-ref';
     </nb-card>
   `,
   styleUrls: ['./window.component.scss'],
+  imports: [
+    NbCardComponent,
+    NbCardHeaderComponent,
+    NbCardBodyComponent,
+    NbOverlayContainerComponent,
+    CommonModule,
+  ],
 })
 export class NbWindowComponent implements OnInit, AfterViewChecked, OnDestroy {
   @Input() cfr: ComponentFactoryResolver;

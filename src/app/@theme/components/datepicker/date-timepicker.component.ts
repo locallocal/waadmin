@@ -28,6 +28,7 @@ import { NB_DATE_SERVICE_OPTIONS } from './datepicker.directive';
  * Provides a proxy to `NbCalendarWithTimeComponent` options as well as custom picker options.
  */
 @Component({
+  standalone: true,
   selector: 'nb-date-timepicker',
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush,

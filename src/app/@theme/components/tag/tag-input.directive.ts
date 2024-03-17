@@ -52,6 +52,7 @@ export interface NbTagInputAddEvent {
  * tag-list-with-input-giant-padding:
  */
 @Directive({
+  standalone: true,
   selector: 'input[nbTagInput]',
   exportAs: 'nbTagInput',
   providers: [

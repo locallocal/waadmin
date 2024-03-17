@@ -12,6 +12,7 @@ import { NbCalendarYearModelService } from '../../services/calendar-year-model.s
 import { NbDateService } from '../../services/date.service';
 import { NbIconComponent } from '../../../icon/icon.component';
 import { NbButtonComponent } from '../../../button/button.component';
+import { NbNativeDateService } from '../../services/native-date.service';
 
 
 @Component({
@@ -26,6 +27,13 @@ import { NbButtonComponent } from '../../../button/button.component';
   imports: [
     NbIconComponent,
     NbButtonComponent,
+  ],
+  providers: [
+    {
+      provide: NbDateService,
+      useClass: NbNativeDateService,
+    },
+    NbCalendarYearModelService,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

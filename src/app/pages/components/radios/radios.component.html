@@ -1,0 +1,39 @@
+<nb-card>
+    <nb-card-header>
+        Selected Option: {{ option00 }}
+    </nb-card-header>
+    <nb-card-body>
+        <nb-radio-group [(ngModel)]="option00">
+            <nb-radio *ngFor="let option of options00"
+                [value]="option.value">
+                {{ option.label }}
+            </nb-radio>
+        </nb-radio-group>
+    </nb-card-body>
+</nb-card>
+
+<nb-card>
+    <nb-card-header>Selected Options: {{ option01 }}</nb-card-header>
+    <nb-card-body>
+        <nb-radio-group [(ngModel)]="option01">
+            <nb-radio *ngFor="let option of options01"
+                [disabled]="option.disabled"
+                [value]="option.value">
+                {{ option.label }}
+            </nb-radio>
+        </nb-radio-group>
+    </nb-card-body>
+</nb-card>
+
+<nb-card>
+    <nb-card-body>
+        <nb-radio-group *ngFor="let status of status" 
+            [name]="status" [status]="status">
+            <nb-radio *ngFor="let option of options01"
+                [value]="option.value" [disabled]="option.disabled"
+                [checked]="option.checked">
+                {{ option.label }}
+            </nb-radio>
+        </nb-radio-group>
+    </nb-card-body>
+</nb-card>

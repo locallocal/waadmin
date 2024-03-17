@@ -68,6 +68,7 @@ import { NbIconConfig } from '../icon/icon.component';
  * - Noop mode - the component won't react to the user interaction.
  */
 @Directive({
+  standalone: true,
   selector: '[nbTooltip]',
   exportAs: 'nbTooltip',
   providers: [NbDynamicOverlayHandler, NbDynamicOverlay],

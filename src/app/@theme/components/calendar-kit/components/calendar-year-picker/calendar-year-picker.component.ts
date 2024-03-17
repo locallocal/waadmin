@@ -18,8 +18,11 @@ import { NbCalendarCell, NbCalendarSize, NbCalendarSizeValues } from '../../mode
 import { NbCalendarYearCellComponent } from './calendar-year-cell.component';
 import { NbDateService } from '../../services/date.service';
 import { NbCalendarYearModelService } from '../../services/calendar-year-model.service';
+import { NbNativeDateService } from '../../services/native-date.service';
+import { NbCalendarPickerComponent } from '../calendar-picker/calendar-picker.component';
 
 @Component({
+  standalone: true,
   selector: 'nb-calendar-year-picker',
   template: `
     <nb-calendar-picker
@@ -35,6 +38,16 @@ import { NbCalendarYearModelService } from '../../services/calendar-year-model.s
     </nb-calendar-picker>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NbDateService,
+      useClass: NbNativeDateService,
+    },
+    NbCalendarYearModelService,
+  ],
+  imports: [
+    NbCalendarPickerComponent,
+  ]
 })
 export class NbCalendarYearPickerComponent<D> implements OnChanges {
 

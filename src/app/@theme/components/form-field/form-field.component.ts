@@ -26,6 +26,7 @@ import { takeUntil, distinctUntilChanged, map, tap } from 'rxjs/operators';
 import { NbPrefixDirective } from './prefix.directive';
 import { NbSuffixDirective } from './suffix.directive';
 import { NbFormFieldControl, NbFormControlState, NbFormFieldControlConfig } from './form-field-control';
+import { CommonModule, NgClass } from '@angular/common';
 
 export type NbFormControlAddon = 'prefix' | 'suffix';
 
@@ -90,6 +91,10 @@ function throwFormControlElementNotFound() {
   styleUrls: ['./form-field.component.scss'],
   templateUrl: './form-field.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    NgClass,
+  ]
 })
 export class NbFormFieldComponent implements AfterContentChecked, AfterContentInit, AfterViewInit, OnDestroy {
 

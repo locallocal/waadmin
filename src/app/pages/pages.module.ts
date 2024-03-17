@@ -22,6 +22,7 @@ import { PLATFORM_ID } from '@angular/core';
 import { AutocompletesComponent } from './components/autocompletes/autocompletes.component';
 import { BadgesComponent } from './components/badges/badges.component';
 import { ButtongroupsComponent } from './components/buttongroups/buttongroups.component';
+import { TooltipsComponent } from './components/tooltips/tooltips.component';
 
 export function windowFactory(platformId: Object): Window | undefined {
   if (isPlatformBrowser(platformId)) {

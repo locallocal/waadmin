@@ -13,6 +13,7 @@ import { NbToastComponent } from './toast.component';
 import { NbToast } from './model';
 import { NbLayoutDirectionService } from '../../services/direction.service';
 import { NbGlobalPosition, NbPositionHelper } from '../cdk/overlay/position-helper';
+import { CommonModule } from '@angular/common';
 
 const voidState = style({
   transform: 'translateX({{ direction }}110%)',
@@ -36,6 +37,9 @@ const defaultOptions = { params: { direction: '' } };
       transition(':leave', [animate(100, voidState)], defaultOptions),
     ]),
   ],
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbToastrContainerComponent implements OnInit, OnDestroy {
 

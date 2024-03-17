@@ -11,7 +11,8 @@ import { NbStatusService } from '../../services/status.service';
 import { NbComponentOrCustomStatus } from '../component-status';
 import { NbRenderableContainer } from '../cdk/overlay/overlay-container';
 import { NbPosition } from '../cdk/overlay/overlay-position';
-import { NbIconConfig } from '../icon/icon.component';
+import { NbIconComponent, NbIconConfig } from '../icon/icon.component';
+import { CommonModule } from '@angular/common';
 
 
 /**
@@ -79,6 +80,10 @@ import { NbIconConfig } from '../icon/icon.component';
         animate(100, style({ opacity: 0 })),
       ]),
     ]),
+  ],
+  imports: [
+    NbIconComponent,
+    CommonModule,
   ],
 })
 export class NbTooltipComponent implements NbRenderableContainer {

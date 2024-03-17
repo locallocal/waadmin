@@ -19,7 +19,7 @@ import {
   Inject,
   ElementRef,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { from, fromEvent, merge, Subject } from 'rxjs';
 import { filter, startWith, switchMap, takeUntil } from 'rxjs/operators';
@@ -70,6 +70,7 @@ import { NbRadioComponent } from './radio.component';
  *
  * */
 @Component({
+  standalone: true,
   selector: 'nb-radio-group',
   template: `
     <ng-content select="nb-radio"></ng-content>`,
@@ -79,8 +80,16 @@ import { NbRadioComponent } from './radio.component';
       useExisting: forwardRef(() => NbRadioGroupComponent),
       multi: true,
     },
+    {
+      provide: NB_DOCUMENT,
+      useExisting: DOCUMENT,
+      multi: true,
+    }
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbRadioGroupComponent implements AfterContentInit, OnDestroy, ControlValueAccessor {
 

@@ -65,8 +65,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/components/context-menus',
       },
       {
+        title: 'Date Pickers',
+        link: '/pages/components/datepickers',
+      },
+      {
+        title: 'Dialogs',
+        link: '/pages/components/dialogs',
+      },
+      {
         title: 'Icons',
         link: '/pages/components/icons',
+      },
+      {
+        title: 'Inputs',
+        link: '/pages/components/inputs',
       },
       {
         title: 'Lists',
@@ -77,9 +89,33 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/components/menus',
       },
       {
+        title: 'Popovers',
+        link: '/pages/components/popovers',
+      },
+      {
+        title: 'Progress Bars',
+        link: '/pages/components/progress-bars'
+      },
+      {
+        title: 'Radios',
+        link: '/pages/components/radios',
+      },
+      {
+        title: 'Tags',
+        link: '/pages/components/tags',
+      },
+      {
+        title: 'Toastrs',
+        link: '/pages/components/toastrs',
+      },
+      {
         title: 'Toggles',
         link: '/pages/components/toggles',
       },
+      {
+        title: 'Tooltips',
+        link: '/pages/components/tooltips',
+      }
     ]
   },
   {

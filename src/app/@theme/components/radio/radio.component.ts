@@ -20,6 +20,7 @@ import {
 import { NbStatusService } from '../../services/status.service';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbComponentOrCustomStatus } from '../component-status';
+import { CommonModule } from '@angular/common';
 
 /**
  * The `NbRadioComponent` provides the same functionality as native `<input type="radio">`
@@ -235,6 +236,9 @@ import { NbComponentOrCustomStatus } from '../component-status';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./radio.component.scss'],
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbRadioComponent {
 

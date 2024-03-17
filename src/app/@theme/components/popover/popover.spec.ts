@@ -18,6 +18,8 @@ import {
   NbPopoverModule,
   NbOverlayConfig,
 } from '@nebular/theme';
+import { NbLayoutColumnComponent, NbLayoutComponent } from '../layout/layout.component';
+import { NbButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'nb-popover-component-content-test',
@@ -45,6 +47,7 @@ export class NbPopoverDefaultTestComponent {
 }
 
 @Component({
+  standalone: true,
   selector: 'nb-popover-bindings-test',
   template: `
     <nb-layout>
@@ -62,6 +65,11 @@ export class NbPopoverDefaultTestComponent {
 
     <ng-template let-data>Some Template {{ data.text }}</ng-template>
   `,
+  imports: [
+    NbLayoutComponent,
+    NbLayoutColumnComponent,
+    NbButtonComponent,
+  ]
 })
 export class NbPopoverBindingsTestComponent {
   @ViewChild(NbPopoverDirective) popover: NbPopoverDirective;

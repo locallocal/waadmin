@@ -12,7 +12,7 @@ import {
   Type,
   ViewChild,
 } from '@angular/core';
-import { NbComponentPortal, NbTemplatePortal } from '../cdk/overlay/mapping';
+import { NbComponentPortal, NbOverlayContainer, NbTemplatePortal } from '../cdk/overlay/mapping';
 import {
   NbOverlayContainerComponent,
   NbPositionedContainerComponent,
@@ -47,6 +47,9 @@ import {
     <span class="arrow"></span>
     <nb-overlay-container></nb-overlay-container>
   `,
+  imports: [
+    NbOverlayContainerComponent,
+  ]
 })
 export class NbPopoverComponent extends NbPositionedContainerComponent implements NbRenderableContainer {
   @ViewChild(NbOverlayContainerComponent) overlayContainer: NbOverlayContainerComponent;

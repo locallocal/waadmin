@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges } from '@angular/core';
+import { Directive, Input, OnChanges, forwardRef } from '@angular/core';
 import { NbCdkColumnDef } from '../cdk/table/type-mappings';
 import { NB_SORT_HEADER_COLUMN_DEF, NbColumnDefDirective } from '../cdk/table/cell';
 
@@ -7,10 +7,11 @@ import { NB_SORT_HEADER_COLUMN_DEF, NbColumnDefDirective } from '../cdk/table/ce
  * Defines a set of cells available for a table column.
  */
 @Directive({
+  standalone: true,
   selector: '[nbTreeGridColumnDef]',
   providers: [
-    { provide: NbCdkColumnDef, useExisting: NbTreeGridColumnDefDirective },
-    { provide: NB_SORT_HEADER_COLUMN_DEF, useExisting: NbTreeGridColumnDefDirective },
+    { provide: NbCdkColumnDef, useExisting: forwardRef( () => NbTreeGridColumnDefDirective) },
+    { provide: NB_SORT_HEADER_COLUMN_DEF, useExisting: forwardRef( ()=> NbTreeGridColumnDefDirective) },
   ],
 })
 export class NbTreeGridColumnDefDirective extends NbColumnDefDirective implements OnChanges {

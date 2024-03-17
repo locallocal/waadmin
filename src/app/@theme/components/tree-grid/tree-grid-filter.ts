@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { Directive, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { Directive, HostListener, Input, OnDestroy, OnInit, forwardRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 
@@ -23,8 +23,9 @@ export class NbFilterDirective {
  * Helper directive to trigger data source's filter method when user types in input
  */
 @Directive({
+  standalone: true,
   selector: '[nbFilterInput]',
-  providers: [{ provide: NbFilterDirective, useExisting: NbFilterInputDirective }],
+  providers: [{ provide: NbFilterDirective, useExisting: forwardRef(() => NbFilterInputDirective ) }],
 })
 export class NbFilterInputDirective extends NbFilterDirective implements OnInit, OnDestroy {
   private search$: Subject<string> = new Subject<string>();

@@ -18,7 +18,7 @@ import {
   Inject,
   PLATFORM_ID,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -144,6 +144,9 @@ import { NbOverlayContainerAdapter } from '../cdk/adapter/overlay-container-adap
       </div>
     </div>
   `,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbLayoutComponent implements AfterViewInit, OnDestroy {
   protected scrollBlockClass = 'nb-global-scrollblock';

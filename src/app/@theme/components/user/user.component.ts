@@ -11,7 +11,8 @@ import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbComponentSize } from '../component-size';
 import { NbComponentShape } from '../component-shape';
 import { NbComponentOrCustomStatus } from '../component-status';
-import { NbBadgePosition } from '../badge/badge.component';
+import { NbBadgeComponent, NbBadgePosition } from '../badge/badge.component';
+import { CommonModule } from '@angular/common';
 
 /**
  * Represents a component showing a user avatar (picture) with a user name on the right.
@@ -112,6 +113,10 @@ import { NbBadgePosition } from '../badge/badge.component';
   selector: 'nb-user',
   styleUrls: ['./user.component.scss'],
   templateUrl: './user.component.html',
+  imports: [
+    CommonModule,
+    NbBadgeComponent,
+  ]
 })
 export class NbUserComponent {
 

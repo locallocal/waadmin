@@ -17,6 +17,7 @@ import { NbDialogConfig } from './dialog-config';
  * // TODO add animations
  * */
 @Component({
+  standalone: true,
   selector: 'nb-dialog-container',
   template: '<ng-template nbPortalOutlet></ng-template>',
 })

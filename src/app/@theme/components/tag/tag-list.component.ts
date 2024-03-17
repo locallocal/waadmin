@@ -40,6 +40,7 @@ import { NbComponentSize } from '../component-size';
 import { NbAutocompleteDirective } from '../autocomplete/autocomplete.directive';
 import { NbTagComponent } from './tag.component';
 import { NbTagInputDirective } from './tag-input.directive';
+import { CommonModule } from '@angular/common';
 
 /**
  *
@@ -64,6 +65,7 @@ import { NbTagInputDirective } from './tag-input.directive';
  * tag-list-with-input-round-border-radius:
  */
 @Component({
+  standalone: true,
   selector: 'nb-tag-list',
   template: `
     <div class="nb-tag-list-tags-wrapper">
@@ -72,6 +74,12 @@ import { NbTagInputDirective } from './tag-input.directive';
   `,
   exportAs: 'nbTagList',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+  ],
+  providers: [
+    NbActiveDescendantKeyManagerFactoryService
+  ],
 })
 export class NbTagListComponent implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
   protected readonly destroy$: Subject<void> = new Subject<void>();

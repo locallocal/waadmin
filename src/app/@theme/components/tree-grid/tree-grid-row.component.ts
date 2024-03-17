@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Inject, Input, OnDestroy } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, Input, OnDestroy, forwardRef } from '@angular/core';
 import { Subject, timer } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { NbCdkFooterRow, NbCdkHeaderRow, NbCdkRow } from '../cdk/table/type-mappings';
@@ -21,7 +21,7 @@ export const NB_ROW_DOUBLE_CLICK_DELAY: number = 200;
     class: 'nb-tree-grid-row',
     role: 'row',
   },
-  providers: [{ provide: NbCdkRow, useExisting: NbTreeGridRowComponent }],
+  providers: [{ provide: NbCdkRow, useExisting: forwardRef(() => NbTreeGridRowComponent) }],
 })
 export class NbTreeGridRowComponent extends NbRowComponent implements OnDestroy {
   private readonly doubleClick$ = new Subject<void>();
@@ -70,6 +70,7 @@ export class NbTreeGridRowComponent extends NbRowComponent implements OnDestroy 
 }
 
 @Component({
+  standalone: true,
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'tr[nbTreeGridHeaderRow]',
   template: ` <ng-container nbCellOutlet></ng-container>`,
@@ -78,7 +79,7 @@ export class NbTreeGridRowComponent extends NbRowComponent implements OnDestroy 
     class: 'nb-tree-grid-header-row',
     role: 'row',
   },
-  providers: [{ provide: NbCdkHeaderRow, useExisting: NbTreeGridHeaderRowComponent }],
+  providers: [{ provide: NbCdkHeaderRow, useExisting: forwardRef( () => NbTreeGridHeaderRowComponent ) }],
 })
 export class NbTreeGridHeaderRowComponent extends NbHeaderRowComponent {}
 
@@ -91,6 +92,6 @@ export class NbTreeGridHeaderRowComponent extends NbHeaderRowComponent {}
     class: 'nb-tree-grid-footer-row',
     role: 'row',
   },
-  providers: [{ provide: NbCdkFooterRow, useExisting: NbTreeGridFooterRowComponent }],
+  providers: [{ provide: NbCdkFooterRow, useExisting: forwardRef(() => NbTreeGridFooterRowComponent) }],
 })
 export class NbTreeGridFooterRowComponent extends NbFooterRowComponent {}

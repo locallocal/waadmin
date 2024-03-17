@@ -19,6 +19,7 @@ import {
   NbDatepickerComponent,
   NbRangepickerComponent,
 } from '@nebular/theme';
+import { NbLayoutColumnComponent, NbLayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'nb-datepicker-test',
@@ -30,6 +31,9 @@ import {
       </nb-layout-column>
     </nb-layout>
   `,
+  imports: [
+    NbLayoutComponent,
+  ],
 })
 export class NbDatepickerTestComponent {
   @ViewChild(NbDatepickerComponent) datepicker: NbDatepickerComponent<Date>;
@@ -62,6 +66,10 @@ export class NbRangepickerTestComponent {
       </nb-layout-column>
     </nb-layout>
   `,
+  imports: [
+    NbLayoutComponent,
+    NbLayoutColumnComponent,
+  ],
 })
 export class NbDateTimepickerTestComponent {
   @ViewChild(NbDateTimePickerComponent) dateTimepicker: NbDateTimePickerComponent<Date>;

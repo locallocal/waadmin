@@ -220,7 +220,10 @@ import { NbFocusMonitor } from '../cdk/a11y/a11y.module';
   standalone: true,
   selector: 'input[nbInput],textarea[nbInput]',
   providers: [
-    { provide: NbFormFieldControl, useExisting: NbInputDirective },
+    { 
+      provide: NbFormFieldControl,
+      useClass: NbInputDirective,
+    },
   ],
 })
 export class NbInputDirective implements DoCheck, OnChanges, OnInit, AfterViewInit, OnDestroy, NbFormFieldControl {

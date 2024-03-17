@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NbMenuComponent } from '../../../@theme/components/menu/menu.component';
 import { NbCardComponent } from '../../../@theme/components/card/card.component';
 import { NbMenuItem } from '../../../@theme/components/menu/menu.service';
+import { NbViewportRulerAdapter } from '../../../@theme/components/cdk/adapter/viewport-ruler-adapter';
 
 @Component({
   standalone: true,

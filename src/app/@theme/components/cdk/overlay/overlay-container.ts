@@ -13,6 +13,7 @@ import {
 
 import { NbPosition } from './overlay-position';
 import { NbComponentPortal, NbPortalInjector, NbPortalOutletDirective, NbTemplatePortal } from './mapping';
+import { CommonModule } from '@angular/common';
 
 export interface NbRenderableContainer {
 
@@ -94,11 +95,15 @@ export class NbPositionedContainerComponent {
 
 
 @Component({
+  standalone: true,
   selector: 'nb-overlay-container',
   template: `
     <div *ngIf="isStringContent" class="primitive-overlay">{{ content }}</div>
     <ng-template nbPortalOutlet></ng-template>
   `,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbOverlayContainerComponent {
 

@@ -18,8 +18,9 @@ import {
 } from '@angular/core';
 
 import { NbStatusService } from '../../services/status.service';
-import { NbIconConfig } from '../icon/icon.component';
+import { NbIconComponent, NbIconConfig } from '../icon/icon.component';
 import { NbToast } from './model';
+import { CommonModule } from '@angular/common';
 
 /**
  * The `NbToastComponent` is responsible for rendering each toast with appropriate styles.
@@ -94,6 +95,10 @@ import { NbToast } from './model';
   selector: 'nb-toast',
   styleUrls: ['./toast.component.scss'],
   templateUrl: './toast.component.html',
+  imports: [
+    CommonModule,
+    NbIconComponent,
+  ],
 })
 export class NbToastComponent implements OnInit, OnDestroy {
   @Input()

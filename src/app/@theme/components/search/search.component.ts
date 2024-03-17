@@ -29,6 +29,8 @@ import { NbSearchService } from './search.service';
 import { NbThemeService } from '../../services/theme.service';
 import { NbOverlayService } from '../cdk/overlay/overlay-service';
 import { NbOverlayRef, NbPortalDirective } from '../cdk/overlay/mapping';
+import { NbButtonComponent } from '../button/button.component';
+import { NbIconComponent } from '../icon/icon.component';
 
 /**
  * search-field-component is used under the hood by nb-search component
@@ -68,6 +70,10 @@ import { NbOverlayRef, NbPortalDirective } from '../cdk/overlay/mapping';
       </div>
     </div>
   `,
+  imports: [
+    NbButtonComponent,
+    NbIconComponent,
+  ]
 })
 export class NbSearchFieldComponent implements OnChanges, AfterViewInit {
 
@@ -218,6 +224,7 @@ export type NbSearchType = 'modal-zoomin' | 'rotate-layout' | 'modal-move' |
  * search-info-text-line-height:
  */
 @Component({
+  standalone: true,
   selector: 'nb-search',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['styles/search.component.scss'],
@@ -236,6 +243,10 @@ export type NbSearchType = 'modal-zoomin' | 'rotate-layout' | 'modal-move' |
       (close)="emitDeactivate()">
     </nb-search-field>
   `,
+  imports: [
+    NbButtonComponent,
+    NbIconComponent,
+  ]
 })
 export class NbSearchComponent implements OnInit, OnDestroy {
 

@@ -9,6 +9,8 @@ import { NbOverlayService } from './overlay-service';
 import { NbCdkAdapterModule } from '../adapter/adapter.module';
 import { NbPositionHelper } from './position-helper';
 import { NbTriggerStrategyBuilderService } from './overlay-trigger';
+import { NB_DOCUMENT } from '@nebular/theme';
+import { DOCUMENT } from '@angular/common';
 
 
 @NgModule({
@@ -18,12 +20,10 @@ import { NbTriggerStrategyBuilderService } from './overlay-trigger';
   ],
   declarations: [
     NbPositionedContainerComponent,
-    NbOverlayContainerComponent,
   ],
   exports: [
     NbCdkMappingModule,
     NbCdkAdapterModule,
-    NbOverlayContainerComponent,
   ],
 })
 export class NbOverlayModule {
@@ -38,6 +38,7 @@ export class NbOverlayModule {
         ...NbCdkMappingModule.forRoot().providers,
         ...NbCdkAdapterModule.forRoot().providers,
         ...NbA11yModule.forRoot().providers,
+        {provide: NB_DOCUMENT, useExisting: DOCUMENT},
       ],
     };
   }

@@ -20,6 +20,7 @@ import {
 import { NbStatusService } from '../../services/status.service';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbButton } from './base-button';
+import { CommonModule } from '@angular/common';
 
 /**
  * Basic button component.
@@ -531,8 +532,8 @@ import { NbButton } from './base-button';
   template: `
     <ng-content></ng-content>
   `,
-  providers: [
-    { provide: NbButton, useExisting: NbButtonComponent },
+  imports: [
+    CommonModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

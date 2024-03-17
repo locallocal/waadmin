@@ -1,5 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { MatRippleModule } from '@angular/material/core';
 import {
   NbActionsModule,
@@ -41,6 +41,8 @@ import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
 import { MATERIAL_LIGHT_THEME } from './styles/material/theme.material-light';
 import { MATERIAL_DARK_THEME } from './styles/material/theme.material-dark';
+import { NB_DOCUMENT } from './theme.options';
+import { NB_DIALOG_CONFIG } from './components/dialog/dialog-config';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -60,7 +62,6 @@ const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
   SearchInputComponent,
-  TinyMCEComponent,
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
@@ -89,6 +90,8 @@ export class ThemeModule {
           },
           [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME, MATERIAL_LIGHT_THEME, MATERIAL_DARK_THEME ],
         ).providers,
+        { provide: NB_DOCUMENT, useExisting: DOCUMENT },
+        { provide: NB_DIALOG_CONFIG, useValue: {} },
       ],
     };
   }

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, ViewContainerRef, ViewChild } from '@angular/core';
 
 @Component({
@@ -5,6 +6,9 @@ import { Component, ViewContainerRef, ViewChild } from '@angular/core';
   selector: 'nb-windows-container',
   template: `<ng-container #viewContainerRef></ng-container>`,
   styleUrls: ['./windows-container.component.scss'],
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbWindowsContainerComponent {
 

@@ -18,13 +18,15 @@ import {
 
 import { NbDynamicOverlay, NbDynamicOverlayController } from '../cdk/overlay/dynamic/dynamic-overlay';
 import { NbDynamicOverlayHandler } from '../cdk/overlay/dynamic/dynamic-overlay-handler';
-import { NbAdjustment, NbPosition, NbPositionValues, NbAdjustmentValues } from '../cdk/overlay/overlay-position';
+import { NbAdjustment, NbPosition, NbPositionValues, NbAdjustmentValues, NbPositionBuilderService } from '../cdk/overlay/overlay-position';
 import { NbOverlayContent } from '../cdk/overlay/overlay-service';
 import { NbTrigger, NbTriggerValues } from '../cdk/overlay/overlay-trigger';
 import { NbOverlayConfig } from '../cdk/overlay/mapping';
 import { NbPopoverComponent } from './popover.component';
 import { takeUntil, skip } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { NB_DOCUMENT } from '@nebular/theme';
+import { DOCUMENT } from '@angular/common';
 
 /**
  * Powerful popover directive, which provides the best UX for your users.
@@ -111,9 +113,19 @@ import { Subject } from 'rxjs';
  * @additional-example(Custom Component, popover/popover-custom-component.component)
  * */
 @Directive({
+  standalone: true,
   selector: '[nbPopover]',
   exportAs: 'nbPopover',
-  providers: [NbDynamicOverlayHandler, NbDynamicOverlay],
+  providers: [
+    NbDynamicOverlayHandler,
+    NbDynamicOverlay,
+    NbPositionBuilderService,
+    {
+      provide: NB_DOCUMENT,
+      useExisting: DOCUMENT,
+      multi: true,
+    }
+  ],
 })
 export class NbPopoverDirective implements NbDynamicOverlayController, OnChanges, AfterViewInit, OnDestroy, OnInit {
   protected popoverComponent = NbPopoverComponent;

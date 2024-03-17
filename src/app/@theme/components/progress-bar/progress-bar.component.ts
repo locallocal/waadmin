@@ -9,6 +9,8 @@ import { Component, HostBinding, Input } from '@angular/core';
 import { NbStatusService } from '../../services/status.service';
 import { NbComponentSize } from '../component-size';
 import { NbComponentOrCustomStatus } from '../component-status';
+import { P } from '@angular/cdk/keycodes';
+import { CommonModule } from '@angular/common';
 
 /**
  * Progress Bar is a component for indicating progress.
@@ -106,6 +108,9 @@ import { NbComponentOrCustomStatus } from '../component-status';
       </div>
     </div>
   `,
+  imports: [
+    CommonModule,
+  ],
 })
 export class NbProgressBarComponent {
 

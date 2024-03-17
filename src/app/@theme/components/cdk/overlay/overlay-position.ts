@@ -285,9 +285,7 @@ export class NbGlobalPositionStrategy extends GlobalPositionStrategy {
   }
 }
 
-@Injectable(
-  {providedIn: 'root'},
-)
+@Injectable()
 export class NbPositionBuilderService {
   constructor(
     @Inject(NB_DOCUMENT) protected document,

@@ -28,7 +28,9 @@ import { fromEvent, merge, Observable, Subject, Subscription } from 'rxjs';
 import { distinctUntilChanged, filter, map, pairwise, startWith, take, takeUntil, tap } from 'rxjs/operators';
 
 import { NB_DOCUMENT } from '../../theme.options';
+import { DOCUMENT } from '@angular/common';
 import { NbDateService } from '../calendar-kit/services/date.service';
+import { NbDateAdapterService, NbDateTimeAdapterService, NbRangeAdapterService } from './datepicker-adapter';
 
 /**
  * The `NbDatepickerAdapter` instances provide way how to parse, format and validate
@@ -262,6 +264,7 @@ export const NB_DATE_SERVICE_OPTIONS = new InjectionToken('Date service options'
  * datepicker-shadow:
  * */
 @Directive({
+  standalone: true,
   selector: 'input[nbDatepicker]',
   providers: [
     {
@@ -273,6 +276,26 @@ export const NB_DATE_SERVICE_OPTIONS = new InjectionToken('Date service options'
       provide: NG_VALIDATORS,
       useExisting: forwardRef(() => NbDatepickerDirective),
       multi: true,
+    },
+    {
+      provide: NB_DOCUMENT,
+      useExisting: DOCUMENT,
+      multi: true,
+    },
+    {
+      provide: NB_DATE_ADAPTER,
+      multi: true,
+      useClass: NbDateAdapterService,
+    },
+    {
+      provide: NB_DATE_ADAPTER,
+      multi: true,
+      useClass: NbRangeAdapterService,
+    },
+    {
+      provide: NB_DATE_ADAPTER,
+      multi: true,
+      useClass: NbDateTimeAdapterService,
     },
   ],
 })

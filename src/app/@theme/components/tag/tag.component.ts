@@ -26,6 +26,8 @@ import { NbHighlightableOption } from '../cdk/a11y/descendant-key-manager';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbComponentOrCustomStatus } from '../component-status';
 import { NbComponentSize } from '../component-size';
+import { CommonModule } from '@angular/common';
+import { NbIconComponent } from '../icon/icon.component';
 
 export type NbTagAppearance = 'filled' | 'outline';
 
@@ -233,6 +235,10 @@ let tagUniqueId = 0;
   templateUrl: './tag.component.html',
   exportAs: 'nbTag',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    NbIconComponent,
+    CommonModule,
+  ]
 })
 export class NbTagComponent implements AfterViewInit, OnDestroy, NbHighlightableOption {
 

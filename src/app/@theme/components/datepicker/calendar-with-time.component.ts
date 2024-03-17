@@ -14,8 +14,14 @@ import { NbCalendarTimeModelService } from '../calendar-kit/services/calendar-ti
 import { NbCalendarSize } from '../calendar-kit/model';
 import { NbPortalOutletDirective } from '../cdk/overlay/mapping';
 import { NbTimePickerComponent } from '../timepicker/timepicker.component';
+import { CommonModule } from '@angular/common';
+import { NbCardBodyComponent, NbCardComponent, NbCardFooterComponent, NbCardHeaderComponent } from '../card/card.component';
+import { NbTimePickerDirective } from '../timepicker/timepicker.directive';
+import { NbBaseCalendarComponent } from '../calendar/base-calendar.component';
+import { NbCalendarActionsComponent } from '../calendar-kit/components/calendar-actions/calendar-actions.component';
 
 @Component({
+  standalone: true,
   selector: 'nb-calendar-with-time',
   template: `
     <nb-card class="calendar-with-time">
@@ -73,6 +79,17 @@ import { NbTimePickerComponent } from '../timepicker/timepicker.component';
   `,
   styleUrls: ['./calendar-with-time-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    NbCardComponent,
+    NbCardBodyComponent,
+    NbCardHeaderComponent,
+    NbCardFooterComponent,
+    NbBaseCalendarComponent,
+    NbTimePickerComponent,
+    NbTimePickerDirective,
+    NbCalendarActionsComponent,
+    CommonModule,
+  ],
 })
 export class NbCalendarWithTimeComponent<D> extends NbCalendarComponent<D> implements OnInit, AfterViewInit {
   /**

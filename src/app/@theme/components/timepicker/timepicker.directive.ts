@@ -169,6 +169,7 @@ import { NB_DOCUMENT } from '../../theme.options';
  * timepicker-container-height:
  * */
 @Directive({
+  standalone: true,
   selector: 'input[nbTimepicker]',
   providers: [
     {

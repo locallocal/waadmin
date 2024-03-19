@@ -20,6 +20,8 @@ import { NB_WINDOW_CONTENT, NbWindowConfig, NbWindowState, NB_WINDOW_CONTEXT } f
 import { NbWindowRef } from './window-ref';
 import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
+import { NbIconComponent } from '../icon/icon.component';
+import { NbButtonComponent } from '../button/button.component';
 
 @Component({
   standalone: true,
@@ -74,6 +76,8 @@ import { CommonModule } from '@angular/common';
     NbCardHeaderComponent,
     NbCardBodyComponent,
     NbOverlayContainerComponent,
+    NbIconComponent,
+    NbButtonComponent,
     CommonModule,
   ],
 })

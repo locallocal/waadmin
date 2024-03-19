@@ -6,6 +6,8 @@
 
 import { Component, HostListener, Input } from '@angular/core';
 import { NbTreeGridCellDirective } from './tree-grid-cell.component';
+import { NbButtonComponent } from '../button/button.component';
+import { NbIconComponent } from '../icon/icon.component';
 
 /**
  * NbTreeGridRowToggleComponent
@@ -28,6 +30,13 @@ import { NbTreeGridCellDirective } from './tree-grid-cell.component';
       padding: 0;
     }
   `],
+  imports: [
+    NbButtonComponent,
+    NbIconComponent,
+  ],
+  providers: [
+    NbTreeGridCellDirective,
+  ]
 })
 export class NbTreeGridRowToggleComponent {
   private expandedValue: boolean;

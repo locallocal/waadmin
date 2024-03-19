@@ -30,8 +30,8 @@ const PAGE_ROUTES: Routes = [{
     },
     {
       path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
+      loadChildren: () => import('./forms/forms-routing.module')
+        .then(m => m.FORM_ROUTES),
     },
     {
       path: 'ui-features',
@@ -65,8 +65,8 @@ const PAGE_ROUTES: Routes = [{
     },
     {
       path: 'tables',
-      loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
+      loadChildren: () => import('./tables/tables-routing.module')
+        .then(m => m.TABLE_ROUTES),
     },
     {
       path: 'miscellaneous',

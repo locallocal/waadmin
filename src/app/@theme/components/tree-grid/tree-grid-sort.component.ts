@@ -19,6 +19,9 @@ import {
 
 import { convertToBoolProperty, NbBooleanInput, NbNullableInput } from '../helpers';
 import { NB_SORT_HEADER_COLUMN_DEF } from '../cdk/table/cell';
+import { CommonModule } from '@angular/common';
+import { NbIconComponent } from '../icon/icon.component';
+import { NbButtonComponent } from '../button/button.component';
 
 /** Column definition associated with a `NbSortHeaderDirective`. */
 interface NbSortHeaderColumnDef {
@@ -49,7 +52,10 @@ const sortDirections: NbSortDirection[] = [
 /**
  * Directive triggers sort method of passed object when sort header changes direction
  */
-@Directive({ selector: '[nbSort]' })
+@Directive({
+  standalone: true,
+  selector: '[nbSort]' 
+})
 export class NbSortDirective {
   @Input('nbSort') sortable: NbSortable;
   static ngAcceptInputType_sortable: NbSortable | NbNullableInput;
@@ -88,6 +94,10 @@ export class NbSortHeaderIconDirective {}
       <nb-icon *ngIf="isDescending()" icon="chevron-up-outline" pack="nebular-essentials" aria-hidden="true"></nb-icon>
     </ng-container>
   `,
+  imports: [
+    CommonModule,
+    NbIconComponent,
+  ]
 })
 export class NbSortIconComponent {
   @Input() direction: NbSortDirection = NbSortDirection.NONE;
@@ -109,6 +119,7 @@ export class NbSortIconComponent {
  * Marks header as sort header so it emitting sort event when clicked.
  */
 @Component({
+  standalone: true,
   selector: '[nbSortHeader]',
   template: `
     <button
@@ -121,6 +132,10 @@ export class NbSortIconComponent {
     <nb-sort-icon *ngIf="!sortIcon; else customIcon" [direction]="direction"></nb-sort-icon>
     <ng-template #customIcon [ngTemplateOutlet]="sortIcon" [ngTemplateOutletContext]="getIconContext()"></ng-template>
   `,
+  imports: [
+    CommonModule,
+    NbButtonComponent,
+  ]
 })
 export class NbSortHeaderComponent {
 

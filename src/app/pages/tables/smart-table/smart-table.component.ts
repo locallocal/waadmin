@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import { LocalDataSource, Ng2SmartTableComponent, Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../../../@theme/components/card/card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'ngx-smart-table',
   templateUrl: './smart-table.component.html',
   styleUrls: ['./smart-table.component.scss'],
+  imports: [
+    NbCardComponent,
+    NbCardBodyComponent,
+    NbCardHeaderComponent,
+    CommonModule,
+    Ng2SmartTableModule,
+  ]
 })
 export class SmartTableComponent {
 

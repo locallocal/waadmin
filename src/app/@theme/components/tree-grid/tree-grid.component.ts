@@ -20,6 +20,7 @@ import {
   ViewContainerRef,
   Optional,
   SkipSelf,
+  forwardRef,
 } from '@angular/core';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
@@ -143,7 +144,7 @@ import { NbColumnsService } from './tree-grid-columns.service';
   template: NB_TABLE_TEMPLATE,
   styleUrls: ['./tree-grid.component.scss'],
   providers: [
-    { provide: NB_TREE_GRID, useExisting: NbTreeGridComponent },
+    { provide: NB_TREE_GRID, useExisting: forwardRef(() => NbTreeGridComponent) },
     NbColumnsService,
     ...NB_TABLE_PROVIDERS,
   ],

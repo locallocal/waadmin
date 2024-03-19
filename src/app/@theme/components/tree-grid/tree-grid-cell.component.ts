@@ -13,6 +13,7 @@ import {
   OnInit,
   OnDestroy,
   PLATFORM_ID,
+  forwardRef,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
@@ -35,7 +36,7 @@ import { NbColumnsService } from './tree-grid-columns.service';
     'class': 'nb-tree-grid-cell',
     'role': 'gridcell',
   },
-  providers: [{ provide: NbCdkCell, useExisting: NbTreeGridCellDirective }],
+  providers: [{ provide: NbCdkCell, useExisting: forwardRef(() => NbTreeGridCellDirective) }],
 })
 export class NbTreeGridCellDirective extends NbCellDirective implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
@@ -147,7 +148,7 @@ export class NbTreeGridCellDirective extends NbCellDirective implements OnInit, 
     'class': 'nb-tree-grid-header-cell',
     'role': 'columnheader',
   },
-  providers: [{ provide: NbCdkHeaderCell, useExisting: NbTreeGridHeaderCellDirective }],
+  providers: [{ provide: NbCdkHeaderCell, useExisting: forwardRef(() => NbTreeGridHeaderCellDirective) }],
 })
 export class NbTreeGridHeaderCellDirective extends NbHeaderCellDirective implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
@@ -192,7 +193,7 @@ export class NbTreeGridHeaderCellDirective extends NbHeaderCellDirective impleme
     'class': 'nb-tree-grid-footer-cell',
     'role': 'gridcell',
   },
-  providers: [{ provide: NbCdkFooterCell, useExisting: NbTreeGridFooterCellDirective }],
+  providers: [{ provide: NbCdkFooterCell, useExisting: forwardRef(() => NbTreeGridFooterCellDirective) }],
 })
 export class NbTreeGridFooterCellDirective extends NbFooterCellDirective implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();

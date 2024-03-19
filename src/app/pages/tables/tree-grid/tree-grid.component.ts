@@ -1,5 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../../../@theme/components/card/card.component';
+import { CommonModule } from '@angular/common';
+import { NbIconComponent } from '../../../@theme/components/icon/icon.component';
+import { NbTreeGridRowToggleComponent } from '../../../@theme/components/tree-grid/tree-grid-row-toggle.component';
+import { NbFilterInputDirective } from '../../../@theme/components/tree-grid/tree-grid-filter';
+import { NbTreeGridColumnDefDirective } from '../../../@theme/components/tree-grid/tree-grid-column-def.directive';
+import { NbTreeGridComponent } from '../../../@theme/components/tree-grid/tree-grid.component';
+import { NbSortDirective } from '../../../@theme/components/tree-grid/tree-grid-sort.component';
 
 interface TreeNode<T> {
   data: T;
@@ -15,9 +23,23 @@ interface FSEntry {
 }
 
 @Component({
+  standalone: true,
   selector: 'ngx-tree-grid',
   templateUrl: './tree-grid.component.html',
   styleUrls: ['./tree-grid.component.scss'],
+  imports: [
+    NbCardComponent,
+    NbCardBodyComponent,
+    NbCardHeaderComponent,
+    NbFilterInputDirective,
+    NbTreeGridColumnDefDirective,
+    NbSortDirective,
+    CommonModule,
+    NbTreeGridComponent,
+  ],
+  providers: [
+    NbTreeGridDataSourceBuilder,
+  ]
 })
 export class TreeGridComponent {
   customColumn = 'name';
@@ -79,6 +101,7 @@ export class TreeGridComponent {
 }
 
 @Component({
+  standalone: true,
   selector: 'ngx-fs-icon',
   template: `
     <nb-tree-grid-row-toggle [expanded]="expanded" *ngIf="isDir(); else fileIcon">
@@ -87,6 +110,11 @@ export class TreeGridComponent {
       <nb-icon icon="file-text-outline"></nb-icon>
     </ng-template>
   `,
+  imports: [
+    NbTreeGridRowToggleComponent,
+    NbIconComponent,
+    CommonModule,
+  ]
 })
 export class FsIconComponent {
   @Input() kind: string;

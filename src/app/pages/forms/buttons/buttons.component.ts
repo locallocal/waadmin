@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { NbComponentShape, NbComponentSize, NbComponentStatus, NbThemeService } from '@nebular/theme';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../../../@theme/components/card/card.component';
 import { NbActionComponent, NbActionsComponent } from '../../../@theme/components/actions/actions.component';
 import { NbUserComponent } from '../../../@theme/components/user/user.component';
 import { NbIconComponent } from '../../../@theme/components/icon/icon.component';
+import { NbThemeService } from '../../../@theme/services/theme.service';
+import { NbComponentStatus } from '../../../@theme/components/component-status';
+import { NbComponentSize } from '../../../@theme/components/component-size';
+import { NbComponentShape } from '../../../@theme/components/component-shape';
 
 @Component({
   standalone: true,

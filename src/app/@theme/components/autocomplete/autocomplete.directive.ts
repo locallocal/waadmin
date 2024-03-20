@@ -93,11 +93,6 @@ import { NbOverlayContainerAdapter } from '../cdk/adapter/overlay-container-adap
       useExisting: forwardRef(() => NbAutocompleteDirective),
       multi: true,
     },
-    {
-      provide: NB_DOCUMENT,
-      useExisting: DOCUMENT,
-      multi: true,
-    },
     NbOverlayService,
     NbOverlay,
     NbTriggerStrategyBuilderService,

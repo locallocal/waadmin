@@ -37,7 +37,7 @@ export const COMPONENTS_ROUTES: Route[] = [
     {path: 'cards', component: CardsComponent},
     {path: 'checkboxes', component: CheckboxesComponent},
     {path: 'context-menus', component: ContextMenusComponent},
-    // {path: 'datepickers', component: DatepickersComponent},
+    {path: 'datepickers', component: DatepickersComponent},
     {path: 'dialogs', component: DialogsComponent},
     {path: 'icons', component: IconsComponent},
     {path: 'inputs', component: InputsComponent},

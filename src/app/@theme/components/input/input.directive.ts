@@ -17,6 +17,7 @@ import {
   AfterViewInit,
   Renderer2,
   NgZone,
+  forwardRef,
 } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { map, finalize, takeUntil } from 'rxjs/operators';
@@ -222,7 +223,7 @@ import { NbFocusMonitor } from '../cdk/a11y/a11y.module';
   providers: [
     { 
       provide: NbFormFieldControl,
-      useClass: NbInputDirective,
+      useClass: forwardRef(() => NbInputDirective),
     },
   ],
 })

@@ -20,11 +20,15 @@ import { Subject } from 'rxjs';
 
 import { NbDynamicOverlay, NbDynamicOverlayController } from '../cdk/overlay/dynamic/dynamic-overlay';
 import { NbDynamicOverlayHandler } from '../cdk/overlay/dynamic/dynamic-overlay-handler';
-import { NbOverlayConfig, NbOverlayRef } from '../cdk/overlay/mapping';
-import { NbAdjustableConnectedPositionStrategy, NbAdjustment, NbPosition } from '../cdk/overlay/overlay-position';
+import { NbOverlay, NbOverlayConfig, NbOverlayContainer, NbOverlayPositionBuilder, NbOverlayRef } from '../cdk/overlay/mapping';
+import { NbAdjustableConnectedPositionStrategy, NbAdjustment, NbPosition, NbPositionBuilderService } from '../cdk/overlay/overlay-position';
 import { NbTrigger, NbTriggerValues } from '../cdk/overlay/overlay-trigger';
 import { NbContextMenuComponent } from './context-menu.component';
 import { NbMenuItem, NbMenuService } from '../menu/menu.service';
+import { NbViewportRulerAdapter } from '../cdk/adapter/viewport-ruler-adapter';
+import { NbLayoutRulerService } from '../../services/ruler.service';
+import { NbLayoutScrollService } from '../../services/scroll.service';
+import { NbOverlayService } from '../cdk/overlay/overlay-service';
 
 export interface NbContextMenuContext {
   items: NbMenuItem[];
@@ -121,7 +125,18 @@ export interface NbContextMenuContext {
 @Directive({
   standalone: true,
   selector: '[nbContextMenu]',
-  providers: [NbDynamicOverlayHandler, NbDynamicOverlay],
+  providers: [
+    NbPositionBuilderService,
+    NbViewportRulerAdapter,
+    NbDynamicOverlayHandler,
+    NbDynamicOverlay,
+    NbLayoutRulerService,
+    NbLayoutScrollService,
+    NbOverlayPositionBuilder,
+    NbOverlayService,
+    NbOverlay,
+    NbOverlayContainer,
+  ],
 })
 export class NbContextMenuDirective implements NbDynamicOverlayController, OnChanges, AfterViewInit, OnDestroy, OnInit {
 

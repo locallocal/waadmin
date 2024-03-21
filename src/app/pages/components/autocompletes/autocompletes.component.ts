@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NbAutocompleteDirective } from '../../../@theme/components/autocomplete/autocomplete.directive';
+import { NbInputDirective } from '../../../@theme/components/input/input.directive';
 
 @Component({
   standalone: true,
@@ -18,8 +19,9 @@ import { NbAutocompleteDirective } from '../../../@theme/components/autocomplete
     NbCardBodyComponent,
     NbAutocompleteComponent,
     NbOptionComponent,
-    CommonModule,
     NbAutocompleteDirective,
+    NbInputDirective,
+    CommonModule,
   ],
 })
 export class AutocompletesComponent implements OnInit{

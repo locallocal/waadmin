@@ -21,10 +21,6 @@ export const FORM_ROUTES: Route[] = [
         component: FormLayoutsComponent,
       },
       {
-        path: 'layouts',
-        component: FormLayoutsComponent,
-      },
-      {
         path: 'buttons',
         component: ButtonsComponent,
       },

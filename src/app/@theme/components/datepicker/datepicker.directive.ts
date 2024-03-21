@@ -295,7 +295,7 @@ export const NB_DATE_SERVICE_OPTIONS = new InjectionToken('Date service options'
     {
       provide: NB_DATE_ADAPTER,
       multi: true,
-      useClass: NbDateTimeAdapterService,
+      useClass: forwardRef(() => NbDateTimeAdapterService),
     },
   ],
 })

@@ -2,18 +2,23 @@ import { Component, Inject, Input, TemplateRef, ViewChild } from '@angular/core'
 import { NbStepperComponent } from './stepper.component';
 import { NB_STEPPER } from './stepper-tokens';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
+import { CommonModule } from '@angular/common';
 
 /**
  * Component intended to be used within  the `<nb-stepper>` component.
  * Container for a step
  */
 @Component({
+  standalone: true,
   selector: 'nb-step',
   template: `
     <ng-template>
       <ng-content></ng-content>
     </ng-template>
   `,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbStepComponent {
 

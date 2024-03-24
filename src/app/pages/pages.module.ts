@@ -22,7 +22,17 @@ import { PLATFORM_ID } from '@angular/core';
 import { AutocompletesComponent } from './components/autocompletes/autocompletes.component';
 import { BadgesComponent } from './components/badges/badges.component';
 import { ButtongroupsComponent } from './components/buttongroups/buttongroups.component';
-import { TooltipsComponent } from './components/tooltips/tooltips.component';
+import { NB_DATE_ADAPTER } from '../@theme/components/datepicker/datepicker.directive';
+import { NbDateAdapterService, NbDateTimeAdapterService, NbRangeAdapterService } from '../@theme/components/datepicker/datepicker-adapter';
+import { NbDateService } from '../@theme/components/calendar-kit/services/date.service';
+import { NbNativeDateService } from '../@theme/components/calendar-kit/services/native-date.service';
+import { NbViewportRulerAdapter } from '../@theme/components/cdk/adapter/viewport-ruler-adapter';
+import { NbLayoutRulerService } from '../@theme/services/ruler.service';
+import { NbLayoutScrollService } from '../@theme/services/scroll.service';
+import { NbOverlay, NbOverlayPositionBuilder } from '../@theme/components/cdk/overlay/mapping';
+import { NbPositionBuilderService } from '../@theme/components/cdk/overlay/overlay-position';
+import { NbTriggerStrategyBuilderService } from '../@theme/components/cdk/overlay/overlay-trigger';
+import { NbOverlayService } from '../@theme/components/cdk/overlay/overlay-service';
 
 export function windowFactory(platformId: Object): Window | undefined {
   if (isPlatformBrowser(platformId)) {
@@ -59,14 +69,22 @@ export function windowFactory(platformId: Object): Window | undefined {
     PagesComponent,
   ],
   providers: [
+    NbPositionBuilderService,
+    NbTriggerStrategyBuilderService,
+    NbOverlayService,
     NbLayoutDirectionService,
     NbMenuInternalService,
-    {
-      provide: NB_WINDOW,
-      useFactory: windowFactory,
-      deps: [ PLATFORM_ID ]
-    },
-  ]
+    NbViewportRulerAdapter,
+    NbLayoutRulerService,
+    NbLayoutScrollService,
+    NbOverlayPositionBuilder,
+    NbOverlay,
+    { provide: NbDateService, useClass: NbNativeDateService },
+    { provide: NB_WINDOW, useFactory: windowFactory, deps: [ PLATFORM_ID ] },
+    { provide: NB_DATE_ADAPTER, multi: true, useClass: NbDateAdapterService },
+    { provide: NB_DATE_ADAPTER, multi: true, useClass: NbRangeAdapterService },
+    { provide: NB_DATE_ADAPTER, multi: true, useClass: NbDateTimeAdapterService },
+  ],
 })
 export class PagesModule {
 }

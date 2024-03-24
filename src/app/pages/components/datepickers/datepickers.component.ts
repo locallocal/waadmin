@@ -12,10 +12,10 @@ import { NbInputDirective } from '../../../@theme/components/input/input.directi
   imports: [
     NbCardComponent,
     NbCardBodyComponent,
-    NbDatepickerComponent,
     NbInputDirective,
     NbDatepickerDirective,
-  ]
+    NbDatepickerComponent,
+  ],
 })
 export class DatepickersComponent {
 

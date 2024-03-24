@@ -27,6 +27,7 @@ export interface NbRenderableContainer {
 }
 
 @Component({
+  standalone: true,
   template: '',
 })
 export class NbPositionedContainerComponent {

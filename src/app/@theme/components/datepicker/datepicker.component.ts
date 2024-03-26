@@ -291,7 +291,7 @@ export abstract class NbBasePicker<D, T, P> extends NbDatepicker<T, D> {
   }
 
   protected openDatepicker() {
-    //this.container = this.ref.attach(new NbComponentPortal(NbDatepickerContainerComponent, null, null, this.cfr));
+    // this.container = this.ref.attach(new NbComponentPortal(NbDatepickerContainerComponent, null, null, this.cfr));
     this.instantiatePicker();
     this.subscribeOnValueChange();
     this.writeQueue();
@@ -378,7 +378,6 @@ export abstract class NbBasePicker<D, T, P> extends NbDatepicker<T, D> {
 }
 
 @Component({
-  standalone: true,
   template: '',
 })
 export class NbBasePickerComponent<D, T, P> extends NbBasePicker<D, T, P> implements OnInit, OnChanges, OnDestroy {

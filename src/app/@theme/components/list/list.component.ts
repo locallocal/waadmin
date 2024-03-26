@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, HostBinding } from '@angular/core';
+import { NbInfiniteListDirective } from './infinite-list.directive';
 
 /**
  * List is a container component that wraps `nb-list-item` component.
@@ -42,6 +44,9 @@ import { Component, Input, HostBinding } from '@angular/core';
   selector: 'nb-list',
   template: `<ng-content select="nb-list-item"></ng-content>`,
   styleUrls: [ './list.component.scss' ],
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbListComponent {
   /**

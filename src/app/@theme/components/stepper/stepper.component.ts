@@ -13,10 +13,12 @@ import {
   Output,
   QueryList,
   TemplateRef,
+  forwardRef
 } from '@angular/core';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NB_STEPPER } from './stepper-tokens';
 import { NbStepComponent } from './step.component';
+import { CommonModule } from '@angular/common';
 
 export type NbStepperOrientation = 'vertical' | 'horizontal';
 
@@ -122,7 +124,10 @@ export interface NbStepChangeEvent {
   selector: 'nb-stepper',
   styleUrls: ['./stepper.component.scss'],
   templateUrl: './stepper.component.html',
-  providers: [{ provide: NB_STEPPER, useExisting: NbStepperComponent }],
+  providers: [{ provide: NB_STEPPER, useExisting: forwardRef(() => NbStepperComponent)}],
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbStepperComponent {
   /**

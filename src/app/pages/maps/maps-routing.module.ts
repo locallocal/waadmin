@@ -12,19 +12,12 @@ import { SearchComponent } from './search-map/search/search.component';
 const routes: Routes = [{
   path: '',
   component: MapsComponent,
-  children: [{
-    path: 'gmaps',
-    component: GmapsComponent,
-  }, {
-    path: 'leaflet',
-    component: LeafletComponent,
-  }, {
-    path: 'bubble',
-    component: BubbleMapComponent,
-  }, {
-    path: 'searchmap',
-    component: SearchMapComponent,
-  }],
+  children: [
+    // { path: 'gmaps', component: GmapsComponent }, 
+    // { path: 'leaflet', component: LeafletComponent },
+    // { path: 'bubble', component: BubbleMapComponent },
+    // { path: 'searchmap', component: SearchMapComponent },
+  ]
 }];
 
 @NgModule({

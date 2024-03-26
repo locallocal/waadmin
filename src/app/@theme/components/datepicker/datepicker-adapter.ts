@@ -5,7 +5,6 @@
  */
 
 import { Injectable, Type } from '@angular/core';
-
 import { NbCalendarRange } from '../calendar/calendar-range.component';
 import { NbDatepickerComponent, NbRangepickerComponent } from './datepicker.component';
 import { NbDatepickerAdapter } from './datepicker.directive';

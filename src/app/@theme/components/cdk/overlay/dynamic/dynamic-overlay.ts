@@ -15,9 +15,7 @@ export interface NbDynamicOverlayController {
   rebuild();
 }
 
-@Injectable(
-  {providedIn: 'root'},
-)
+@Injectable()
 export class NbDynamicOverlay {
   protected ref: NbOverlayRef;
   protected container: ComponentRef<NbRenderableContainer>;

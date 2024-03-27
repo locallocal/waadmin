@@ -1,16 +1,13 @@
 import { Component, EventEmitter } from '@angular/core';
-import {
-  NbCalendarCell,
-  NbCalendarDayPickerComponent,
-  NbCalendarMonthModelService,
-  NbDateService,
-} from '@nebular/theme';
+import { NbCalendarCell, NbCalendarDayPickerComponent, NbCalendarMonthModelService, NbDateService, NbCalendarKitModule } from '@nebular/theme';
 import { TranslationWidth } from '@angular/common';
 
 @Component({
-  selector: 'ngx-calendar-kit-month-cell',
-  styleUrls: ['month-cell.component.scss'],
-  templateUrl: 'month-cell.component.html',
+    selector: 'ngx-calendar-kit-month-cell',
+    styleUrls: ['month-cell.component.scss'],
+    templateUrl: 'month-cell.component.html',
+    standalone: true,
+    imports: [NbCalendarKitModule]
 })
 export class CalendarKitMonthCellComponent extends NbCalendarDayPickerComponent<Date, Date>
   implements NbCalendarCell<Date, Date> {

@@ -1,12 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpoint, NbMediaBreakpointsService, NbThemeService } from '@nebular/theme';
+import { NbMediaBreakpoint, NbMediaBreakpointsService, NbThemeService, NbCardModule } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { CountryOrderData } from '../../../@core/data/country-order';
+import { CountryOrdersChartComponent } from './chart/country-orders-chart.component';
+import { CountryOrdersMapComponent } from './map/country-orders-map.component';
 
 @Component({
-  selector: 'ngx-country-orders',
-  styleUrls: ['./country-orders.component.scss'],
-  template: `
+    selector: 'ngx-country-orders',
+    styleUrls: ['./country-orders.component.scss'],
+    template: `
     <nb-card [size]="breakpoint.width >= breakpoints.md ? 'medium' : 'giant'">
       <nb-card-header>Country Orders Statistics</nb-card-header>
       <nb-card-body>
@@ -21,6 +23,8 @@ import { CountryOrderData } from '../../../@core/data/country-order';
       </nb-card-body>
     </nb-card>
   `,
+    standalone: true,
+    imports: [NbCardModule, CountryOrdersMapComponent, CountryOrdersChartComponent]
 })
 export class CountryOrdersComponent implements OnInit, OnDestroy {
 

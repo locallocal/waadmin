@@ -22,10 +22,10 @@ describe('Component: NbCalendarPageableNavigation', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbThemeModule.forRoot(), NbIconModule],
-      declarations: [NbCalendarViewModeComponent, NbCalendarPageableNavigationComponent],
-      providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe],
-    });
+    imports: [NbThemeModule.forRoot(), NbIconModule],
+    declarations: [NbCalendarViewModeComponent, NbCalendarPageableNavigationComponent],
+    providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe]
+});
     fixture = TestBed.createComponent<NbCalendarPageableNavigationComponent<Date>>(
       NbCalendarPageableNavigationComponent,
     );

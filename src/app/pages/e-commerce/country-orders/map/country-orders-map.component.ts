@@ -6,14 +6,17 @@ import { CountryOrdersMapService } from './country-orders-map.service';
 import { NbThemeService } from '@nebular/theme';
 import { combineLatest } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @Component({
-  selector: 'ngx-country-orders-map',
-  styleUrls: ['./country-orders-map.component.scss'],
-  template: `
+    selector: 'ngx-country-orders-map',
+    styleUrls: ['./country-orders-map.component.scss'],
+    template: `
     <div leaflet [leafletOptions]="options" [leafletLayers]="layers" (leafletMapReady)="mapReady($event)"></div>
   `,
+    standalone: true,
+    imports: [LeafletModule]
 })
 export class CountryOrdersMapComponent implements OnDestroy {
 

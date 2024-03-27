@@ -50,14 +50,14 @@ const components = [
 ];
 
 @NgModule({
-  imports: [
-    ThemeModule,
-    ChartsRoutingModule,
-    NgxEchartsModule,
-    NgxChartsModule,
-    ChartModule,
-    NbCardModule,
-  ],
-  declarations: [...routedComponents, ...components],
+    imports: [
+        ThemeModule,
+        ChartsRoutingModule,
+        NgxEchartsModule,
+        NgxChartsModule,
+        ChartModule,
+        NbCardModule,
+        ...routedComponents, ...components
+    ]
 })
 export class ChartsModule {}

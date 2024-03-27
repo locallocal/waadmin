@@ -14,18 +14,20 @@ import {
 
 const WINDOW_CONTENT = 'window content';
 @Component({
-  selector: 'nb-test-window',
-  template: WINDOW_CONTENT,
+    selector: 'nb-test-window',
+    template: WINDOW_CONTENT,
+    standalone: true
 })
 class NbTestWindowComponent {}
 
 @Component({
-  selector: 'nb-test-window-with-template',
-  template: `
+    selector: 'nb-test-window-with-template',
+    template: `
     <ng-template #contentTemplate let-data>
       <p>Static text: {{ data.text }}</p>
     </ng-template>
   `,
+    standalone: true
 })
 class NbTestWindowWithTemplateComponent {
   @ViewChild('contentTemplate') contentTemplate: TemplateRef<any>;
@@ -41,16 +43,14 @@ class NbTestWindowWithTemplateComponent {
 }
 
 @Component({
-  selector: 'nb-test-window-with-component',
-  template: `<p id="window-content">window content {{ componentInput }}</p>
+    selector: 'nb-test-window-with-component',
+    template: `<p id="window-content">window content {{ componentInput }}</p>
     <p></p>`,
+    standalone: true
 })
 export class TestWindowComponent {}
 
-@NgModule({
-  declarations: [NbTestWindowComponent, NbTestWindowWithTemplateComponent, TestWindowComponent],
-})
-class NbTestWindowModule {}
+
 
 let overlayContainerService: NbOverlayContainerAdapter;
 let overlayContainer: HTMLElement;
@@ -71,7 +71,7 @@ class NbViewportRulerAdapterMock {
 describe('window-service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbThemeModule.forRoot(), NbWindowModule.forRoot(), NbTestWindowModule],
+      imports: [NbThemeModule.forRoot(), NbWindowModule.forRoot()],
       providers: [{ provide: NbViewportRulerAdapter, useClass: NbViewportRulerAdapterMock }],
     });
     windowService = TestBed.inject(NbWindowService);

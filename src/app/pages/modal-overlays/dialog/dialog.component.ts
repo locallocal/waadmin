@@ -1,12 +1,16 @@
 import { Component, TemplateRef } from '@angular/core';
-import { NbDialogService } from '@nebular/theme';
+import { NbDialogService, NbCardModule, NbButtonModule } from '@nebular/theme';
 import { ShowcaseDialogComponent } from './showcase-dialog/showcase-dialog.component';
 import { DialogNamePromptComponent } from './dialog-name-prompt/dialog-name-prompt.component';
+import { NgFor } from '@angular/common';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
-  selector: 'ngx-dialog',
-  templateUrl: 'dialog.component.html',
-  styleUrls: ['dialog.component.scss'],
+    selector: 'ngx-dialog',
+    templateUrl: 'dialog.component.html',
+    styleUrls: ['dialog.component.scss'],
+    standalone: true,
+    imports: [NbCardModule, NbButtonModule, MatRippleModule, NgFor]
 })
 export class DialogComponent {
 

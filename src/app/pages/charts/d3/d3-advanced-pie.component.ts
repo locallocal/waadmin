@@ -1,14 +1,17 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { PieChartModule } from '@swimlane/ngx-charts';
 
 @Component({
-  selector: 'ngx-d3-advanced-pie',
-  template: `
+    selector: 'ngx-d3-advanced-pie',
+    template: `
     <ngx-charts-advanced-pie-chart
       [scheme]="colorScheme"
       [results]="single">
     </ngx-charts-advanced-pie-chart>
   `,
+    standalone: true,
+    imports: [PieChartModule]
 })
 export class D3AdvancedPieComponent implements OnDestroy {
   single = [

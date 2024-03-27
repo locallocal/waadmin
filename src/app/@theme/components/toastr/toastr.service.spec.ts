@@ -16,14 +16,16 @@ import {
 } from '@nebular/theme';
 
 @Component({
-  selector: 'nb-toastr-test',
-  template: `
+    selector: 'nb-toastr-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <div class="test-div"></div>
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule]
 })
 export class NbToastrTestComponent {
   constructor(private toastrService: NbToastrService) {}
@@ -39,15 +41,15 @@ describe('toastr-component', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule.withRoutes([]),
-          NoopAnimationsModule,
-          NbThemeModule.forRoot(),
-          NbLayoutModule,
-          NbToastrModule.forRoot(),
-        ],
-        declarations: [NbToastrTestComponent],
-      }).compileComponents();
+    imports: [
+        RouterTestingModule.withRoutes([]),
+        NoopAnimationsModule,
+        NbThemeModule.forRoot(),
+        NbLayoutModule,
+        NbToastrModule.forRoot(),
+        NbToastrTestComponent
+    ]
+}).compileComponents();
 
       fixture = TestBed.createComponent(NbToastrTestComponent);
     }),

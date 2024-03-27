@@ -1,13 +1,20 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService, NbCardModule, NbTabsetModule, NbRadioModule } from '@nebular/theme';
 import { Temperature, TemperatureHumidityData } from '../../../@core/data/temperature-humidity';
 import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+import { RoundPipe } from '../../../@theme/pipes/round.pipe';
+import { MatRippleModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
+import { TemperatureDraggerComponent } from './temperature-dragger/temperature-dragger.component';
 
 @Component({
-  selector: 'ngx-temperature',
-  styleUrls: ['./temperature.component.scss'],
-  templateUrl: './temperature.component.html',
+    selector: 'ngx-temperature',
+    styleUrls: ['./temperature.component.scss'],
+    templateUrl: './temperature.component.html',
+    standalone: true,
+    imports: [NbCardModule, NbTabsetModule, TemperatureDraggerComponent, NgClass, NbRadioModule, FormsModule, MatRippleModule, RoundPipe]
 })
 export class TemperatureComponent implements OnDestroy {
 

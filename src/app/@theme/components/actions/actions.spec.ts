@@ -19,13 +19,15 @@ import {
 const ICON_NAME = 'chevron-left-outline';
 
 @Component({
-  template: `
+    template: `
     <nb-actions>
       <nb-action [icon]="icon" [link]="link">
         <ng-container *ngIf="projectContent">{{ projectedText }}</ng-container>
       </nb-action>
     </nb-actions>
   `,
+    standalone: true,
+    imports: [NbActionsModule]
 })
 export class NbActionsTestComponent {
   projectContent: boolean = false;
@@ -194,9 +196,8 @@ describe('NbActionComponent content projection', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes([]), NbThemeModule.forRoot(), NbActionsModule],
-      declarations: [NbActionsTestComponent],
-    });
+    imports: [RouterTestingModule.withRoutes([]), NbThemeModule.forRoot(), NbActionsModule, NbActionsTestComponent]
+});
     const iconLibs: NbIconLibraries = TestBed.inject(NbIconLibraries);
     iconLibs.setDefaultPack('nebular-essentials');
 

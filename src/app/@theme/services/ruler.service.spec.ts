@@ -17,13 +17,15 @@ let componentInstance: RulerTestComponent;
 let rulerService: NbLayoutRulerService;
 
 @Component({
-  template: `
+    template: `
     <nb-layout [withScroll]="localScroll" #layout>
       <nb-layout-column>
         <div #resize></div>
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule]
 })
 class RulerTestComponent {
   @ViewChild('resize', { read: ElementRef }) private resizeElement: ElementRef;
@@ -52,10 +54,9 @@ class RulerTestComponent {
 describe('NbLayoutRulerService', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      imports: [RouterModule.forRoot([]), NbThemeModule.forRoot(), NbLayoutModule],
-      providers: [NbLayoutRulerService, NbThemeService, { provide: APP_BASE_HREF, useValue: '/' }],
-      declarations: [RulerTestComponent],
-    }).createComponent(RulerTestComponent);
+    imports: [RouterModule.forRoot([]), NbThemeModule.forRoot(), NbLayoutModule, RulerTestComponent],
+    providers: [NbLayoutRulerService, NbThemeService, { provide: APP_BASE_HREF, useValue: '/' }]
+}).createComponent(RulerTestComponent);
 
     componentInstance = fixture.componentInstance;
 

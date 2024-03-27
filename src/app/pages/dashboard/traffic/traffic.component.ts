@@ -1,13 +1,16 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService, NbCardModule, NbSelectModule, NbOptionModule } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 
 import { TrafficChartData } from '../../../@core/data/traffic-chart';
+import { TrafficChartComponent } from './traffic-chart.component';
+import { NgFor } from '@angular/common';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
-  selector: 'ngx-traffic',
-  styleUrls: ['./traffic.component.scss'],
-  template: `
+    selector: 'ngx-traffic',
+    styleUrls: ['./traffic.component.scss'],
+    template: `
     <nb-card size="tiny">
       <nb-card-header>
         <span>Traffic Consumption</span>
@@ -20,6 +23,8 @@ import { TrafficChartData } from '../../../@core/data/traffic-chart';
       <ngx-traffic-chart [points]="trafficChartPoints"></ngx-traffic-chart>
     </nb-card>
   `,
+    standalone: true,
+    imports: [NbCardModule, NbSelectModule, MatRippleModule, NgFor, NbOptionModule, TrafficChartComponent]
 })
 export class TrafficComponent implements OnDestroy {
 

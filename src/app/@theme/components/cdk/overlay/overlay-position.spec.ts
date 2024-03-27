@@ -25,15 +25,12 @@ export class MockViewportRulerAdapter extends NbViewportRulerAdapter {
 }
 
 @Component({
-  template: `portal-component`,
+    template: `portal-component`,
+    standalone: true
 })
 export class PortalComponent {}
 
-@NgModule({
-  declarations: [PortalComponent],
-  exports: [PortalComponent],
-})
-export class PortalModule {}
+
 
 describe('NbAdjustableConnectedPositionStrategy', () => {
   let strategy: NbAdjustableConnectedPositionStrategy;
@@ -43,12 +40,11 @@ describe('NbAdjustableConnectedPositionStrategy', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        NbThemeModule.forRoot(),
-        NbOverlayModule.forRoot(),
-        NbLayoutModule,
-        PortalModule,
-        RouterTestingModule.withRoutes([]),
-      ],
+    NbThemeModule.forRoot(),
+    NbOverlayModule.forRoot(),
+    NbLayoutModule,
+    RouterTestingModule.withRoutes([])
+],
       providers: [{ provide: NbViewportRulerAdapter, useClass: MockViewportRulerAdapter }],
     });
 

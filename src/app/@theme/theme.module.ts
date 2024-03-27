@@ -75,9 +75,8 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, MatRippleModule, ...NB_MODULES],
-  exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES],
+    imports: [CommonModule, MatRippleModule, ...NB_MODULES, ...COMPONENTS, ...PIPES],
+    exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS]
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

@@ -2,8 +2,9 @@ import { Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild 
 import { PositionModel } from '../entity/position.model';
 
 @Component({
-  selector: 'ngx-search',
-  templateUrl: './search.component.html',
+    selector: 'ngx-search',
+    templateUrl: './search.component.html',
+    standalone: true
 })
 export class SearchComponent implements OnInit {
 

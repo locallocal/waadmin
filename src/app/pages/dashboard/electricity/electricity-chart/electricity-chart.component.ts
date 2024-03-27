@@ -3,11 +3,12 @@ import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../../@core/utils';
 import { ElectricityChart } from '../../../../@core/data/electricity';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @Component({
-  selector: 'ngx-electricity-chart',
-  styleUrls: ['./electricity-chart.component.scss'],
-  template: `
+    selector: 'ngx-electricity-chart',
+    styleUrls: ['./electricity-chart.component.scss'],
+    template: `
     <div echarts
          [options]="option"
          [merge]="option"
@@ -15,6 +16,8 @@ import { ElectricityChart } from '../../../../@core/data/electricity';
          (chartInit)="onChartInit($event)">
     </div>
   `,
+    standalone: true,
+    imports: [NgxEchartsModule]
 })
 export class ElectricityChartComponent implements AfterViewInit, OnDestroy {
 

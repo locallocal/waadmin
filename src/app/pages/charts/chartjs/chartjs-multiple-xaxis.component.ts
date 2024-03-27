@@ -1,11 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { ChartModule } from 'angular2-chartjs';
 
 @Component({
-  selector: 'ngx-chartjs-multiple-xaxis',
-  template: `
+    selector: 'ngx-chartjs-multiple-xaxis',
+    template: `
     <chart type="line" [data]="data" [options]="options"></chart>
   `,
+    standalone: true,
+    imports: [ChartModule]
 })
 export class ChartjsMultipleXaxisComponent implements OnDestroy {
   data: {};

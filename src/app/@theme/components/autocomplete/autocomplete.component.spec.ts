@@ -66,9 +66,9 @@ class OverlayServiceWithManualKeyDownTrigger extends NbOverlayService {
 }
 
 @Component({
-  standalone: true,
-  selector: 'nb-autocomplete-test',
-  template: `
+    standalone: true,
+    selector: 'nb-autocomplete-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
 
@@ -92,12 +92,17 @@ class OverlayServiceWithManualKeyDownTrigger extends NbOverlayService {
       </nb-layout-column>
     </nb-layout>
   `,
-  imports: [
-    NbLayoutComponent,
-    NbLayoutColumnComponent,
-    NbAutocompleteComponent,
-    NbAutocompleteDirective,
-  ]
+    imports: [
+        NbLayoutComponent,
+        NbLayoutColumnComponent,
+        NbAutocompleteComponent,
+        NbAutocompleteDirective,
+    ],
+    standalone: true,
+    imports: [FormsModule,
+        ReactiveFormsModule,
+        NbLayoutModule,
+        NbAutocompleteModule]
 })
 export class NbAutocompleteTestComponent {
 
@@ -175,22 +180,20 @@ describe('Component: NbAutocompleteComponent', () => {
     };
 
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         NbThemeModule.forRoot(),
         NbLayoutModule,
         NbAutocompleteModule,
-      ],
-      declarations: [
-        NbAutocompleteTestComponent,
-      ],
-      providers: [
+        NbAutocompleteTestComponent
+    ],
+    providers: [
         { provide: NbTriggerStrategyBuilderService, useValue: triggerBuilderStub },
         { provide: NbOverlayService, useClass: OverlayServiceWithManualKeyDownTrigger },
-      ],
-    });
+    ]
+});
 
     fixture = TestBed.createComponent(NbAutocompleteTestComponent);
     fixture.detectChanges();

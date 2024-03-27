@@ -1,11 +1,14 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { NbWindowService } from '@nebular/theme';
+import { NbWindowService, NbCardModule, NbButtonModule } from '@nebular/theme';
 import { WindowFormComponent } from './window-form/window-form.component';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
-  selector: 'ngx-window',
-  templateUrl: 'window.component.html',
-  styleUrls: ['window.component.scss'],
+    selector: 'ngx-window',
+    templateUrl: 'window.component.html',
+    styleUrls: ['window.component.scss'],
+    standalone: true,
+    imports: [NbCardModule, NbButtonModule, MatRippleModule]
 })
 export class WindowComponent {
 

@@ -11,11 +11,13 @@ import { By } from '@angular/platform-browser';
 import { NbComponentStatus, NbComponentSize, NbComponentShape, NbInputModule } from '@nebular/theme';
 
 @Component({
-  template: `
+    template: `
     <input #inputEl nbInput [fieldSize]="size" [status]="status" [shape]="shape" [fullWidth]="fullWidth" />
     <textarea #textareaEl nbInput [fieldSize]="size" [status]="status" [shape]="shape" [fullWidth]="fullWidth">
     </textarea>
   `,
+    standalone: true,
+    imports: [NbInputModule]
 })
 class InputTestComponent {
   @Input() size: NbComponentSize;
@@ -33,9 +35,8 @@ describe('Directive: NbInput', () => {
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      imports: [NbThemeModule.forRoot(), NbInputModule],
-      declarations: [InputTestComponent],
-    }).createComponent(InputTestComponent);
+    imports: [NbThemeModule.forRoot(), NbInputModule, InputTestComponent]
+}).createComponent(InputTestComponent);
 
     inputTestComponent = fixture.componentInstance;
 

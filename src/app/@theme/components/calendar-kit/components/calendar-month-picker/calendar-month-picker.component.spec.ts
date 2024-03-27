@@ -22,10 +22,10 @@ describe('Component: NbCalendarMonthPicker', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NbCalendarMonthPickerComponent],
-      providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe],
-      schemas: [NO_ERRORS_SCHEMA],
-    });
+    declarations: [NbCalendarMonthPickerComponent],
+    providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe],
+    schemas: [NO_ERRORS_SCHEMA]
+});
     fixture = TestBed.createComponent<NbCalendarMonthPickerComponent<Date, Date>>(NbCalendarMonthPickerComponent);
     component = fixture.componentInstance;
     componentEl = fixture.debugElement;

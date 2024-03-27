@@ -1,10 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { NbDialogRef } from '@nebular/theme';
+import { NbDialogRef, NbCardModule, NbButtonModule } from '@nebular/theme';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
-  selector: 'ngx-showcase-dialog',
-  templateUrl: 'showcase-dialog.component.html',
-  styleUrls: ['showcase-dialog.component.scss'],
+    selector: 'ngx-showcase-dialog',
+    templateUrl: 'showcase-dialog.component.html',
+    styleUrls: ['showcase-dialog.component.scss'],
+    standalone: true,
+    imports: [NbCardModule, NbButtonModule, MatRippleModule]
 })
 export class ShowcaseDialogComponent {
 

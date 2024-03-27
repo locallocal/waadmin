@@ -76,11 +76,9 @@ const MODULES = [
 ];
 
 @NgModule({
-  imports: [
-    ...MODULES,
-  ],
-  declarations: [
-    ...COMPONENTS,
-  ],
+    imports: [
+        ...MODULES,
+        ...COMPONENTS
+    ]
 })
 export class ExtraComponentsModule { }

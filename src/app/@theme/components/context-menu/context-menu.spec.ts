@@ -19,14 +19,16 @@ import {
 } from '@nebular/theme';
 
 @Component({
-  selector: 'nb-context-menu-default-test',
-  template: `
+    selector: 'nb-context-menu-default-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button #button [nbContextMenu]="items" [nbContextMenuClass]="contextMenuClass">show context menu</button>
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule, NbContextMenuModule]
 })
 export class NbContextMenuDefaultTestComponent {
   @ViewChild('button') button: ElementRef;
@@ -37,8 +39,8 @@ export class NbContextMenuDefaultTestComponent {
 }
 
 @Component({
-  selector: 'nb-context-menu-bindings-test',
-  template: `
+    selector: 'nb-context-menu-bindings-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button
@@ -52,6 +54,8 @@ export class NbContextMenuDefaultTestComponent {
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule, NbContextMenuModule]
 })
 export class NbContextMenuBindingsTestComponent {
   @ViewChild(NbContextMenuDirective) contextMenu: NbContextMenuDirective;
@@ -64,8 +68,8 @@ export class NbContextMenuBindingsTestComponent {
 }
 
 @Component({
-  selector: 'nb-context-menu-instance-test',
-  template: `
+    selector: 'nb-context-menu-instance-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button #button [nbContextMenu]="items">show context menu</button>
@@ -74,6 +78,8 @@ export class NbContextMenuBindingsTestComponent {
 
     <ng-template>Some Template</ng-template>
   `,
+    standalone: true,
+    imports: [NbLayoutModule, NbContextMenuModule]
 })
 export class NbContextMenuInstanceTestComponent {
   @ViewChild(NbContextMenuDirective) contextMenu: NbContextMenuDirective;
@@ -169,9 +175,8 @@ const TEST_COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [NbLayoutModule, NbContextMenuModule],
-  exports: [...TEST_COMPONENTS],
-  declarations: [...TEST_COMPONENTS],
+    imports: [NbLayoutModule, NbContextMenuModule, ...TEST_COMPONENTS],
+    exports: [...TEST_COMPONENTS]
 })
 class ContextMenuTestModule {}
 

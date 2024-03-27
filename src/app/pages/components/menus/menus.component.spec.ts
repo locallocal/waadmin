@@ -8,8 +8,8 @@ describe('MenusComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenusComponent ]
-    })
+    imports: [MenusComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(MenusComponent);

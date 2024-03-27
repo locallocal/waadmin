@@ -1,16 +1,21 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService, NbIconModule, NbSelectModule, NbOptionModule, NbActionsModule, NbSearchModule, NbUserModule, NbContextMenuModule } from '@nebular/theme';
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
+import { NbSecurityModule } from '@nebular/security';
+import { NgFor, AsyncPipe } from '@angular/common';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
-  selector: 'ngx-header',
-  styleUrls: ['./header.component.scss'],
-  templateUrl: './header.component.html',
+    selector: 'ngx-header',
+    styleUrls: ['./header.component.scss'],
+    templateUrl: './header.component.html',
+    standalone: true,
+    imports: [MatRippleModule, NbIconModule, NbSelectModule, NgFor, NbOptionModule, NbActionsModule, NbSearchModule, NbSecurityModule, NbUserModule, NbContextMenuModule, AsyncPipe]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 

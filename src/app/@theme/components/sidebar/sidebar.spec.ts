@@ -23,12 +23,13 @@ import {
 } from '@nebular/theme';
 
 @Component({
-  template: `
+    template: `
     <nb-sidebar [responsive]="responsive" [state]="state">
       <button id="button-outside-menu"></button>
       <nb-menu [items]="menuItems"></nb-menu>
     </nb-sidebar>
   `,
+    standalone: true
 })
 export class SidebarExpandTestComponent {
   menuItems: NbMenuItem[] = [
@@ -75,19 +76,19 @@ export class MockThemeService {
 describe('NbSidebarComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule.withRoutes([]),
         NoopAnimationsModule,
         NbThemeModule.forRoot(),
         NbSidebarModule.forRoot(),
         NbMenuModule.forRoot(),
-      ],
-      providers: [
+        SidebarExpandTestComponent
+    ],
+    providers: [
         MockThemeService,
         { provide: NbThemeService, useExisting: MockThemeService },
-      ],
-      declarations: [ SidebarExpandTestComponent ],
-    });
+    ]
+});
   });
 
   describe('States (expanded, collapsed, compacted)', () => {

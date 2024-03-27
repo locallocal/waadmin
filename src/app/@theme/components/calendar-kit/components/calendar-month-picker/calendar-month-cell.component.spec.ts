@@ -15,9 +15,9 @@ describe('Component: NbCalendarMonthCell', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NbCalendarMonthCellComponent],
-      providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe],
-    });
+    declarations: [NbCalendarMonthCellComponent],
+    providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe]
+});
     fixture = TestBed.createComponent<NbCalendarMonthCellComponent<Date>>(NbCalendarMonthCellComponent);
     component = fixture.componentInstance;
     componentEl = fixture.debugElement.nativeElement;

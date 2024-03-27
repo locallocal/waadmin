@@ -12,13 +12,15 @@ import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
 @Component({
-  template: `
+    template: `
     <nb-layout withScroll>
       <nb-layout-column>
         <div [style.height]="contentHeight" style="background: lightcoral;"></div>
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule]
 })
 export class LayoutWithScrollModeComponent {
   contentHeight: string = '200vh';
@@ -28,9 +30,8 @@ describe('NbLayoutComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule.withRoutes([]), NbThemeModule.forRoot(), NbLayoutModule ],
-      declarations: [ LayoutWithScrollModeComponent ],
-    });
+    imports: [RouterTestingModule.withRoutes([]), NbThemeModule.forRoot(), NbLayoutModule, LayoutWithScrollModeComponent]
+});
   });
 
   describe('withScroll mode - scroll block', () => {

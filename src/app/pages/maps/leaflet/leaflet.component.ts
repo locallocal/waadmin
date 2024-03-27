@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 
 import * as L from 'leaflet';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { NbCardModule } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-leaflet',
-  styleUrls: ['./leaflet.component.scss'],
-  template: `
+    selector: 'ngx-leaflet',
+    styleUrls: ['./leaflet.component.scss'],
+    template: `
     <nb-card>
       <nb-card-header>Leaflet Maps</nb-card-header>
       <nb-card-body>
@@ -13,6 +15,8 @@ import * as L from 'leaflet';
       </nb-card-body>
     </nb-card>
   `,
+    standalone: true,
+    imports: [NbCardModule, LeafletModule]
 })
 export class LeafletComponent {
 

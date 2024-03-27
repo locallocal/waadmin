@@ -22,8 +22,8 @@ import {
 import { NbLayoutColumnComponent, NbLayoutComponent } from '../layout/layout.component';
 
 @Component({
-  selector: 'nb-datepicker-test',
-  template: `
+    selector: 'nb-datepicker-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <input [nbDatepicker]="datepicker" />
@@ -31,9 +31,11 @@ import { NbLayoutColumnComponent, NbLayoutComponent } from '../layout/layout.com
       </nb-layout-column>
     </nb-layout>
   `,
-  imports: [
-    NbLayoutComponent,
-  ],
+    imports: [
+        NbLayoutComponent,
+    ],
+    standalone: true,
+    imports: [NbLayoutModule]
 })
 export class NbDatepickerTestComponent {
   @ViewChild(NbDatepickerComponent) datepicker: NbDatepickerComponent<Date>;
@@ -41,8 +43,8 @@ export class NbDatepickerTestComponent {
 }
 
 @Component({
-  selector: 'nb-rangepicker-test',
-  template: `
+    selector: 'nb-rangepicker-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <input [nbDatepicker]="rangepicker" />
@@ -50,6 +52,8 @@ export class NbDatepickerTestComponent {
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule]
 })
 export class NbRangepickerTestComponent {
   @ViewChild(NbRangepickerComponent) rangepicker: NbRangepickerComponent<Date>;
@@ -57,8 +61,8 @@ export class NbRangepickerTestComponent {
 }
 
 @Component({
-  selector: 'nb-date-timepicker-test',
-  template: `
+    selector: 'nb-date-timepicker-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <input [nbDatepicker]="rangepicker" />
@@ -66,10 +70,12 @@ export class NbRangepickerTestComponent {
       </nb-layout-column>
     </nb-layout>
   `,
-  imports: [
-    NbLayoutComponent,
-    NbLayoutColumnComponent,
-  ],
+    imports: [
+        NbLayoutComponent,
+        NbLayoutColumnComponent,
+    ],
+    standalone: true,
+    imports: [NbLayoutModule]
 })
 export class NbDateTimepickerTestComponent {
   @ViewChild(NbDateTimePickerComponent) dateTimepicker: NbDateTimePickerComponent<Date>;
@@ -91,14 +97,14 @@ describe('nb-datepicker', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule.withRoutes([]),
         NbThemeModule.forRoot(),
         NbLayoutModule,
         NbDatepickerModule.forRoot(),
-      ],
-      declarations: [NbDatepickerTestComponent],
-    });
+        NbDatepickerTestComponent
+    ]
+});
 
     fixture = TestBed.createComponent(NbDatepickerTestComponent);
     appRef = TestBed.inject(ApplicationRef);
@@ -222,14 +228,14 @@ describe('nb-rangepicker', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule.withRoutes([]),
         NbThemeModule.forRoot(),
         NbLayoutModule,
         NbDatepickerModule.forRoot(),
-      ],
-      declarations: [NbRangepickerTestComponent],
-    });
+        NbRangepickerTestComponent
+    ]
+});
 
     fixture = TestBed.createComponent(NbRangepickerTestComponent);
     appRef = TestBed.inject(ApplicationRef);
@@ -378,15 +384,15 @@ describe('nb-date-timepicker', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule.withRoutes([]),
         NbThemeModule.forRoot(),
         NbLayoutModule,
         NbTimepickerModule.forRoot(),
         NbDatepickerModule.forRoot(),
-      ],
-      declarations: [NbDateTimepickerTestComponent],
-    });
+        NbDateTimepickerTestComponent
+    ]
+});
 
     fixture = TestBed.createComponent(NbDateTimepickerTestComponent);
     appRef = TestBed.inject(ApplicationRef);

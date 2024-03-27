@@ -8,13 +8,16 @@ import { BehaviorSubject } from 'rxjs';
 import createSpy = jasmine.createSpy;
 
 @Component({
-  template: `
+    template: `
     <nb-tabset routeParam="tab">
       <nb-tab *ngIf="showTabs" tabTitle="1" route="1" tabId="tab-1">1</nb-tab>
       <nb-tab *ngIf="showTabs" tabTitle="2" route="2" tabId="tab-2">2</nb-tab>
       <nb-tab *ngIf="showTabs" tabTitle="3" route="3" tabId="tab-3" disabled>3</nb-tab>
     </nb-tabset>
   `,
+    standalone: true,
+    imports: [CommonModule,
+        NbTabsetModule]
 })
 export class TabsetTestComponent {
   showTabs = true;
@@ -50,14 +53,14 @@ describe('NbTabsetComponent', () => {
     activatedRouteStub = new ActivatedRouteStub();
 
     TestBed.configureTestingModule({
-      declarations: [ TabsetTestComponent ],
-      imports: [
+    imports: [
         CommonModule,
         RouterTestingModule.withRoutes([]),
         NbTabsetModule,
-      ],
-      providers: [{ provide: ActivatedRoute, useValue: activatedRouteStub }],
-    });
+        TabsetTestComponent
+    ],
+    providers: [{ provide: ActivatedRoute, useValue: activatedRouteStub }]
+});
 
     fixture = TestBed.createComponent(TabsetTestComponent);
     testComponent = fixture.componentInstance;

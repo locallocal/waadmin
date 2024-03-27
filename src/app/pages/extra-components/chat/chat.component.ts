@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 
 import { ChatService } from './chat.service';
+import { NgFor } from '@angular/common';
+import { NbCardModule, NbChatModule } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-chat',
-  templateUrl: 'chat.component.html',
-  styleUrls: ['chat.component.scss'],
-  providers: [ ChatService ],
+    selector: 'ngx-chat',
+    templateUrl: 'chat.component.html',
+    styleUrls: ['chat.component.scss'],
+    providers: [ChatService],
+    standalone: true,
+    imports: [NbCardModule, NbChatModule, NgFor]
 })
 export class ChatComponent {
 

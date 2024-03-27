@@ -14,9 +14,9 @@ describe('Component: NbCalendarDaysNames', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NbCalendarDaysNamesComponent],
-      providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe],
-    });
+    declarations: [NbCalendarDaysNamesComponent],
+    providers: [{ provide: NbDateService, useClass: NbNativeDateService }, DatePipe]
+});
     fixture = TestBed.createComponent<NbCalendarDaysNamesComponent<Date>>(NbCalendarDaysNamesComponent);
     componentEl = fixture.debugElement.nativeElement;
     fixture.detectChanges();

@@ -8,8 +8,8 @@ describe('AccordionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccordionsComponent ]
-    })
+    imports: [AccordionsComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(AccordionsComponent);

@@ -8,10 +8,16 @@ let restoreHelper: NbRestoreScrollTopHelper;
 let router: Router;
 let fixture: ComponentFixture<TestBootstrapComponent>;
 
-@Component({ template: '<router-outlet></router-outlet>' })
+@Component({
+    template: '<router-outlet></router-outlet>',
+    standalone: true
+})
 class TestBootstrapComponent {}
 
-@Component({ template: '' })
+@Component({
+    template: '',
+    standalone: true
+})
 class TestComponent {}
 
 describe('NbRestoreScrollTopHelper', () => {
@@ -19,31 +25,31 @@ describe('NbRestoreScrollTopHelper', () => {
     TestBed.resetTestingModule();
 
     fixture = TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule.withRoutes([
-          {
-            path: '',
-            children: [
-              {
+            {
                 path: '',
-                component: TestComponent,
-              },
-              {
-                path: 'about',
-                component: TestComponent,
-              },
-            ],
-          },
-          {
-            path: '**',
-            redirectTo: '',
-            pathMatch: 'full',
-          },
+                children: [
+                    {
+                        path: '',
+                        component: TestComponent,
+                    },
+                    {
+                        path: 'about',
+                        component: TestComponent,
+                    },
+                ],
+            },
+            {
+                path: '**',
+                redirectTo: '',
+                pathMatch: 'full',
+            },
         ]),
-      ],
-      providers: [NbRestoreScrollTopHelper],
-      declarations: [TestComponent, TestBootstrapComponent],
-    }).createComponent(TestBootstrapComponent);
+        TestComponent, TestBootstrapComponent
+    ],
+    providers: [NbRestoreScrollTopHelper]
+}).createComponent(TestBootstrapComponent);
 
     fixture.detectChanges();
   });

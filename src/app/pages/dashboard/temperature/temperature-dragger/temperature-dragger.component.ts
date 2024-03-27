@@ -9,15 +9,19 @@ import {
   AfterViewInit,
   OnChanges,
 } from '@angular/core';
-import { Location, LocationStrategy } from '@angular/common';
+import { Location, LocationStrategy, NgFor } from '@angular/common';
+import { MatRippleModule } from '@angular/material/core';
+import { NbButtonModule, NbIconModule } from '@nebular/theme';
 
 let uniqueId = 0;
 const VIEW_BOX_SIZE = 300;
 
 @Component({
-  selector: 'ngx-temperature-dragger',
-  templateUrl: './temperature-dragger.component.html',
-  styleUrls: ['./temperature-dragger.component.scss'],
+    selector: 'ngx-temperature-dragger',
+    templateUrl: './temperature-dragger.component.html',
+    styleUrls: ['./temperature-dragger.component.scss'],
+    standalone: true,
+    imports: [NgFor, NbButtonModule, MatRippleModule, NbIconModule]
 })
 export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
 

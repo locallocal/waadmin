@@ -21,13 +21,13 @@ export class NbViewportRulerMockAdapter extends NbViewportRulerAdapter {
   }
 }
 
-@Component({ selector: 'nb-test-dialog', template: '<button class="test-focusable-button"></button>' })
+@Component({
+    selector: 'nb-test-dialog', template: '<button class="test-focusable-button"></button>',
+    standalone: true
+})
 class NbTestDialogComponent {}
 
-@NgModule({
-  declarations: [NbTestDialogComponent],
-})
-class NbTestDialogModule {}
+
 
 describe('dialog-service', () => {
   let dialog: NbDialogService;
@@ -40,7 +40,7 @@ describe('dialog-service', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbTestDialogModule, NbThemeModule.forRoot(), NbDialogModule.forRoot()],
+      imports: [NbThemeModule.forRoot(), NbDialogModule.forRoot()],
       providers: [{ provide: NbViewportRulerAdapter, useClass: NbViewportRulerMockAdapter }],
     });
 

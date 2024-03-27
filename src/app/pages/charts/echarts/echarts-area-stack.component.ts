@@ -1,11 +1,14 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @Component({
-  selector: 'ngx-echarts-area-stack',
-  template: `
+    selector: 'ngx-echarts-area-stack',
+    template: `
     <div echarts [options]="options" class="echart"></div>
   `,
+    standalone: true,
+    imports: [NgxEchartsModule]
 })
 export class EchartsAreaStackComponent implements AfterViewInit, OnDestroy {
   options: any = {};

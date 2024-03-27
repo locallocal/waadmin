@@ -1,11 +1,14 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @Component({
-  selector: 'ngx-echarts-radar',
-  template: `
+    selector: 'ngx-echarts-radar',
+    template: `
     <div echarts [options]="options" class="echart"></div>
   `,
+    standalone: true,
+    imports: [NgxEchartsModule]
 })
 export class EchartsRadarComponent implements AfterViewInit, OnDestroy {
   options: any = {};

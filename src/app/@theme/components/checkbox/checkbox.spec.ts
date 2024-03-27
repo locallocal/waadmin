@@ -152,7 +152,9 @@ describe('Component: NbCheckbox', () => {
 
 /** Test component with reactive forms */
 @Component({
-  template: `<nb-checkbox [formControl]="formControl"></nb-checkbox>`,
+    template: `<nb-checkbox [formControl]="formControl"></nb-checkbox>`,
+    standalone: true,
+    imports: [ReactiveFormsModule, NbIconModule, NbCheckboxModule]
 })
 class CheckboxWithFormControlComponent {
   formControl = new FormControl();
@@ -168,9 +170,9 @@ describe('Component: NbCheckbox with form control', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, NbThemeModule.forRoot(), NbIconModule, NbCheckboxModule],
-      declarations: [NbCheckboxComponent, CheckboxWithFormControlComponent],
-    });
+    imports: [ReactiveFormsModule, NbThemeModule.forRoot(), NbIconModule, NbCheckboxModule, CheckboxWithFormControlComponent],
+    declarations: [NbCheckboxComponent]
+});
 
       fixture = TestBed.createComponent(CheckboxWithFormControlComponent);
       fixture.detectChanges();

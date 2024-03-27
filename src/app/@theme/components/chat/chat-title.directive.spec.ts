@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { NbThemeModule, NbChatModule, NbChatComponent } from '@nebular/theme';
 
 @Component({
-  template: `
+    template: `
     <nb-chat [title]="title">
       <ng-template nbChatTitle [context]="{ text: contextTemplateText }" let-data>
         {{ staticTemplateText }} {{ data.text }}
@@ -29,6 +29,8 @@ import { NbThemeModule, NbChatModule, NbChatComponent } from '@nebular/theme';
       <nb-chat-form [dropFiles]="false"> </nb-chat-form>
     </nb-chat>
   `,
+    standalone: true,
+    imports: [NbChatModule]
 })
 export class NbChatTitleTemplateTestComponent {
   messages = [
@@ -68,9 +70,8 @@ describe('NbChatTitleDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule, NbThemeModule.forRoot(), NbChatModule],
-      declarations: [NbChatTitleTemplateTestComponent],
-    });
+    imports: [NoopAnimationsModule, NbThemeModule.forRoot(), NbChatModule, NbChatTitleTemplateTestComponent]
+});
 
     fixture = TestBed.createComponent(NbChatTitleTemplateTestComponent);
     testComponent = fixture.componentInstance;

@@ -39,7 +39,7 @@ function setup() {
 }
 
 @Component({
-  template: `
+    template: `
     <nb-layout [withScroll]="withScroll">
       <nb-layout-column>
         <nb-list
@@ -58,8 +58,8 @@ function setup() {
       </nb-layout-column>
     </nb-layout>
   `,
-  styles: [
-    `
+    styles: [
+        `
       ::ng-deep nb-layout.with-scroll .scrollable-container {
         overflow: auto;
         height: 100vh;
@@ -77,7 +77,9 @@ function setup() {
         height: ${CONTENT_HEIGHT}px;
       }
     `,
-  ],
+    ],
+    standalone: true,
+    imports: [NbLayoutModule, NbListModule]
 })
 class ScrollTestComponent {
   listenWindowScroll = false;
@@ -92,10 +94,9 @@ class ScrollTestComponent {
 describe('Directive: NbScrollDirective', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      imports: [RouterModule.forRoot([]), NbThemeModule.forRoot(), NbLayoutModule, NbListModule],
-      providers: [NbLayoutScrollService, { provide: APP_BASE_HREF, useValue: '/' }],
-      declarations: [ScrollTestComponent],
-    }).createComponent(ScrollTestComponent);
+    imports: [RouterModule.forRoot([]), NbThemeModule.forRoot(), NbLayoutModule, NbListModule, ScrollTestComponent],
+    providers: [NbLayoutScrollService, { provide: APP_BASE_HREF, useValue: '/' }]
+}).createComponent(ScrollTestComponent);
   });
 
   afterEach(fakeAsync(() => {

@@ -23,14 +23,16 @@ import createSpy = jasmine.createSpy;
 import { NbThemeModule, NbRadioModule, NbRadioComponent, NbRadioGroupComponent, NB_DOCUMENT } from '@nebular/theme';
 
 @Component({
-  selector: 'nb-radio-test',
-  template: `
+    selector: 'nb-radio-test',
+    template: `
     <nb-radio-group [value]="value" (valueChange)="valueChange.emit($event)">
       <nb-radio value="1">1</nb-radio>
       <nb-radio value="2">2</nb-radio>
       <nb-radio value="3" disabled>3</nb-radio>
     </nb-radio-group>
   `,
+    standalone: true,
+    imports: [NbRadioModule]
 })
 export class NbRadioTestComponent {
   @Input() value;
@@ -38,13 +40,15 @@ export class NbRadioTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <nb-radio-group>
       <ng-template [ngIf]="showRadios">
         <nb-radio *ngFor="let radio of radioValues" [value]="radio">{{ radio }}</nb-radio>
       </ng-template>
     </nb-radio-group>
   `,
+    standalone: true,
+    imports: [NbRadioModule, ReactiveFormsModule]
 })
 export class NbRadioWithDynamicValuesTestComponent {
   radioValues: number[] = [];
@@ -55,7 +59,7 @@ export class NbRadioWithDynamicValuesTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <nb-radio-group #firstGroup name="1">
       <nb-radio checked value="1"></nb-radio>
     </nb-radio-group>
@@ -63,6 +67,8 @@ export class NbRadioWithDynamicValuesTestComponent {
       <nb-radio checked value="2"></nb-radio>
     </nb-radio-group>
   `,
+    standalone: true,
+    imports: [NbRadioModule, ReactiveFormsModule]
 })
 export class NbTwoRadioGroupsComponent {
   @ViewChild('firstGroup', { read: NbRadioGroupComponent }) firstGroup: NbRadioGroupComponent;
@@ -71,12 +77,14 @@ export class NbTwoRadioGroupsComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <nb-radio-group name="1" [formControl]="control">
       <nb-radio value="1"></nb-radio>
       <nb-radio value="2"></nb-radio>
     </nb-radio-group>
   `,
+    standalone: true,
+    imports: [NbRadioModule, ReactiveFormsModule]
 })
 export class NbFormsIntegrationComponent {
   @ViewChild(NbRadioGroupComponent) radioGroup: NbRadioGroupComponent;
@@ -89,10 +97,9 @@ describe('radio', () => {
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      imports: [NbThemeModule.forRoot(), NbRadioModule],
-      declarations: [NbRadioTestComponent],
-      providers: [{ provide: NB_DOCUMENT, useValue: document }],
-    });
+    imports: [NbThemeModule.forRoot(), NbRadioModule, NbRadioTestComponent],
+    providers: [{ provide: NB_DOCUMENT, useValue: document }]
+});
 
     fixture = TestBed.createComponent(NbRadioTestComponent);
     comp = fixture.componentInstance;
@@ -123,10 +130,9 @@ describe('NbRadioGroupComponent', () => {
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      imports: [NbThemeModule.forRoot(), NbRadioModule, ReactiveFormsModule],
-      declarations: [NbRadioWithDynamicValuesTestComponent, NbTwoRadioGroupsComponent, NbFormsIntegrationComponent],
-      providers: [{ provide: NB_DOCUMENT, useValue: document }],
-    });
+    imports: [NbThemeModule.forRoot(), NbRadioModule, ReactiveFormsModule, NbRadioWithDynamicValuesTestComponent, NbTwoRadioGroupsComponent, NbFormsIntegrationComponent],
+    providers: [{ provide: NB_DOCUMENT, useValue: document }]
+});
 
     fixture = TestBed.createComponent(NbRadioWithDynamicValuesTestComponent);
     radioTestComponent = fixture.componentInstance;

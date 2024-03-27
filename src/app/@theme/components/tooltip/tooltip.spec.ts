@@ -21,14 +21,16 @@ import {
 } from '@nebular/theme';
 
 @Component({
-  selector: 'nb-tooltip-default-test',
-  template: `
+    selector: 'nb-tooltip-default-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button #button nbTooltip="test">show tooltip</button>
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule, NbTooltipModule]
 })
 export class NbTooltipDefaultTestComponent {
   @ViewChild('button') button: ElementRef;
@@ -36,8 +38,8 @@ export class NbTooltipDefaultTestComponent {
 }
 
 @Component({
-  selector: 'nb-tooltip-bindings-test',
-  template: `
+    selector: 'nb-tooltip-bindings-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button
@@ -53,6 +55,8 @@ export class NbTooltipDefaultTestComponent {
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule, NbTooltipModule]
 })
 export class NbTooltipBindingsTestComponent {
   @ViewChild(NbTooltipDirective) tooltip: NbTooltipDirective;
@@ -67,8 +71,8 @@ export class NbTooltipBindingsTestComponent {
 }
 
 @Component({
-  selector: 'nb-tooltip-instance-test',
-  template: `
+    selector: 'nb-tooltip-instance-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button #button nbTooltip="test"></button>
@@ -77,6 +81,8 @@ export class NbTooltipBindingsTestComponent {
 
     <ng-template>Some Template</ng-template>
   `,
+    standalone: true,
+    imports: [NbLayoutModule, NbTooltipModule]
 })
 export class NbTooltipInstanceTestComponent {
   @ViewChild(NbTooltipDirective) tooltip: NbTooltipDirective;
@@ -174,9 +180,8 @@ export class NbDynamicOverlayHandlerMock {
 const TEST_COMPONENTS = [NbTooltipDefaultTestComponent, NbTooltipBindingsTestComponent, NbTooltipInstanceTestComponent];
 
 @NgModule({
-  imports: [NbLayoutModule, NbTooltipModule],
-  exports: [...TEST_COMPONENTS],
-  declarations: [...TEST_COMPONENTS],
+    imports: [NbLayoutModule, NbTooltipModule, ...TEST_COMPONENTS],
+    exports: [...TEST_COMPONENTS]
 })
 class PopoverTestModule {}
 

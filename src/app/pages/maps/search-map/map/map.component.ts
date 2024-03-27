@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PositionModel } from '../entity/position.model';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
-  selector: 'ngx-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss'],
+    selector: 'ngx-map',
+    templateUrl: './map.component.html',
+    styleUrls: ['./map.component.scss'],
+    standalone: true,
+    imports: [GoogleMapsModule]
 })
 export class MapComponent implements OnInit {
   position: PositionModel = null;

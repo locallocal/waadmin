@@ -2,16 +2,19 @@ import { delay, takeWhile } from 'rxjs/operators';
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../@core/utils';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @Component({
-  selector: 'ngx-traffic-chart',
-  template: `
+    selector: 'ngx-traffic-chart',
+    template: `
     <div echarts
          [options]="option"
          class="echart"
          (chartInit)="onChartInit($event)">
     </div>
   `,
+    standalone: true,
+    imports: [NgxEchartsModule]
 })
 export class TrafficChartComponent implements AfterViewInit, OnDestroy {
 

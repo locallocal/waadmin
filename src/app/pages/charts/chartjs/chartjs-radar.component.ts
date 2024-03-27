@@ -1,11 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
+import { ChartModule } from 'angular2-chartjs';
 
 @Component({
-  selector: 'ngx-chartjs-radar',
-  template: `
+    selector: 'ngx-chartjs-radar',
+    template: `
     <chart type="radar" [data]="data" [options]="options"></chart>
   `,
+    standalone: true,
+    imports: [ChartModule]
 })
 export class ChartjsRadarComponent implements OnDestroy {
   options: any;

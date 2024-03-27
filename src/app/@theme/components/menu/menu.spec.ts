@@ -43,11 +43,15 @@ import {
 } from '@nebular/theme';
 import { NbMenuInternalService } from './menu.service';
 
-@Component({ template: '' })
+@Component({
+    template: '',
+    standalone: true
+})
 export class NoopComponent {}
 
 @Component({
-  template: `<nb-menu [items]="items" [tag]="menuTag"></nb-menu>`,
+    template: `<nb-menu [items]="items" [tag]="menuTag"></nb-menu>`,
+    standalone: true
 })
 export class SingleMenuTestComponent {
   constructor(public menuPublicService: NbMenuService) {}
@@ -57,10 +61,11 @@ export class SingleMenuTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <nb-menu [items]="firstMenuItems" [tag]="firstMenuTag"></nb-menu>
     <nb-menu [items]="secondMenuItems" [tag]="secondMenuTag"></nb-menu>
   `,
+    standalone: true
 })
 export class DoubleMenusTestComponent {
   constructor(public menuPublicService: NbMenuService) {}
@@ -90,14 +95,14 @@ export class SpyLocationPathParameter extends SpyLocation {
 function createTestBed(routes: Routes = []) {
   TestBed.configureTestingModule({
     imports: [
-      NbThemeModule.forRoot(),
-      NbMenuModule.forRoot(),
-      RouterTestingModule.withRoutes(routes),
-      NoopAnimationsModule,
+        NbThemeModule.forRoot(),
+        NbMenuModule.forRoot(),
+        RouterTestingModule.withRoutes(routes),
+        NoopAnimationsModule,
+        SingleMenuTestComponent, DoubleMenusTestComponent, NoopComponent
     ],
-    declarations: [SingleMenuTestComponent, DoubleMenusTestComponent, NoopComponent],
-    providers: [NbMenuService],
-  });
+    providers: [NbMenuService]
+});
 
   TestBed.overrideProvider(Location, { useValue: new SpyLocationPathParameter() });
 

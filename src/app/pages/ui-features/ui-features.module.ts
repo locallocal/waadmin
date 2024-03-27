@@ -18,17 +18,15 @@ const components = [
 ];
 
 @NgModule({
-  imports: [
-    NbCardModule,
-    NbPopoverModule,
-    NbSearchModule,
-    NbIconModule,
-    NbAlertModule,
-    ThemeModule,
-    UiFeaturesRoutingModule,
-  ],
-  declarations: [
-    ...components,
-  ],
+    imports: [
+        NbCardModule,
+        NbPopoverModule,
+        NbSearchModule,
+        NbIconModule,
+        NbAlertModule,
+        ThemeModule,
+        UiFeaturesRoutingModule,
+        ...components
+    ]
 })
 export class UiFeaturesModule { }

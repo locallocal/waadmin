@@ -6,6 +6,8 @@ import createSpy = jasmine.createSpy;
 @Component({
     selector: 'nb-tag-test',
     template: `<nb-tag [text]="'test-tag'" [removable]="isRemovable" [selected]="selected"></nb-tag>`,
+    standalone: true,
+    imports: [NbTagModule]
 })
 
 export class NbTagTestComponent {
@@ -20,9 +22,8 @@ describe('Component: NbTagComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [NbThemeModule.forRoot(), NbTagModule],
-            declarations: [NbTagTestComponent],
-        });
+    imports: [NbThemeModule.forRoot(), NbTagModule, NbTagTestComponent]
+});
 
         fixture = TestBed.createComponent(NbTagComponent);
         tag = fixture.componentInstance;
@@ -66,9 +67,8 @@ describe('Component: NbTagComponent bindings', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [NbThemeModule.forRoot(), NbTagModule],
-            declarations: [NbTagTestComponent],
-        });
+    imports: [NbThemeModule.forRoot(), NbTagModule, NbTagTestComponent]
+});
         fixture = TestBed.createComponent(NbTagTestComponent);
         fixture.detectChanges();
     });

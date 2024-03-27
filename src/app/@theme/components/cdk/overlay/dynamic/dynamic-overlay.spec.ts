@@ -11,7 +11,10 @@ import {
   NbOverlayContainer,
 } from '@nebular/theme';
 
-@Component({ template: '' })
+@Component({
+    template: '',
+    standalone: true
+})
 export class NbDynamicOverlayMockComponent implements NbRenderableContainer {
   @Input() content: any;
   @Input() context: Object;
@@ -20,7 +23,10 @@ export class NbDynamicOverlayMockComponent implements NbRenderableContainer {
   renderContent() {}
 }
 
-@Component({ template: '' })
+@Component({
+    template: '',
+    standalone: true
+})
 export class NbDynamicOverlayMock2Component extends NbDynamicOverlayMockComponent {}
 
 export class MockNgZone extends NgZone {
@@ -122,14 +128,14 @@ describe('dynamic-overlay', () => {
   beforeEach(() => {
     TestBed.resetTestingModule();
     const bed = TestBed.configureTestingModule({
-      declarations: [NbDynamicOverlayMockComponent, NbDynamicOverlayMock2Component],
-      providers: [
+    imports: [NbDynamicOverlayMockComponent, NbDynamicOverlayMock2Component],
+    providers: [
         NbDynamicOverlay,
         { provide: NbOverlayService, useClass: NbOverlayServiceMock },
         { provide: NgZone, useClass: MockNgZone },
         { provide: NbOverlayContainer, useClass: NbOverlayContainerMock },
-      ],
-    });
+    ]
+});
     overlayService = bed.inject(NbOverlayService) as unknown as NbOverlayServiceMock;
     dynamicOverlayService = bed.inject(NbDynamicOverlay);
     componentFactoryResolver = bed.inject(ComponentFactoryResolver);

@@ -1,9 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { PolarChartModule } from '@swimlane/ngx-charts';
 
 @Component({
-  selector: 'ngx-d3-polar',
-  template: `
+    selector: 'ngx-d3-polar',
+    template: `
     <ngx-charts-polar-chart
       [scheme]="colorScheme"
       [results]="multi"
@@ -17,6 +18,8 @@ import { NbThemeService } from '@nebular/theme';
       [autoScale]="autoScale">
     </ngx-charts-polar-chart>
   `,
+    standalone: true,
+    imports: [PolarChartModule]
 })
 export class D3PolarComponent implements OnDestroy {
   multi = [

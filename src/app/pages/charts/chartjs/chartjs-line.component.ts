@@ -1,11 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
+import { ChartModule } from 'angular2-chartjs';
 
 @Component({
-  selector: 'ngx-chartjs-line',
-  template: `
+    selector: 'ngx-chartjs-line',
+    template: `
     <chart type="line" [data]="data" [options]="options"></chart>
   `,
+    standalone: true,
+    imports: [ChartModule]
 })
 export class ChartjsLineComponent implements OnDestroy {
   data: any;

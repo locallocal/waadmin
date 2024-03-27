@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { MatRippleModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { NbCardModule, NbTabsetModule } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-popover-tabs',
-  template: `
+    selector: 'ngx-popover-tabs',
+    template: `
     <nb-tabset>
       <nb-tab tabTitle="What's up?">
         <div class="p-4">
@@ -16,13 +19,15 @@ import { Component } from '@angular/core';
       </nb-tab>
     </nb-tabset>
   `,
+    standalone: true,
+    imports: [NbTabsetModule]
 })
 export class NgxPopoverTabsComponent {
 }
 
 @Component({
-  selector: 'ngx-popover-form',
-  template: `
+    selector: 'ngx-popover-form',
+    template: `
     <div class="p-4">
       <form>
         <div class="form-group">
@@ -38,13 +43,15 @@ export class NgxPopoverTabsComponent {
       </form>
     </div>
   `,
+    standalone: true,
+    imports: [FormsModule, MatRippleModule]
 })
 export class NgxPopoverFormComponent {
 }
 
 @Component({
-  selector: 'ngx-popover-card',
-  template: `
+    selector: 'ngx-popover-card',
+    template: `
     <nb-card class="popover-card">
       <nb-card-header status="warning">
         Hello!
@@ -56,12 +63,14 @@ export class NgxPopoverFormComponent {
       </nb-card-body>
     </nb-card>
   `,
-  styles: [`
+    styles: [`
     nb-card {
       margin: 0;
       max-width: 20rem;
     }
   `],
+    standalone: true,
+    imports: [NbCardModule]
 })
 export class NgxPopoverCardComponent {
 }

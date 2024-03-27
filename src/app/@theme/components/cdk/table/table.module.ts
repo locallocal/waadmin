@@ -66,9 +66,10 @@ export const NB_TABLE_PROVIDERS: Provider[] = [
 ];
 
 @Component({
-  selector: 'nb-table-not-implemented',
-  template: ``,
-  providers: NB_TABLE_PROVIDERS,
+    selector: 'nb-table-not-implemented',
+    template: ``,
+    providers: NB_TABLE_PROVIDERS,
+    standalone: true
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class NbTable<T> extends CdkTable<T> {
@@ -124,8 +125,7 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [ NbBidiModule ],
-  declarations: [ ...COMPONENTS ],
-  exports: [ ...COMPONENTS ],
+    imports: [NbBidiModule, ...COMPONENTS],
+    exports: [...COMPONENTS]
 })
 export class NbTableModule extends CdkTableModule {}

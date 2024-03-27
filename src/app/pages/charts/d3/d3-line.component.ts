@@ -1,9 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { LineChartModule } from '@swimlane/ngx-charts';
 
 @Component({
-  selector: 'ngx-d3-line',
-  template: `
+    selector: 'ngx-d3-line',
+    template: `
     <ngx-charts-line-chart
       [scheme]="colorScheme"
       [results]="multi"
@@ -16,6 +17,8 @@ import { NbThemeService } from '@nebular/theme';
       [yAxisLabel]="yAxisLabel">
     </ngx-charts-line-chart>
   `,
+    standalone: true,
+    imports: [LineChartModule]
 })
 export class D3LineComponent implements OnDestroy {
   multi = [

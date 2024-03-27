@@ -1,11 +1,15 @@
 import { Component, OnDestroy } from '@angular/core';
 import { PieChart, EarningData } from '../../../../@core/data/earning';
 import { takeWhile } from 'rxjs/operators';
+import { EarningPieChartComponent } from './earning-pie-chart.component';
+import { NbCardModule } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-earning-card-back',
-  styleUrls: ['./earning-card-back.component.scss'],
-  templateUrl: './earning-card-back.component.html',
+    selector: 'ngx-earning-card-back',
+    styleUrls: ['./earning-card-back.component.scss'],
+    templateUrl: './earning-card-back.component.html',
+    standalone: true,
+    imports: [NbCardModule, EarningPieChartComponent]
 })
 export class EarningCardBackComponent implements OnDestroy {
   private alive = true;

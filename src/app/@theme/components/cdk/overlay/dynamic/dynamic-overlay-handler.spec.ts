@@ -19,7 +19,10 @@ import {
   NbLayoutDirectionService,
 } from '@nebular/theme';
 
-@Component({ template: '' })
+@Component({
+    template: '',
+    standalone: true
+})
 export class NbDynamicOverlayMockComponent implements NbRenderableContainer {
   @Input() content: any;
   @Input() context: Object;
@@ -28,7 +31,10 @@ export class NbDynamicOverlayMockComponent implements NbRenderableContainer {
   renderContent() {}
 }
 
-@Component({ template: '' })
+@Component({
+    template: '',
+    standalone: true
+})
 export class NbDynamicOverlayMock2Component extends NbDynamicOverlayMockComponent {}
 
 @Injectable()
@@ -214,15 +220,15 @@ describe('dynamic-overlay-handler', () => {
   beforeEach(() => {
     TestBed.resetTestingModule();
     const bed = TestBed.configureTestingModule({
-      declarations: [NbDynamicOverlayMockComponent, NbDynamicOverlayMock2Component],
-      providers: [
+    imports: [NbDynamicOverlayMockComponent, NbDynamicOverlayMock2Component],
+    providers: [
         NbLayoutDirectionService,
         NbDynamicOverlayHandler,
         { provide: NbDynamicOverlay, useClass: NbMockDynamicOverlay },
         { provide: NbTriggerStrategyBuilderService, useClass: MockTriggerStrategyBuilder },
         { provide: NbPositionBuilderService, useClass: MockPositionBuilder },
-      ],
-    });
+    ]
+});
     overlayHandler = bed.inject(NbDynamicOverlayHandler);
     dynamicOverlay = bed.inject(NbDynamicOverlay);
     triggerStrategyBuilder = bed.inject(NbTriggerStrategyBuilderService);

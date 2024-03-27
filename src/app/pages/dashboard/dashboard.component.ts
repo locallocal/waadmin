@@ -2,6 +2,17 @@ import {Component, OnDestroy} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators' ;
 import { SolarData } from '../../@core/data/solar';
+import { SecurityCamerasComponent } from './security-cameras/security-cameras.component';
+import { WeatherComponent } from './weather/weather.component';
+import { TrafficComponent } from './traffic/traffic.component';
+import { KittenComponent } from './kitten/kitten.component';
+import { SolarComponent } from './solar/solar.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { ElectricityComponent } from './electricity/electricity.component';
+import { TemperatureComponent } from './temperature/temperature.component';
+import { StatusCardComponent } from './status-card/status-card.component';
+import { NgFor, NgClass } from '@angular/common';
 
 interface CardSettings {
   title: string;
@@ -10,9 +21,11 @@ interface CardSettings {
 }
 
 @Component({
-  selector: 'ngx-dashboard',
-  styleUrls: ['./dashboard.component.scss'],
-  templateUrl: './dashboard.component.html',
+    selector: 'ngx-dashboard',
+    styleUrls: ['./dashboard.component.scss'],
+    templateUrl: './dashboard.component.html',
+    standalone: true,
+    imports: [NgFor, StatusCardComponent, NgClass, TemperatureComponent, ElectricityComponent, RoomsComponent, ContactsComponent, SolarComponent, KittenComponent, TrafficComponent, WeatherComponent, SecurityCamerasComponent]
 })
 export class DashboardComponent implements OnDestroy {
 

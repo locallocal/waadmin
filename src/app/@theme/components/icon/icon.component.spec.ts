@@ -11,9 +11,11 @@ import { By } from '@angular/platform-browser';
 import { NbThemeModule, NbIconModule, NbIconLibraries, NbIconComponent } from '@nebular/theme';
 
 @Component({
-  template: `
+    template: `
     <nb-icon #iconEl [icon]="icon"></nb-icon>
   `,
+    standalone: true,
+    imports: [NbIconModule]
 })
 class IconTestComponent {
   @Input() icon;
@@ -29,10 +31,9 @@ describe('Component: NbIcon', () => {
   beforeEach(() => {
 
     const bed = TestBed.configureTestingModule({
-      imports: [ NbThemeModule.forRoot(), NbIconModule ],
-      providers: [ NbIconLibraries ],
-      declarations: [ IconTestComponent ],
-    });
+    imports: [NbThemeModule.forRoot(), NbIconModule, IconTestComponent],
+    providers: [NbIconLibraries]
+});
 
     fixture = bed.createComponent(IconTestComponent);
     iconsLibrary = bed.inject(NbIconLibraries);

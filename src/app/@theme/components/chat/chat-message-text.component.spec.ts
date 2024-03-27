@@ -3,14 +3,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NbChatModule, NbThemeModule } from '@nebular/theme';
 
 @Component({
-  selector: 'nb-chat-message-text-test',
-  template: `
+    selector: 'nb-chat-message-text-test',
+    template: `
     <nb-chat-message-text [sender]="sender"
                           [date]="date"
                           [dateFormat]="dateFormat"
                           [message]="message">
     </nb-chat-message-text>
     `,
+    standalone: true,
+    imports: [NbChatModule]
 })
 export class NbChatMessageTextTestComponent {
   sender: string;
@@ -25,9 +27,8 @@ describe('Chat-message-text component: NbChatMessageTextTestComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NbThemeModule.forRoot(), NbChatModule],
-      declarations: [NbChatMessageTextTestComponent],
-    });
+    imports: [NbThemeModule.forRoot(), NbChatModule, NbChatMessageTextTestComponent]
+});
 
     fixture = TestBed.createComponent(NbChatMessageTextTestComponent);
     component = fixture.componentInstance;

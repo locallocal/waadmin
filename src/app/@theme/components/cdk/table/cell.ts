@@ -21,8 +21,9 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
  * Captures the template of a column's data row cell as well as cell-specific properties.
  */
 @Directive({
-  selector: '[nbCellDef]',
-  providers: [{ provide: CdkCellDef, useExisting: NbCellDefDirective }],
+    selector: '[nbCellDef]',
+    providers: [{ provide: CdkCellDef, useExisting: NbCellDefDirective }],
+    standalone: true
 })
 export class NbCellDefDirective extends CdkCellDef {
 }
@@ -32,8 +33,9 @@ export class NbCellDefDirective extends CdkCellDef {
  * Captures the template of a column's header cell and as well as cell-specific properties.
  */
 @Directive({
-  selector: '[nbHeaderCellDef]',
-  providers: [{ provide: CdkHeaderCellDef, useExisting: NbHeaderCellDefDirective }],
+    selector: '[nbHeaderCellDef]',
+    providers: [{ provide: CdkHeaderCellDef, useExisting: NbHeaderCellDefDirective }],
+    standalone: true
 })
 export class NbHeaderCellDefDirective extends CdkHeaderCellDef {
 }
@@ -43,8 +45,9 @@ export class NbHeaderCellDefDirective extends CdkHeaderCellDef {
  * Captures the template of a column's footer cell and as well as cell-specific properties.
  */
 @Directive({
-  selector: '[nbFooterCellDef]',
-  providers: [{ provide: CdkFooterCellDef, useExisting: NbFooterCellDefDirective }],
+    selector: '[nbFooterCellDef]',
+    providers: [{ provide: CdkFooterCellDef, useExisting: NbFooterCellDefDirective }],
+    standalone: true
 })
 export class NbFooterCellDefDirective extends CdkFooterCellDef {
 }
@@ -56,11 +59,12 @@ export const NB_SORT_HEADER_COLUMN_DEF = new InjectionToken('NB_SORT_HEADER_COLU
  * Defines a set of cells available for a table column.
  */
 @Directive({
-  selector: '[nbColumnDef]',
-  providers: [
-    { provide: CdkColumnDef, useExisting: NbColumnDefDirective },
-    { provide: NB_SORT_HEADER_COLUMN_DEF, useExisting: NbColumnDefDirective },
-  ],
+    selector: '[nbColumnDef]',
+    providers: [
+        { provide: CdkColumnDef, useExisting: NbColumnDefDirective },
+        { provide: NB_SORT_HEADER_COLUMN_DEF, useExisting: NbColumnDefDirective },
+    ],
+    standalone: true
 })
 export class NbColumnDefDirective extends CdkColumnDef {
   /** Unique name for this column. */
@@ -89,11 +93,12 @@ export class NbColumnDefDirective extends CdkColumnDef {
 
 /** Header cell template container that adds the right classes and role. */
 @Directive({
-  selector: 'nb-header-cell, th[nbHeaderCell]',
-  host: {
-    'class': 'nb-header-cell',
-    'role': 'columnheader',
-  },
+    selector: 'nb-header-cell, th[nbHeaderCell]',
+    host: {
+        'class': 'nb-header-cell',
+        'role': 'columnheader',
+    },
+    standalone: true
 })
 export class NbHeaderCellDirective extends CdkHeaderCell {
   constructor(columnDef: NbColumnDefDirective,
@@ -105,11 +110,12 @@ export class NbHeaderCellDirective extends CdkHeaderCell {
 
 /** Footer cell template container that adds the right classes and role. */
 @Directive({
-  selector: 'nb-footer-cell, td[nbFooterCell]',
-  host: {
-    'class': 'nb-footer-cell',
-    'role': 'gridcell',
-  },
+    selector: 'nb-footer-cell, td[nbFooterCell]',
+    host: {
+        'class': 'nb-footer-cell',
+        'role': 'gridcell',
+    },
+    standalone: true
 })
 export class NbFooterCellDirective extends CdkFooterCell {
   constructor(columnDef: NbColumnDefDirective,
@@ -121,11 +127,12 @@ export class NbFooterCellDirective extends CdkFooterCell {
 
 /** Cell template container that adds the right classes and role. */
 @Directive({
-  selector: 'nb-cell, td[nbCell]',
-  host: {
-    'class': 'nb-cell',
-    'role': 'gridcell',
-  },
+    selector: 'nb-cell, td[nbCell]',
+    host: {
+        'class': 'nb-cell',
+        'role': 'gridcell',
+    },
+    standalone: true
 })
 export class NbCellDirective extends CdkCell {
   constructor(columnDef: NbColumnDefDirective,

@@ -12,7 +12,7 @@ import {
 } from '@nebular/theme';
 
 @Component({
-  template: `
+    template: `
     <nb-layout>
       <nb-layout-column>
 
@@ -25,6 +25,9 @@ import {
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule,
+        NbSelectModule]
 })
 export class NbOptionGroupTestComponent {
   selectDisabled = false;
@@ -47,14 +50,14 @@ describe('NbOptionGroupComponent', () => {
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule.withRoutes([]),
         NbThemeModule.forRoot(),
         NbLayoutModule,
         NbSelectModule,
-      ],
-      declarations: [ NbOptionGroupTestComponent ],
-    });
+        NbOptionGroupTestComponent
+    ]
+});
 
     fixture = TestBed.createComponent(NbOptionGroupTestComponent);
     testComponent = fixture.componentInstance;

@@ -1,9 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { AreaChartModule } from '@swimlane/ngx-charts';
 
 @Component({
-  selector: 'ngx-d3-area-stack',
-  template: `
+    selector: 'ngx-d3-area-stack',
+    template: `
     <ngx-charts-area-chart
       [scheme]="colorScheme"
       [results]="multi"
@@ -17,6 +18,8 @@ import { NbThemeService } from '@nebular/theme';
       [autoScale]="autoScale">
     </ngx-charts-area-chart>
   `,
+    standalone: true,
+    imports: [AreaChartModule]
 })
 export class D3AreaStackComponent implements OnDestroy {
   multi = [{

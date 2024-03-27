@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { HeaderComponent } from '../../components/header/header.component';
+import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-two-columns-layout',
-  styleUrls: ['./two-columns.layout.scss'],
-  template: `
+    selector: 'ngx-two-columns-layout',
+    styleUrls: ['./two-columns.layout.scss'],
+    template: `
     <nb-layout windowMode>
       <nb-layout-header fixed>
         <ngx-header></ngx-header>
@@ -26,5 +29,7 @@ import { Component } from '@angular/core';
 
     </nb-layout>
   `,
+    standalone: true,
+    imports: [NbLayoutModule, HeaderComponent, NbSidebarModule, FooterComponent]
 })
 export class TwoColumnsLayoutComponent {}

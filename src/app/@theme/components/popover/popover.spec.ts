@@ -22,22 +22,24 @@ import { NbLayoutColumnComponent, NbLayoutComponent } from '../layout/layout.com
 import { NbButtonComponent } from '../button/button.component';
 
 @Component({
-  selector: 'nb-popover-component-content-test',
-  template: 'test, {{ text }}',
+    selector: 'nb-popover-component-content-test',
+    template: 'test, {{ text }}',
+    standalone: true
 })
 export class NbPopoverComponentContentTestComponent {
   text: string;
 }
 
 @Component({
-  selector: 'nb-popover-default-test',
-  template: `
+    selector: 'nb-popover-default-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button #button nbPopover="test" [nbPopoverClass]="popoverClass">show popover</button>
       </nb-layout-column>
     </nb-layout>
   `,
+    standalone: true
 })
 export class NbPopoverDefaultTestComponent {
   @ViewChild('button') button: ElementRef;
@@ -83,8 +85,8 @@ export class NbPopoverBindingsTestComponent {
 }
 
 @Component({
-  selector: 'nb-popover-instance-test',
-  template: `
+    selector: 'nb-popover-instance-test',
+    template: `
     <nb-layout>
       <nb-layout-column>
         <button #button nbPopover="test"></button>
@@ -93,6 +95,7 @@ export class NbPopoverBindingsTestComponent {
 
     <ng-template>Some Template</ng-template>
   `,
+    standalone: true
 })
 export class NbPopoverInstanceTestComponent {
   @ViewChild(NbPopoverDirective) popover: NbPopoverDirective;
@@ -196,9 +199,8 @@ const TEST_COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [NbLayoutModule, NbPopoverModule],
-  exports: [...TEST_COMPONENTS],
-  declarations: [...TEST_COMPONENTS],
+    imports: [NbLayoutModule, NbPopoverModule, ...TEST_COMPONENTS],
+    exports: [...TEST_COMPONENTS]
 })
 class PopoverTestModule {}
 

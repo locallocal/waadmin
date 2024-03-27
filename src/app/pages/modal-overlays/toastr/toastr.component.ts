@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import {
-  NbComponentStatus,
-  NbGlobalLogicalPosition,
-  NbGlobalPhysicalPosition,
-  NbGlobalPosition,
-  NbToastrService,
-  NbToastrConfig,
-} from '@nebular/theme';
+import { NbComponentStatus, NbGlobalLogicalPosition, NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService, NbToastrConfig, NbCardModule, NbSelectModule, NbOptionModule, NbInputModule, NbCheckboxModule, NbButtonModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
-  selector: 'ngx-toastr',
-  styleUrls: ['./toastr.component.scss'],
-  templateUrl: './toastr.component.html',
+    selector: 'ngx-toastr',
+    styleUrls: ['./toastr.component.scss'],
+    templateUrl: './toastr.component.html',
+    standalone: true,
+    imports: [NbCardModule, NbSelectModule, MatRippleModule, NgFor, NbOptionModule, NbInputModule, FormsModule, NbCheckboxModule, NbButtonModule]
 })
 export class ToastrComponent {
   constructor(private toastrService: NbToastrService) {}

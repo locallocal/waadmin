@@ -7,7 +7,7 @@ import { PopoversComponent } from './popovers/popovers.component';
 import { ToastrComponent } from './toastr/toastr.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 
-const routes: Routes = [{
+export const MODAL_OVERLAYS_ROUTING: Routes = [{
   path: '',
   component: ModalOverlaysComponent,
   children: [
@@ -34,11 +34,5 @@ const routes: Routes = [{
   ],
 }];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class ModalOverlaysRoutingModule {
-}
 
 

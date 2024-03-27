@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { LocalDataSource, Ng2SmartTableComponent, Ng2SmartTableModule } from 'ng2-smart-table';
+import { LocalDataSource, Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
-import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../../../@theme/components/card/card.component';
+import {
+  NbCardBodyComponent,
+  NbCardComponent,
+  NbCardHeaderComponent,
+} from '../../../@theme/components/card/card.component';
 import { CommonModule } from '@angular/common';
 
 @Component({

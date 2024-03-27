@@ -207,7 +207,9 @@ export class NbMenuService {
   }
 }
 
-@Injectable()
+@Injectable({
+  providedIn: "root",
+})
 export class NbMenuInternalService {
   constructor(private location: Location) {}
 

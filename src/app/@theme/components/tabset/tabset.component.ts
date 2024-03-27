@@ -23,10 +23,11 @@ import { Subject } from 'rxjs';
 
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbComponentOrCustomStatus } from '../component-status';
-import { NbBadgePosition } from '../badge/badge.component';
+import { NbBadgeComponent, NbBadgePosition } from '../badge/badge.component';
 import { NbIconConfig } from '../icon/icon.component';
 import { NbTabContentDirective } from './tab-content.directive';
 import { NbTabTitleDirective } from './tab-title.directive';
+import { CommonModule } from '@angular/common';
 
 /**
  * Specific tab container.
@@ -298,6 +299,7 @@ export class NbTabComponent {
  * tabset-scrollbar-width:
  */
 @Component({
+  standalone: true,
   selector: 'nb-tabset',
   styleUrls: ['./tabset.component.scss'],
   template: `
@@ -336,6 +338,10 @@ export class NbTabComponent {
     </ul>
     <ng-content select="nb-tab"></ng-content>
   `,
+  imports: [
+    NbBadgeComponent,
+    CommonModule,
+  ]
 })
 export class NbTabsetComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(NbTabComponent) tabs: QueryList<NbTabComponent>;

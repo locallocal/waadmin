@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { HeaderComponent } from '../../components/header/header.component';
-import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
+import { NbLayoutColumnComponent, NbLayoutComponent, NbLayoutFooterComponent, NbLayoutHeaderComponent } from '../../components/layout/layout.component';
+import { NbSidebarComponent } from '../../components/sidebar/sidebar.component';
 
 @Component({
     selector: 'ngx-one-column-layout',
@@ -26,6 +27,13 @@ import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
     </nb-layout>
   `,
     standalone: true,
-    imports: [NbLayoutModule, HeaderComponent, NbSidebarModule, FooterComponent]
+    imports: [
+      NbLayoutComponent,
+      NbLayoutHeaderComponent,
+      NbLayoutFooterComponent,
+      NbLayoutColumnComponent,
+      NbSidebarComponent,
+      HeaderComponent,
+      FooterComponent]
 })
 export class OneColumnLayoutComponent {}

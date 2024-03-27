@@ -1,5 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService, NbIconModule, NbSelectModule, NbOptionModule, NbActionsModule, NbSearchModule, NbUserModule, NbContextMenuModule } from '@nebular/theme';
+=======
+>>>>>>> ffc42f2f (feat chore: migrate to standalone component.)
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
@@ -7,15 +10,49 @@ import { map, takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { NbSecurityModule } from '@nebular/security';
+<<<<<<< HEAD
 import { NgFor, AsyncPipe } from '@angular/common';
 import { MatRippleModule } from '@angular/material/core';
+=======
+import { NgFor, AsyncPipe, CommonModule } from '@angular/common';
+import { MatRippleModule } from '@angular/material/core';
+import { NbIconComponent } from '../icon/icon.component';
+import { NbSelectComponent } from '../select/select.component';
+import { NbOptionComponent } from '../option/option.component';
+import { NbActionComponent, NbActionsComponent } from '../actions/actions.component';
+import { NbSearchComponent } from '../search/search.component';
+import { NbUserComponent } from '../user/user.component';
+import { NbContextMenuComponent } from '../context-menu/context-menu.component';
+import { NbThemeService } from '../../services/theme.service';
+import { NbMenuService } from '../menu/menu.service';
+import { NbSidebarService } from '../sidebar/sidebar.service';
+import { NbMediaBreakpointsService } from '../../services/breakpoints.service';
+>>>>>>> ffc42f2f (feat chore: migrate to standalone component.)
 
 @Component({
     selector: 'ngx-header',
     styleUrls: ['./header.component.scss'],
     templateUrl: './header.component.html',
     standalone: true,
+<<<<<<< HEAD
     imports: [MatRippleModule, NbIconModule, NbSelectModule, NgFor, NbOptionModule, NbActionsModule, NbSearchModule, NbSecurityModule, NbUserModule, NbContextMenuModule, AsyncPipe]
+=======
+    imports: [
+      MatRippleModule,
+      NbIconComponent,
+      NbSelectComponent,
+      NbOptionComponent,
+      NbActionComponent,
+      NbActionsComponent,
+      NbSearchComponent,
+      CommonModule,
+      NbUserComponent,
+      NbContextMenuComponent,
+      NgFor,
+      NbSecurityModule,
+      AsyncPipe,
+    ]
+>>>>>>> ffc42f2f (feat chore: migrate to standalone component.)
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { NbCardComponent, NbCardHeaderComponent } from '../../../@theme/components/card/card.component';
 import { NbContextMenuComponent } from '../../../@theme/components/context-menu/context-menu.component';
 import { NbButtonComponent } from '../../../@theme/components/button/button.component';
@@ -12,9 +12,12 @@ import { NbContextMenuDirective } from '../../../@theme/components/context-menu/
   imports: [
     NbCardComponent,
     NbCardHeaderComponent,
-    NbContextMenuComponent,
     NbButtonComponent,
+    NbContextMenuComponent,
     NbContextMenuDirective,
+  ],
+  providers: [
+    ElementRef,
   ]
 })
 export class ContextMenusComponent {

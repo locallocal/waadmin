@@ -12,8 +12,8 @@ import {
 export const routes: Routes = [
   {
     path: 'pages',
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule),
+    loadChildren: () => import('./pages/pages-routing.module')
+      .then(m => m.PAGE_ROUTES),
   },
   {
     path: 'auth',

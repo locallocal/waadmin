@@ -14,9 +14,7 @@ function throwLayoutNotFoundError(): void {
  * but it isn't inserted in DOM and exists in memory only.
  * This case important only if you switch between multiple layouts.
  * */
-@Injectable(
-  {providedIn: 'root'},
-)
+@Injectable()
 export class NbOverlayContainerAdapter extends NbOverlayContainer {
   protected container: HTMLElement;
 

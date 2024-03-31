@@ -2,15 +2,24 @@ import { Component, TemplateRef } from '@angular/core';
 import { NbDialogService, NbCardModule, NbButtonModule } from '@nebular/theme';
 import { ShowcaseDialogComponent } from './showcase-dialog/showcase-dialog.component';
 import { DialogNamePromptComponent } from './dialog-name-prompt/dialog-name-prompt.component';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { MatRippleModule } from '@angular/material/core';
+import { NbCardBodyComponent, NbCardComponent, NbCardHeaderComponent } from '../../../@theme/components/card/card.component';
+import { NbButtonComponent } from '../../../@theme/components/button/button.component';
 
 @Component({
     selector: 'ngx-dialog',
     templateUrl: 'dialog.component.html',
     styleUrls: ['dialog.component.scss'],
     standalone: true,
-    imports: [NbCardModule, NbButtonModule, MatRippleModule, NgFor]
+    imports: [
+      NbCardComponent,
+      NbCardHeaderComponent,
+      NbCardBodyComponent,
+      NbButtonComponent,
+      MatRippleModule,
+      CommonModule,
+    ]
 })
 export class DialogComponent {
 

@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, HostBinding } from '@angular/core';
+import { NbIconComponent } from '../../icon/icon.component';
 
 /**
  *
@@ -56,6 +58,7 @@ import { Component, Input, HostBinding } from '@angular/core';
  *
  */
 @Component({
+  standalone: true,
   selector: 'nb-flip-card',
   styleUrls: ['./flip-card.component.scss'],
   template: `
@@ -74,6 +77,10 @@ import { Component, Input, HostBinding } from '@angular/core';
       </div>
     </div>
   `,
+  imports: [
+    CommonModule,
+    NbIconComponent,
+  ]
 })
 export class NbFlipCardComponent {
   /**

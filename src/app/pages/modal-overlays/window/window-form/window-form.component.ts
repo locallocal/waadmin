@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NbWindowRef, NbInputModule } from '@nebular/theme';
+import { NbWindowRef } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NbInputDirective } from '../../../../@theme/components/input/input.directive';
 
 @Component({
     template: `
@@ -14,7 +15,10 @@ import { FormsModule } from '@angular/forms';
   `,
     styleUrls: ['window-form.component.scss'],
     standalone: true,
-    imports: [FormsModule, NbInputModule]
+    imports: [
+      FormsModule,
+      NbInputDirective,
+    ]
 })
 export class WindowFormComponent {
   constructor(public windowRef: NbWindowRef) {}

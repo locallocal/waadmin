@@ -645,12 +645,16 @@ export class NbLayoutHeaderComponent {
  * footer-shadow:
  */
 @Component({
+  standalone: true,
   selector: 'nb-layout-footer',
   template: `
     <nav [class.fixed]="fixedValue">
       <ng-content></ng-content>
     </nav>
   `,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbLayoutFooterComponent {
   @HostBinding('class.fixed') fixedValue: boolean;

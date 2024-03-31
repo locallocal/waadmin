@@ -137,7 +137,6 @@ export interface NbContextMenuContext {
   standalone: true,
   selector: '[nbContextMenu]',
   providers: [
-    ElementRef,
     NbMenuService,
     NbPositionBuilderService,
     NbViewportRulerAdapter,

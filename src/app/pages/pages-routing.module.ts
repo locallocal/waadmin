@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
-const PAGE_ROUTES: Routes = [{
+export const PAGE_ROUTES: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
@@ -35,13 +35,13 @@ const PAGE_ROUTES: Routes = [{
     },
     {
       path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
+      loadChildren: () => import('./ui-features/ui-features-routing.module')
+        .then(m => m.UI_FEATURES_ROUTES),
     },
     {
       path: 'modal-overlays',
-      loadChildren: () => import('./modal-overlays/modal-overlays.module')
-        .then(m => m.ModalOverlaysModule),
+      loadChildren: () => import('./modal-overlays/modal-overlays-routing.module')
+        .then(m => m.MODAL_OVERLAYS_ROUTING),
     },
     {
       path: 'extra-components',
@@ -70,8 +70,8 @@ const PAGE_ROUTES: Routes = [{
     },
     {
       path: 'miscellaneous',
-      loadChildren: () => import('./miscellaneous/miscellaneous.module')
-        .then(m => m.MiscellaneousModule),
+      loadChildren: () => import('./miscellaneous/miscellaneous-routing.module')
+        .then(m => m.MISCELLANEOUS_ROUTES),
     },
     {
       path: '',
@@ -84,10 +84,3 @@ const PAGE_ROUTES: Routes = [{
     },
   ],
 }];
-
-@NgModule({
-  imports: [RouterModule.forChild(PAGE_ROUTES)],
-  exports: [RouterModule],
-})
-export class PagesRoutingModule {
-}

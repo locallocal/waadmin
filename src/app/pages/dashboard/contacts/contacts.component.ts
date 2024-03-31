@@ -4,15 +4,31 @@ import { forkJoin } from 'rxjs';
 
 import { Contacts, RecentUsers, UserData } from '../../../@core/data/users';
 import { MatRippleModule } from '@angular/material/core';
-import { NgFor, DatePipe } from '@angular/common';
-import { NbCardModule, NbTabsetModule, NbListModule, NbUserModule, NbIconModule } from '@nebular/theme';
+import { DatePipe, CommonModule } from '@angular/common';
+import { NbCardComponent } from '../../../@theme/components/card/card.component';
+import { NbTabComponent, NbTabsetComponent } from '../../../@theme/components/tabset/tabset.component';
+import { NbListComponent, NbListItemComponent } from '../../../@theme/components/list/list.component';
+import { NbUserComponent } from '../../../@theme/components/user/user.component';
+import { NbIconComponent } from '../../../@theme/components/icon/icon.component';
 
 @Component({
     selector: 'ngx-contacts',
     styleUrls: ['./contacts.component.scss'],
     templateUrl: './contacts.component.html',
     standalone: true,
-    imports: [NbCardModule, NbTabsetModule, NbListModule, NgFor, MatRippleModule, NbUserModule, NbIconModule, DatePipe]
+    imports: [
+      NbCardComponent,
+      NbTabComponent,
+      NbListComponent,
+      NbListItemComponent,
+      NbTabsetComponent,
+      NbTabComponent,
+      NbUserComponent,
+      NbIconComponent,
+      MatRippleModule,
+      CommonModule,
+      DatePipe,
+    ]
 })
 export class ContactsComponent implements OnDestroy {
 

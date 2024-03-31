@@ -24,7 +24,6 @@ export class IconsComponent {
   }
 
   icons = {
-
     ionicons: [
       'ionic', 'arrow-right-b', 'arrow-down-b', 'arrow-left-b', 'arrow-up-c', 'arrow-right-c',
       'arrow-down-c', 'arrow-left-c', 'arrow-return-right', 'arrow-return-left', 'arrow-swap',

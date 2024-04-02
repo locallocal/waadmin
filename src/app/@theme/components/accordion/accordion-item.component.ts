@@ -23,6 +23,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { NbAccordionComponent } from './accordion.component';
 import { convertToBoolProperty, NbBooleanInput } from '../helpers';
+import { CommonModule } from '@angular/common';
 
 /**
  * Component intended to be used within `<nb-accordion>` component
@@ -36,6 +37,9 @@ import { convertToBoolProperty, NbBooleanInput } from '../helpers';
     <ng-content select="nb-accordion-item-body"></ng-content>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule
+  ]
 })
 export class NbAccordionItemComponent implements OnInit, OnChanges, OnDestroy {
 

@@ -25,7 +25,20 @@ interface CardSettings {
     styleUrls: ['./dashboard.component.scss'],
     templateUrl: './dashboard.component.html',
     standalone: true,
-    imports: [NgFor, StatusCardComponent, NgClass, TemperatureComponent, ElectricityComponent, RoomsComponent, ContactsComponent, SolarComponent, KittenComponent, TrafficComponent, WeatherComponent, SecurityCamerasComponent]
+    imports: [
+      NgFor,
+      StatusCardComponent,
+      NgClass,
+      TemperatureComponent,
+      ElectricityComponent,
+      RoomsComponent, 
+      ContactsComponent,
+      SolarComponent,
+      KittenComponent,
+      TrafficComponent,
+      WeatherComponent,
+      SecurityCamerasComponent,
+    ]
 })
 export class DashboardComponent implements OnDestroy {
 

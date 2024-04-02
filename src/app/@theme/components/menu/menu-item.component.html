@@ -2,6 +2,7 @@
   <nb-icon class="menu-icon" [config]="menuItem.icon" *ngIf="menuItem.icon"></nb-icon>
   {{ menuItem.title }}
 </span>
+
 <a
   *ngIf="menuItem.link && !menuItem.url && !menuItem.children && !menuItem.group"
   [routerLink]="menuItem.link"
@@ -21,6 +22,7 @@
   <span class="menu-title">{{ menuItem.title }}</span>
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
 </a>
+
 <a
   *ngIf="menuItem.url && !menuItem.children && !menuItem.link && !menuItem.group"
   [attr.href]="menuItem.url"
@@ -35,6 +37,7 @@
   <span class="menu-title">{{ menuItem.title }}</span>
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
 </a>
+
 <a
   *ngIf="!menuItem.children && !menuItem.link && !menuItem.url && !menuItem.group"
   [attr.target]="menuItem.target"
@@ -48,6 +51,7 @@
   <span class="menu-title">{{ menuItem.title }}</span>
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
 </a>
+
 <a
   *ngIf="menuItem.children"
   (click)="$event.preventDefault(); onToggleSubMenu(menuItem)"
@@ -64,6 +68,7 @@
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
   <nb-icon class="expand-state" [icon]="getExpandStateIcon()" pack="nebular-essentials"></nb-icon>
 </a>
+
 <ul
   *ngIf="menuItem.children"
   [class.collapsed]="!(menuItem.children && menuItem.expanded)"

@@ -52,7 +52,10 @@ import { NbIconComponent } from '../icon/icon.component';
       transition('expanded => collapsed', animate('100ms ease-out')),
     ]),
   ],
-  imports: [CommonModule, NbIconComponent],
+  imports: [
+    CommonModule,
+    NbIconComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NbAccordionItemHeaderComponent implements OnInit, OnDestroy {

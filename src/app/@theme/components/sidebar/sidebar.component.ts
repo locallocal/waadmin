@@ -23,6 +23,7 @@ import { convertToBoolProperty, NbBooleanInput } from '../helpers';
 import { NbThemeService } from '../../services/theme.service';
 import { NbMediaBreakpoint } from '../../services/breakpoints.service';
 import { NbSidebarService, getSidebarState$, getSidebarResponsiveState$ } from './sidebar.service';
+import { CommonModule } from '@angular/common';
 
 export type NbSidebarState = 'expanded' | 'collapsed' | 'compacted';
 export type NbSidebarResponsiveState = 'mobile' | 'tablet' | 'pc';
@@ -139,6 +140,9 @@ export class NbSidebarFooterComponent {}
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+  ]
 })
 export class NbSidebarComponent implements OnInit, OnDestroy {
   protected readonly responsiveValueChange$: Subject<boolean> = new Subject<boolean>();

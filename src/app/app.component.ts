@@ -27,6 +27,7 @@ import { NbFocusKeyManagerFactoryService } from './@theme/components/cdk/a11y/fo
 import { NbSearchService } from './@theme/components/search/search.service';
 import { CountryOrdersMapService } from './pages/e-commerce/country-orders/map/country-orders-map.service';
 import { NbOverlayContainerAdapter } from './@theme/components/cdk/adapter/overlay-container-adapter';
+import { NbMenuInternalService } from './@theme/components/menu/menu.service';
 
 export const DEFAULT_MEDIA_BREAKPOINTS = [
   {
@@ -89,6 +90,7 @@ export const DEFAULT_MEDIA_BREAKPOINTS = [
       NbSearchService,
       CountryOrdersMapService,
       NbOverlayContainerAdapter,
+      NbMenuInternalService,
       { provide: NB_THEME_OPTIONS, useValue: { name: 'default' } || {} },
       { provide: NB_BUILT_IN_JS_THEMES, useValue: BUILT_IN_THEMES },
       { provide: NB_JS_THEMES, useValue: [] },

@@ -3,6 +3,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { NbLayoutColumnComponent, NbLayoutComponent, NbLayoutFooterComponent, NbLayoutHeaderComponent } from '../../components/layout/layout.component';
 import { NbSidebarComponent } from '../../components/sidebar/sidebar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'ngx-one-column-layout',
@@ -34,6 +35,8 @@ import { NbSidebarComponent } from '../../components/sidebar/sidebar.component';
       NbLayoutColumnComponent,
       NbSidebarComponent,
       HeaderComponent,
-      FooterComponent]
+      FooterComponent,
+      CommonModule,
+    ]
 })
 export class OneColumnLayoutComponent {}

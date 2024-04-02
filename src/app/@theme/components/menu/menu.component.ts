@@ -17,7 +17,7 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Router, NavigationEnd, NavigationExtras } from '@angular/router';
+import { Router, NavigationEnd, NavigationExtras, RouterModule } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil, filter, map } from 'rxjs/operators';
 import { NbMenuInternalService, NbMenuItem, NbMenuBag, NbMenuService, NbMenuBadgeConfig } from './menu.service';
@@ -46,6 +46,7 @@ export enum NbToggleStates {
   ],
   imports: [
     CommonModule,
+    RouterModule,
     NbIconComponent,
     NbBadgeComponent,
   ]
@@ -53,7 +54,6 @@ export enum NbToggleStates {
 export class NbMenuItemComponent implements DoCheck, AfterViewInit, OnDestroy {
   @Input() menuItem = <NbMenuItem>null;
   @Input() badge: NbMenuBadgeConfig;
-
   @Output() hoverItem = new EventEmitter<any>();
   @Output() toggleSubMenu = new EventEmitter<any>();
   @Output() selectItem = new EventEmitter<any>();
@@ -77,6 +77,7 @@ export class NbMenuItemComponent implements DoCheck, AfterViewInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(isExpanded => this.toggleState = isExpanded ? NbToggleStates.Expanded : NbToggleStates.Collapsed);
+      console.log(this.menuItem);
   }
 
   ngOnDestroy() {

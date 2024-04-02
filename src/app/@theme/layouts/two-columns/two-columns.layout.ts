@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { HeaderComponent } from '../../components/header/header.component';
-import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
+import {
+  NbLayoutColumnComponent,
+  NbLayoutComponent,
+  NbLayoutFooterComponent,
+  NbLayoutHeaderComponent
+} from '../../components/layout/layout.component';
+import { NbSidebarComponent } from '../../components/sidebar/sidebar.component';
 
 @Component({
     selector: 'ngx-two-columns-layout',
@@ -30,6 +36,14 @@ import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
     </nb-layout>
   `,
     standalone: true,
-    imports: [NbLayoutModule, HeaderComponent, NbSidebarModule, FooterComponent]
+    imports: [
+      NbLayoutComponent,
+      NbLayoutHeaderComponent,
+      NbLayoutColumnComponent,
+      NbLayoutFooterComponent,
+      NbSidebarComponent,
+      HeaderComponent,
+      FooterComponent,
+    ]
 })
 export class TwoColumnsLayoutComponent {}

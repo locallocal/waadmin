@@ -12,7 +12,16 @@ import { ProfitCardComponent } from './profit-card/profit-card.component';
     selector: 'ngx-ecommerce',
     templateUrl: './e-commerce.component.html',
     standalone: true,
-    imports: [ProfitCardComponent, EarningCardComponent, TrafficRevealCardComponent, ECommerceChartsPanelComponent, CountryOrdersComponent, ECommerceProgressSectionComponent, ECommerceVisitorsAnalyticsComponent, ECommerceUserActivityComponent]
+    imports: [
+        ProfitCardComponent,
+        EarningCardComponent,
+        TrafficRevealCardComponent,
+        ECommerceChartsPanelComponent,
+        CountryOrdersComponent,
+        ECommerceProgressSectionComponent,
+        ECommerceVisitorsAnalyticsComponent,
+        ECommerceUserActivityComponent,
+    ]
 })
 export class ECommerceComponent {
 }

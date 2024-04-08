@@ -2,14 +2,23 @@ import { Component } from '@angular/core';
 import { ProfitBarAnimationChartData } from '../../../../@core/data/profit-bar-animation-chart';
 import { takeWhile } from 'rxjs/operators';
 import { StatsBarAnimationChartComponent } from './stats-bar-animation-chart.component';
-import { NbCardModule } from '@nebular/theme';
+import {
+  NbCardBodyComponent,
+  NbCardComponent,
+  NbCardHeaderComponent,
+} from '../../../../@theme/components/card/card.component';
 
 @Component({
     selector: 'ngx-stats-card-front',
     styleUrls: ['./stats-card-front.component.scss'],
     templateUrl: './stats-card-front.component.html',
     standalone: true,
-    imports: [NbCardModule, StatsBarAnimationChartComponent]
+    imports: [
+      NbCardComponent,
+      NbCardBodyComponent,
+      NbCardHeaderComponent,
+      StatsBarAnimationChartComponent,
+    ],
 })
 export class StatsCardFrontComponent {
 

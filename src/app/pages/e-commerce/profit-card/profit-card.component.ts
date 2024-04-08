@@ -12,8 +12,8 @@ import { NbIconComponent } from '../../../@theme/components/icon/icon.component'
     templateUrl: './profit-card.component.html',
     standalone: true,
     imports: [
-      NbCardFrontComponent,
       NbFlipCardComponent,
+      NbCardFrontComponent,
       NbCardComponent,
       NbCardBackComponent,
       StatsCardFrontComponent,

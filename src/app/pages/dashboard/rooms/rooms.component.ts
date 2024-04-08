@@ -3,6 +3,8 @@ import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService, NbCardMod
 import { map } from 'rxjs/operators';
 import { PlayerComponent } from './player/player.component';
 import { RoomSelectorComponent } from './room-selector/room-selector.component';
+import { NbCardComponent } from '../../../@theme/components/card/card.component';
+import { NbIconComponent } from '../../../@theme/components/icon/icon.component';
 
 @Component({
     selector: 'ngx-rooms',
@@ -19,7 +21,12 @@ import { RoomSelectorComponent } from './room-selector/room-selector.component';
     </nb-card>
   `,
     standalone: true,
-    imports: [NbCardModule, NbIconModule, RoomSelectorComponent, PlayerComponent]
+    imports: [
+      NbCardComponent,
+      NbIconComponent,
+      RoomSelectorComponent,
+      PlayerComponent,
+    ]
 })
 export class RoomsComponent implements OnDestroy {
 

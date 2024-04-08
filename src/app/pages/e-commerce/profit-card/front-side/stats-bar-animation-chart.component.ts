@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService } from '../../../../@theme/services/theme.service';
 import { takeWhile } from 'rxjs/operators';
 import { LayoutService } from '../../../../@core/utils/layout.service';
 import { NgxEchartsModule } from 'ngx-echarts';
@@ -14,7 +14,9 @@ import { NgxEchartsModule } from 'ngx-echarts';
     </div>
   `,
     standalone: true,
-    imports: [NgxEchartsModule]
+    imports: [
+      NgxEchartsModule,
+    ]
 })
 export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy {
 
@@ -30,11 +32,9 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
 
   constructor(private theme: NbThemeService,
               private layoutService: LayoutService) {
-    this.layoutService.onSafeChangeLayoutSize()
-      .pipe(
+    this.layoutService.onSafeChangeLayoutSize().pipe(
         takeWhile(() => this.alive),
-      )
-      .subscribe(() => this.resizeChart());
+      ).subscribe(() => this.resizeChart());
   }
 
   ngAfterViewInit() {

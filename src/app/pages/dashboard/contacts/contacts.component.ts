@@ -18,11 +18,10 @@ import { NbIconComponent } from '../../../@theme/components/icon/icon.component'
     standalone: true,
     imports: [
       NbCardComponent,
+      NbTabsetComponent,
       NbTabComponent,
       NbListComponent,
       NbListItemComponent,
-      NbTabsetComponent,
-      NbTabComponent,
       NbUserComponent,
       NbIconComponent,
       MatRippleModule,

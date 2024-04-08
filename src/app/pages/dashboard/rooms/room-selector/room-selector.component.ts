@@ -1,15 +1,20 @@
 import { Component, EventEmitter, HostBinding, OnDestroy, OnInit, Output } from '@angular/core';
-import { Location, LocationStrategy, NgFor } from '@angular/common';
-import { NbThemeService, NbCardModule } from '@nebular/theme';
+import { CommonModule, Location, LocationStrategy } from '@angular/common';
+import { NbThemeService } from '../../../../@theme/services/theme.service';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { NbCardComponent, NbCardHeaderComponent } from '../../../../@theme/components/card/card.component';
 
 @Component({
     selector: 'ngx-room-selector',
     templateUrl: './room-selector.component.html',
     styleUrls: ['./room-selector.component.scss'],
     standalone: true,
-    imports: [NbCardModule, NgFor]
+    imports: [
+      NbCardComponent,
+      NbCardHeaderComponent,
+      CommonModule,
+    ]
 })
 export class RoomSelectorComponent implements OnInit, OnDestroy {
 

@@ -2,14 +2,30 @@ import { Component, HostBinding, Input, OnDestroy } from '@angular/core';
 import { PlayerService, Track } from '../../../../@core/utils/player.service';
 import { TimingPipe } from '../../../../@theme/pipes/timing.pipe';
 import { BidiModule } from '@angular/cdk/bidi';
-import { NbCardModule, NbButtonModule, NbIconModule } from '@nebular/theme';
+import {
+  NbCardBodyComponent,
+  NbCardComponent,
+  NbCardFooterComponent,
+  NbCardHeaderComponent,
+} from '../../../../@theme/components/card/card.component';
+import { NbButtonComponent } from '../../../../@theme/components/button/button.component';
+import { NbIconComponent } from '../../../../@theme/components/icon/icon.component';
 
 @Component({
     selector: 'ngx-player',
     styleUrls: ['./player.component.scss'],
     templateUrl: './player.component.html',
     standalone: true,
-    imports: [NbCardModule, BidiModule, NbButtonModule, NbIconModule, TimingPipe]
+    imports: [
+      NbCardComponent,
+      NbCardHeaderComponent,
+      NbCardFooterComponent,
+      NbCardBodyComponent,
+      NbButtonComponent,
+      NbIconComponent,
+      BidiModule,
+      TimingPipe,
+    ]
 })
 export class PlayerComponent implements OnDestroy {
   @Input()

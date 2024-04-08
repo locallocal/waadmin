@@ -14,7 +14,9 @@ import { NgxEchartsModule } from 'ngx-echarts';
     </div>
   `,
     standalone: true,
-    imports: [NgxEchartsModule]
+    imports: [
+      NgxEchartsModule
+    ]
 })
 export class StatsAreaChartComponent implements AfterViewInit, OnDestroy {
 

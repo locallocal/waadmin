@@ -77,7 +77,6 @@ export class NbMenuItemComponent implements DoCheck, AfterViewInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(isExpanded => this.toggleState = isExpanded ? NbToggleStates.Expanded : NbToggleStates.Collapsed);
-      console.log(this.menuItem);
   }
 
   ngOnDestroy() {
